@@ -43,18 +43,6 @@ Topic Modelling with BERTopic [@grootendorst2022bertopic]
 :::
 :::
 
-## Research 2:
-
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
-
-::: {.column width="50%"}
-1.  First
-
-::: fragment
-2.  Second
-:::
-:::
-
 ## Sociolinguistics of multilingualism
 
 I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institut national des langues et civilisations orientales, en: National Institute for Oriental Languages and Civilizations") in September.
@@ -83,7 +71,8 @@ I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institu
 
 ::: {.fragment .fade-right}
 4.  Indexicality: language varieties and variations (forms/accent) are significant:\
-    1. index the origin of speakers
+
+    1.  index the origin of speakers
 
     2\. index certain aspects of their social identity (class, gender, ethnicity)
 
@@ -92,6 +81,20 @@ I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institu
 :::
 
 ## Linguistic landscapes
+
+### Optical Character Recognition
+
+
+
+-   Magick (to read image)
+
+-   Tesseract (Google OCR)
+
+![](images\photos\agence.jpg){.absolute top="50" right="50" width="350" height="300"}
+
+![](images\photos\ascenseur.jpg){.absolute top="350" right="50" width="450" height="250"}
+
+![](images\photos\magasin.jpg){.absolute top="600" right="50" width="450" height="250"}
 
 ## Interesting articles:
 
