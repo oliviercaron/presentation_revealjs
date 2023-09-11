@@ -1,27 +1,79 @@
 ---
-title: "Untitled"
+title: "Research lunch meeting"
+author:
+  - name: Olivier Caron
+    email: olivier.caron@dauphine.psl.eu
+    affiliations: 
+      name: "Paris Dauphine - PSL"
+      city: Paris
+      state: France
+date: "last-modified"
 format:
   revealjs:
-    theme: solarized
+    theme: simple
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: "images/govreg_logo.jpg"
+    footer: "[Get started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+    echo: true
+    chalkboard: true
+    fragments: true
 editor: visual
+slide-number: true
+include-after-body: logo-hyperlink.html
 bibliography: references.bib
 ---
 
-## Quarto
+## Research 1: Systematic literature review
+
+Topic Modelling with BERTopic [@grootendorst2022bertopic]
+
+```{=html}
+<iframe src="topics_bge.html" width="1000" height="1000" title="Webpage example"></iframe>
+```
+## Research 2:
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
-@grootendorst2022bertopic
+::: {.column width="50%"}
+1.  First
 
-## Bullets
+::: fragment
+2.  Second
+:::
+:::
 
-```{=html}
-<iframe width="1000" height="1200" src="topics_bge.html" title="Webpage example"></iframe>
-```
-## Code
+## Sociolinguistics of multilingualism
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+Participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institut national des langues et civilisations orientales") in September.
 
-```{r}
-1 + 1
-```
+[![](images/sociomul_inalco.jpg){fig-alt="Intensive seminar on the sociolinguistics of multilingualism"}](https://sociomul.sciencesconf.org/)
+
+::: columns
+Some insights:
+
+::: {.fragment .fade-in}
+1.  First
+:::
+
+::: {.fragment .fade-up}
+2.  Second
+:::
+
+::: {.fragment .fade-left}
+3.  Third
+:::
+
+::: {.fragment .fade-right}
+4.  Fourth
+:::
+:::
+
+## Linguistic landscapes
+
+## Interesting articles:
+
+## Another thing interesting to talk about:
+
+## References:
