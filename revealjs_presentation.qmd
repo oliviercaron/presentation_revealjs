@@ -29,9 +29,20 @@ bibliography: references.bib
 
 Topic Modelling with BERTopic [@grootendorst2022bertopic]
 
+::: columns
+::: {.column width="40%"}
 ```{=html}
 <iframe src="topics_bge.html" width="1000" height="1000" title="Webpage example"></iframe>
 ```
+:::
+
+::: {.column width="60%"}
+```{=html}
+<iframe src="barchart_bge.html" width="1000" height="1000" title="Webpage example"></iframe>
+```
+:::
+:::
+
 ## Research 2:
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
@@ -46,27 +57,37 @@ Quarto enables you to weave together content and executable code into a finished
 
 ## Sociolinguistics of multilingualism
 
-Participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institut national des langues et civilisations orientales") in September.
+I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institut national des langues et civilisations orientales, en: National Institute for Oriental Languages and Civilizations") in September.
 
-[![](images/sociomul_inalco.jpg){fig-alt="Intensive seminar on the sociolinguistics of multilingualism"}](https://sociomul.sciencesconf.org/)
+[![](images/sociomul_inalco.jpg){fig-alt="Intensive seminar on the sociolinguistics of multilingualism" fig-align="center" width="700"}](https://sociomul.sciencesconf.org/)
+
+## Some insights {.smaller}
 
 ::: columns
-Some insights:
+::: {.fragment .fade-in .smaller}
+1.  <div>
 
-::: {.fragment .fade-in}
-1.  First
+    > DIGLOSSIA is a relatively stable language situation in which, in addition to the primary dialects of the language (which may include a standard or regional standards), there is a very divergent, highly codified (often grammatically more complex) superposed variety, the vehicle of a large and respected body of written literature, either of an earlier period or in another speech community, which is learned largely by formal education and is used for most written and formal spoken purposes but is not used by any section of the community for ordinary conversation. ( @ferguson1959diglossia)
+
+    </div>
 :::
 
 ::: {.fragment .fade-up}
-2.  Second
+2.  The social context of language is important. Linguistic analysis cannot be carried out in isolation, ignoring the social context in which the language is used. It is essential to take into account the social, cultural and historical factors that influence communication. (@hymes1967linguistics)
 :::
 
 ::: {.fragment .fade-left}
-3.  Third
+3.  Multilingualism: co-presence of languages in one place, with various economic and symbolic statuses (different colours not touching)\
+    Plurilingualism: co-presence and use of languages in one person (different colours in contact)
 :::
 
 ::: {.fragment .fade-right}
-4.  Fourth
+4.  Indexicality: language varieties and variations (forms/accent) are significant:\
+    1. index the origin of speakers
+
+    2\. index certain aspects of their social identity (class, gender, ethnicity)
+
+    3\. are used advisedly by speakers: these resources can be used in interaction (to negotiate, for example)
 :::
 :::
 
