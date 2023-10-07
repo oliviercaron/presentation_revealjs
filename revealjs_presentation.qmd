@@ -30,7 +30,7 @@ bibliography: references.bib
 Topic Modelling with BERTopic [@grootendorst2022bertopic]
 
 ```{=html}
-<iframe src="topics_bge.html" width="1000" height="1000" title="Webpage example"></iframe>
+<iframe src="topics_bge.html" width="100%" height="100%" title="Webpage example"></iframe>
 ```
 ## Research 2:
 
@@ -71,6 +71,16 @@ Some insights:
 :::
 
 ## Linguistic landscapes
+
+::: columns
+::: {.column width="50%"}
+BLablabla
+:::
+
+::: {.column width="50%"}
+Blalbllbla
+:::
+:::
 
 ## Interesting articles:
 
