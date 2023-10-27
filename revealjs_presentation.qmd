@@ -84,8 +84,6 @@ I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institu
 
 ### Optical Character Recognition
 
-
-
 -   Magick (to read image)
 
 -   Tesseract (Google OCR)
