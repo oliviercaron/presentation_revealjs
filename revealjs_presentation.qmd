@@ -10,22 +10,24 @@ author:
 date: "last-modified"
 format:
   revealjs:
-    theme: simple
+    light: yeti
     slide-number: c/t
     width: 1600
     height: 900
     logo: "images/govreg_logo.jpg"
-    footer: "[Get started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+    footer: "[Presentation available here](https://rstudio-conf-2022.github.io/get-started-quarto/)"
     echo: true
     chalkboard: true
     fragments: true
+    include-in-header:
+      - text:
+          <script src="script_text.js"></script>
 editor: visual
 slide-number: true
-include-after-body: logo-hyperlink.html
 bibliography: references.bib
 ---
 
-## Research 1: Systematic literature review
+## Research 1: Systematic literature review {.confetti}
 
 Topic Modelling with BERTopic [@grootendorst2022bertopic]
 
@@ -99,3 +101,91 @@ I participated 4 days to this seminar at [Inalco](http://www.inalco.fr/ "Institu
 ## Another thing interesting to talk about:
 
 ## References:
+
+```{=html}
+<style>
+.border {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+.attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  font-size: 1.25rem;
+  background-color: white;
+  padding: 5px;
+  border: 2px solid #ccc;
+}
+.attribution p {
+  margin: 0;
+}
+.sr-only {
+  text-indent: -999999px;
+}
+pre code.sourceCode {
+  font-size: 1.7em;
+}
+[data-engine] div.shinylive-wrapper {
+  margin: 0;
+}
+.reveal .shinylive-wrapper iframe {
+  max-width: unset;
+  max-height: unset;
+}
+</style>
+```
+<script src="js/tsparticles.confetti.bundle.min.js"></script>
+<script>
+setTimeout(() => {
+  Reveal.on("slidechanged", event => {
+    if (event.currentSlide.matches(".bw-bg")) {
+      event.currentSlide.slideBackgroundElement.style.filter = "grayscale(100%)";
+    }
+    if (event.currentSlide.matches(".bw-to-color-bg")) {
+      event.currentSlide.slideBackgroundElement.style.filter = "grayscale(100%)";
+      event.currentSlide.slideBackgroundElement.style.transition = "filter 500ms ease-in-out";
+      setTimeout(() => {
+        event.currentSlide.slideBackgroundElement.style.filter = null;
+      }, 100);
+    }
+
+    if (event.currentSlide.matches(".confetti")) {
+      const duration = 3 * 1000,
+        animationEnd = Date.now() + duration,
+        defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        // since particles fall down, start a bit higher than random
+        confetti(
+          Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+          })
+        );
+        confetti(
+          Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+          })
+        );
+      }, 250);
+    }
+  });
+}, 2000);
+</script>
