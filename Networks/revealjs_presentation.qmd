@@ -138,10 +138,7 @@ pre code.sourceCode {
 }
 </style>
 ```
-```{=html}
 <script src="js/tsparticles.confetti.bundle.min.js"></script>
-```
-```{=html}
 <script>
 setTimeout(() => {
   Reveal.on("slidechanged", event => {
@@ -192,4 +189,3 @@ setTimeout(() => {
   });
 }, 2000);
 </script>
-```
