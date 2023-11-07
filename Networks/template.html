@@ -12,8 +12,8 @@
 
   <meta name="author" content="Olivier Caron">
   <meta name="author" content="Christophe Benavent">
-  <meta name="dcterms.date" content="2023-11-07">
-  <title>A Network Analysis</title>
+  <meta name="dcterms.date" content="2023-11-08">
+  <title>Systematic Literature Review  A Network Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,8 +392,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">A Network Analysis</h1>
-  <p class="subtitle">Authors &amp; References</p>
+  <h1 class="title">Systematic Literature Review <br>A Network Analysis</h1>
+  <p class="subtitle">NLP Workshop</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -420,25 +420,15 @@ Christophe Benavent <a href="https://orcid.org/0000-0002-7253-5747" class="quart
     </div>
 </div>
 
-  <p class="date">November 7, 2023</p>
+  <p class="date">November 8, 2023</p>
 </section>
-<section id="example-slide" class="slide level2" data-background-iframe="colored-particles/index.html">
-<h2>Example slide</h2>
-<h3 id="this-is-a-subtitle">This is a subtitle</h3>
-<p>Here we have some text that may run over several lines of the slide frame, depending on how long it is.</p>
-<ul>
-<li>first item
-<ul>
-<li>A sub item</li>
-</ul></li>
-</ul>
-<p>Next, we’ll brief review some theme-specific components.</p>
-<ul>
-<li>Note that <em>all</em> of the standard Reveal.js <a href="https://quarto.org/docs/presentations/revealjs/">features</a> can be used with this theme, even if we don’t highlight them here.</li>
-</ul>
+<section id="research-context" class="slide level2">
+<h2>Research context</h2>
+<h3 id="systematic-literature-review-of-marketing-papers-using-nlp-techniques.">Systematic literature review of marketing papers using NLP techniques.</h3>
+<h3 id="what-are-the-factors-driving-the-diffusion-of-nlp-technologies-in-the-field-of-marketing-research">What are the factors driving the diffusion of NLP technologies in the field of marketing research?</h3>
 </section>
-<section id="additional-theme-classes" class="slide level2">
-<h2>Additional theme classes</h2>
+<section id="data-presentation" class="slide level2">
+<h2>Data presentation</h2>
 <h3 id="some-extra-things-you-can-do-with-the-clean-theme">Some extra things you can do with the clean theme</h3>
 <p>Special classes for emphasis</p>
 <ul>
@@ -465,7 +455,8 @@ Christophe Benavent <a href="https://orcid.org/0000-0002-7253-5747" class="quart
 <h3 id="a-minimal-and-elegant-presentation-theme">A minimal and elegant presentation theme</h3>
 <p>The Quarto reveal.js clean theme aims to be a minimal and elegant presention theme.</p>
 <p>Install the theme.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">quarto</span> install extension grantmcdermott/quarto-revealjs-clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">quarto</span> install extension grantmcdermott/quarto-revealjs-clean</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#{background-iframe="colored-particles/index.html"}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use this lean template.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">quarto</span> use template grantmcdermott/quarto-revealjs-clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use the longer demo template.</p>
@@ -686,6 +677,44 @@ Christophe Benavent <a href="https://orcid.org/0000-0002-7253-5747" class="quart
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,6 +1,6 @@
 ---
-title: A Network Analysis
-subtitle: Authors & References
+title: Systematic Literature Review <br>A Network Analysis
+subtitle: NLP Workshop
 format: 
   clean-revealjs
 author:
@@ -20,24 +20,33 @@ author:
       state: France
 date: last-modified
 ---
+```{r}
 
-## Example slide {background-iframe="colored-particles/index.html"}
+```
 
-### This is a subtitle
 
-Here we have some text that may run over several lines of the slide frame,
-depending on how long it is.
+```{python}
+#| label: data-loading
+#| include: false
+#| eval: true
+import pandas as pd
 
-- first item 
-    - A sub item
+list_articles = pd.read_csv("data/nlp_full_data_final_18-08-2023.csv", sep=';', decimal=',')
+list_articles = list_articles[list_articles['marketing'] == 1] #only marketing articles
+list_references = pd.read_csv("data/nlp_references_final_18-08-2023.csv", sep=';', decimal=',')
 
-Next, we'll brief review some theme-specific components.
+```
 
-- Note that _all_ of the standard Reveal.js
-[features](https://quarto.org/docs/presentations/revealjs/)
-can be used with this theme, even if we don't highlight them here.
+## Research context 
 
-## Additional theme classes
+### Systematic literature review of marketing papers using NLP techniques.
+### What are the factors driving the diffusion of NLP technologies in the field of marketing research?
+
+
+
+## Data presentation
+
+
 
 ### Some extra things you can do with the clean theme
 
@@ -77,6 +86,7 @@ Install the theme.
 
 ```{.bash}
 quarto install extension grantmcdermott/quarto-revealjs-clean
+#{background-iframe="colored-particles/index.html"}
 ```
 
 Use this lean template.
