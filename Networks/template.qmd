@@ -264,7 +264,7 @@ htmlwidgets::saveWidget(worldplot_plotly_object, "images/worldplot.html")
 ```
 :::
 
-## Citations per country ([full screen](https://oliviercaron.github.io/presentation_revealjs/Networks/networks/3D_worldmap_citations.html)) {.absolute}
+## Citations per country {.absolute}
 
 ::: {.absolute top="70" left="-85"}
 ```{r}
