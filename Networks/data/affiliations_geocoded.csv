@@ -1,0 +1,507 @@
+afid,number_occurences,affilname,affiliation_city,affiliation_country,city_country,lat,long
+60028300,39,Iscte – Instituto Universitário de Lisboa,Lisbon,Portugal,"Lisbon, Portugal",38.7077507,-9.1365919
+60011520,19,King's College London,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60013372,14,The University of Texas at Austin,Austin,United States,"Austin, United States",30.2711286,-97.7436995
+60002644,12,Universitat de València,Valencia,Spain,"Valencia, Spain",39.4697065,-0.3763353
+60021859,12,Università degli Studi di Firenze,Florence,Italy,"Florence, Italy",43.7698712,11.2555757
+60006951,11,The University of North Carolina at Charlotte,Charlotte,United States,"Charlotte, United States",35.2272086,-80.8430827
+60115928,11,Ivey Business School,London,Canada,"London, Canada",42.9832406,-81.243372
+60000356,10,University of Cape Town,Cape Town,South Africa,"Cape Town, South Africa",-33.928992,18.417396
+60027786,10,University of St. Gallen,St Gallen,Switzerland,"St Gallen, Switzerland",47.425618,9.3762397
+60010844,9,Universitat d'Alacant,Alicante,Spain,"Alicante, Spain",38.3436365,-0.4881708
+60022452,9,Wharton School of the University of Pennsylvania,Philadelphia,United States,"Philadelphia, United States",39.9527237,-75.1635262
+60002014,8,The Royal Institute of Technology (KTH),Stockholm,Sweden,"Stockholm, Sweden",59.3251172,18.0710935
+60011019,8,Queensland University of Technology,Brisbane,Australia,"Brisbane, Australia",-27.4689682,153.0234991
+60019578,7,Monash University,Melbourne,Australia,"Melbourne, Australia",-37.8142454,144.9631732
+60025761,7,Huazhong University of Science and Technology,Wuhan,China,"Wuhan, China",30.5951051,114.2999353
+60107373,7,Indian Institute of Management Ranchi,Ranchi,India,"Ranchi, India",23.3700501,85.3250387
+60113134,7,Beedie School of Business,Burnaby,Canada,"Burnaby, Canada",49.2433804,-122.972545
+60138684,7,Isenberg School of Management,Amherst,United States,"Amherst, United States",37.5997548,-79.1483701
+60003353,6,Harbin Engineering University,Harbin,China,"Harbin, China",45.7593633,126.6276177
+60018491,6,Simon Fraser University,Burnaby,Canada,"Burnaby, Canada",49.2433804,-122.972545
+60018805,6,Deakin University,Geelong,Australia,"Geelong, Australia",-38.1493248,144.3598241
+60027552,6,Columbia Business School,New York,United States,"New York, United States",40.7127281,-74.0060152
+60028163,6,Maastricht University School of Business and Economics,Maastricht,Netherlands,"Maastricht, Netherlands",50.85798545,5.6969881818221095
+60028229,6,Universität Hamburg,Hamburg,Germany,"Hamburg, Germany",53.550341,10.000654
+60033019,6,Universidad Pública de Navarra,Pamplona,Spain,"Pamplona, Spain",42.8181992,-1.6440089
+60052098,6,Universidad Nacional de Colombia Medellin,Medellin,Colombia,"Medellin, Colombia",6.2697018,-75.60252574475943
+60104665,6,Université de Lille,Lille,France,"Lille, France",50.6365654,3.0635282
+60003771,5,The University of Manchester,Manchester,United Kingdom,"Manchester, United Kingdom",53.4794892,-2.2451148
+60005581,5,Dongduk Women's University,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60006297,5,University of Pennsylvania,Philadelphia,United States,"Philadelphia, United States",39.9527237,-75.1635262
+60011074,5,"Lingnan University, Hong Kong",Hong Kong,Hong Kong,"Hong Kong, Hong Kong",22.2793278,114.1628131
+60018869,5,Universiteit Maastricht,Maastricht,Netherlands,"Maastricht, Netherlands",50.85798545,5.6969881818221095
+60025239,5,Babson College,Babson Park,United States,"Babson Park, United States",27.837368,-81.52246115420687
+60026553,5,University of Melbourne,Melbourne,Australia,"Melbourne, Australia",-37.8142454,144.9631732
+60029885,5,Sichuan Agricultural University,Ya'an,China,"Ya'an, China",30.0130923,103.0402038
+60030804,5,Swinburne University of Technology,Hawthorn,Australia,"Hawthorn, Australia",-37.8244246,145.0317207
+60032607,5,University of the Sunshine Coast,Sippy Downs,Australia,"Sippy Downs, Australia",-26.7257935,153.07837089055133
+60072255,5,Haldia Institute of Technology,Haldia,India,"Haldia, India",22.028124,88.0632655
+60105899,5,"NOVA Information Management School, Universidade Nova de Lisboa",Lisbon,Portugal,"Lisbon, Portugal",38.7077507,-9.1365919
+60116111,5,Joseph M. Katz Graduate School of Business,Pittsburgh,United States,"Pittsburgh, United States",40.4416941,-79.9900861
+60136292,5,David Eccles School of Business,Salt Lake City,United States,"Salt Lake City, United States",40.7596198,-111.886797
+60160279,5,The University of Queensland Business School,Brisbane,Australia,"Brisbane, Australia",-27.4689682,153.0234991
+60000583,4,Wirtschaftsuniversität Wien,Vienna,Austria,"Vienna, Austria",48.2083537,16.3725042
+60005244,4,Southeast University,Nanjing,China,"Nanjing, China",32.0615513,118.7915619
+60005254,4,Università degli Studi di Bergamo,Bergamo,Italy,"Bergamo, Italy",45.756655699999996,9.754219200862249
+60005870,4,Katholische Universität Eichstätt - Ingolstadt,Eichstatt,Germany,"Eichstatt, Germany",48.8933417,11.1838965
+60007183,4,Luleå University of Technology,Lulea,Sweden,"Lulea, Sweden",65.5831187,22.1459535
+60009669,4,Universidad de Las Palmas de Gran Canaria,Las Palmas de Gran Canaria,Spain,"Las Palmas de Gran Canaria, Spain",28.1288694,-15.4349015
+60016602,4,Rowan University,Glassboro,United States,"Glassboro, United States",39.7027677,-75.1119434
+60019666,4,Harvard Business School,Boston,United States,"Boston, United States",42.3554334,-71.060511
+60020903,4,California State University Channel Islands,Camarillo,United States,"Camarillo, United States",34.2176371,-119.0383541
+60021097,4,University of Surrey,Guildford,United Kingdom,"Guildford, United Kingdom",51.2356068,-0.5732063
+60022112,4,Universidad Popular Autónoma del Estado de Puebla,Puebla,Mexico,"Puebla, Mexico",18.833333,-98
+60024063,4,University of Massachusetts Boston,Boston,United States,"Boston, United States",42.3554334,-71.060511
+60024666,4,National Central University,Taoyuan,Taiwan,"Taoyuan, Taiwan",24.9929995,121.3010003
+60027844,4,Universidad de Granada,Granada,Spain,"Granada, Spain",37.1734995,-3.5995337
+60029284,4,University of Delhi,New Delhi,India,"New Delhi, India",28.6138954,77.2090057
+60029336,4,Bournemouth University,Bournemouth,United Kingdom,"Bournemouth, United Kingdom",50.744673199999994,-1.85795768008541
+60030398,4,Temple University,Philadelphia,United States,"Philadelphia, United States",39.9527237,-75.1635262
+60030718,4,Freie Universität Berlin,Berlin,Germany,"Berlin, Germany",52.5170365,13.3888599
+60031888,4,Saint Petersburg State University,Saint Petersburg,Russian Federation,"Saint Petersburg, Russian Federation",59.938732,30.316229
+60097292,4,Robert H. Smith School of Business,College Park,United States,"College Park, United States",38.980666,-76.9369189
+60108316,4,Leonard N. Stern School of Business,New York,United States,"New York, United States",40.7127281,-74.0060152
+60116863,4,UC Davis Graduate School of Management,Davis,United States,"Davis, United States",40.7474784,-92.3965311
+60177637,4,King’s Business School,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60211905,4,Shailesh J. Mehta School of Management,Mumbai,India,"Mumbai, India",19.08157715,72.88662753964906
+60000689,3,Kansas State University,Manhattan,United States,"Manhattan, United States",40.7896239,-73.9598939
+60002804,3,University of Tennessee at Chattanooga,Chattanooga,United States,"Chattanooga, United States",35.0457219,-85.3094883
+60006019,3,China University of Geosciences,Wuhan,China,"Wuhan, China",30.5951051,114.2999353
+60007363,3,Northwestern University,Evanston,United States,"Evanston, United States",42.0470043,-87.6846053
+60007511,3,Sungkyunkwan University,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60007566,3,Louisiana State University,Baton Rouge,United States,"Baton Rouge, United States",30.4494155,-91.1869659
+60011362,3,RMIT University,Melbourne,Australia,"Melbourne, Australia",-37.8142454,144.9631732
+60012603,3,Ankara Üniversitesi,Ankara,Turkey,"Ankara, Turkey",39.9207759,32.8540497
+60013789,3,Beihang University,Beijing,China,"Beijing, China",39.9057136,116.3912972
+60014228,3,MIT Sloan School of Management,Cambridge,United States,"Cambridge, United States",42.3655767,-71.1040018
+60016912,3,Yonsei University,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60017072,3,Tuck School of Business at Dartmouth,Hanover,United States,"Hanover, United States",37.744783,-77.4464165
+60017826,3,University of South Wales,Pontypridd,United Kingdom,"Pontypridd, United Kingdom",51.6001047,-3.3449362
+60020134,3,"Bayes Business School, City University of London",London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60020345,3,Brandenburgische Technische Universität Cottbus,Cottbus,Germany,"Cottbus, Germany",51.7567447,14.3357307
+60020475,3,Universidade do Minho,Braga,Portugal,"Braga, Portugal",41.5510583,-8.4280045
+60021023,3,University of Wisconsin-La Crosse,La Crosse,United States,"La Crosse, United States",43.8122836,-91.2514355
+60022123,3,National Institute of Industrial Engineering,Mumbai,India,"Mumbai, India",19.08157715,72.88662753964906
+60022317,3,University of Macau,Taipa,Macao,"Taipa, Macao",22.1573804,113.5601035
+60024521,3,Roskilde Universitet,Roskilde,Denmark,"Roskilde, Denmark",55.6433478,12.0819247
+60025757,3,Indian Institute of Technology Madras,Chennai,India,"Chennai, India",13.0836939,80.270186
+60028333,3,UNSW Sydney,Sydney,Australia,"Sydney, Australia",-33.8698439,151.2082848
+60028717,3,Ludwig-Maximilians-Universität München,Munich,Germany,"Munich, Germany",48.1371079,11.5753822
+60029747,3,University of Georgia,Athens,United States,"Athens, United States",33.9597677,-83.376398
+60030480,3,University of Bath,Bath,United Kingdom,"Bath, United Kingdom",51.3813864,-2.3596963
+60031806,3,The University of Western Australia,Perth,Australia,"Perth, Australia",-31.9558933,115.8605855
+60032144,3,Korea Advanced Institute of Science and Technology,Daejeon,South Korea,"Daejeon, South Korea",36.3497007,127.3849016
+60032259,3,Università degli Studi di Cagliari,Cagliari,Italy,"Cagliari, Italy",39.2171994,9.113311
+60032350,3,Sapienza Università di Roma,Rome,Italy,"Rome, Italy",41.8933203,12.4829321
+60032987,3,Griffith University,Brisbane,Australia,"Brisbane, Australia",-27.4689682,153.0234991
+60032991,3,Technische Universität Dortmund,Dortmund,Germany,"Dortmund, Germany",51.5142273,7.4652789
+60033100,3,Nanjing University,Nanjing,China,"Nanjing, China",32.0615513,118.7915619
+60053707,3,University of the Punjab,Lahore,Pakistan,"Lahore, Pakistan",31.5656822,74.3141829
+60076783,3,Amrita School of Business,Coimbatore,India,"Coimbatore, India",11.0018115,76.9628425
+60087597,3,Universitas Muhammadiyah Malang,Malang,Indonesia,"Malang, Indonesia",-7.9771206,112.6340291
+60099658,3,USC Marshall School of Business,Los Angeles,United States,"Los Angeles, United States",34.0536909,-118.242766
+60102713,3,United International College,Zhuhai,China,"Zhuhai, China",22.273734,113.5721327
+60103124,3,Bentley University,Waltham,United States,"Waltham, United States",42.3756401,-71.2358004
+60103980,3,Covenant University,Ota,Nigeria,"Ota, Nigeria",7.95,4.8
+60104674,3,Najran University,Najran,Saudi Arabia,"Najran, Saudi Arabia",18,45.666667
+60105080,3,"Mid Sweden University, Östersund",Ostersund,Sweden,"Ostersund, Sweden",63.1793655,14.6357061
+60105159,3,Ritsumeikan University Biwako-Kusatsu Campus,Kusatsu,Japan,"Kusatsu, Japan",35.0340345,135.9507855
+60106948,3,"MICA, India",Ahmedabad,India,"Ahmedabad, India",23.0216238,72.5797068
+60107797,3,KEDGE Business School,Talence,France,"Talence, France",44.8088438,-0.5879629
+60111656,3,Duy Tan University,Da Nang,Viet Nam,"Da Nang, Viet Nam",16.068,108.212
+60116316,3,Jones Graduate School of Business,Houston,United States,"Houston, United States",29.7589382,-95.3676974
+60116489,3,Owen Graduate School of Management,Nashville,United States,"Nashville, United States",36.1622767,-86.7742984
+60116494,3,UCI Paul Merage School of Business,Irvine,United States,"Irvine, United States",33.6856969,-117.8259819
+60118711,3,"School of Business Administration, Northeastern University",Shenyang,China,"Shenyang, China",41.8026095,123.4279105
+60119111,3,Schulich School of Business,Toronto,Canada,"Toronto, Canada",43.6534817,-79.3839347
+60138449,3,Mays Business School,College Station,United States,"College Station, United States",30.5955289,-96.3071042
+60159411,3,Carson College of Business,Pullman,United States,"Pullman, United States",46.7304268,-117.173895
+60170149,3,Cardiff Business School,Cardiff,United Kingdom,"Cardiff, United Kingdom",51.4816546,-3.1791934
+60180326,3,Newcastle Business School,Newcastle,Australia,"Newcastle, Australia",-32.9192953,151.7795348
+60190688,3,Peter B. Gustavson School of Business,Victoria,Canada,"Victoria, Canada",48.4283182,-123.3649533
+60191853,3,Edwards School of Business,Saskatoon,Canada,"Saskatoon, Canada",52.131802,-106.660767
+60199519,3,Faculty of Business Administration,Taipa,Macao,"Taipa, Macao",22.1573804,113.5601035
+60212786,3,Vinod Gupta School of Management,Kharagpur,India,"Kharagpur, India",25.133173050000003,86.52504036339789
+100321029,3,"GENERAL LAND OFFICE, TEXAS",Austin,United States,"Austin, United States",30.2711286,-97.7436995
+60000009,2,Villanova University,Villanova,United States,"Villanova, United States",40.0373323,-75.3490769
+60001769,2,"University of Nevada, Reno",Reno,United States,"Reno, United States",39.5261206,-119.8126581
+60001903,2,Abertay University,Dundee,United Kingdom,"Dundee, United Kingdom",56.4605938,-2.97019
+60002214,2,University of San Diego,San Diego,United States,"San Diego, United States",32.7174202,-117.1627728
+60004466,2,Università IULM,Milan,Italy,"Milan, Italy",45.4641943,9.1896346
+60004538,2,Dalian University of Technology,Dalian,China,"Dalian, China",38.9181714,121.6282945
+60004923,2,NC State University,Raleigh,United States,"Raleigh, United States",35.7803977,-78.6390989
+60004954,2,National Institute of Technology Karnataka,Mangalore,India,"Mangalore, India",12.8698101,74.8430082
+60005101,2,Fu Jen Catholic University,New Taipei City,Taiwan,"New Taipei City, Taiwan",25.0612686,121.4598089
+60005565,2,"California State Polytechnic University, Pomona",Pomona,United States,"Pomona, United States",34.0553813,-117.7517496
+60006082,2,National Pingtung University of Science and Technology,Pingtung,Taiwan,"Pingtung, Taiwan",22.6828017,120.487928
+60006173,2,University of Missouri,Columbia,United States,"Columbia, United States",34.0374165,-80.82240445378864
+60007061,2,Università degli Studi di Salerno,Salerno,Italy,"Salerno, Italy",40.419441649999996,15.310756230322482
+60007173,2,University of Wolverhampton,Wolverhampton,United Kingdom,"Wolverhampton, United Kingdom",52.5847651,-2.127567
+60007249,2,Universidade do Porto,Porto,Portugal,"Porto, Portugal",41.1494512,-8.6107884
+60007830,2,Hankuk University of Foreign Studies,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60007945,2,University of South Florida Sarasota-Manatee,Sarasota,United States,"Sarasota, United States",27.3365805,-82.5308545
+60010023,2,Rijksuniversiteit Groningen,Groningen,Netherlands,"Groningen, Netherlands",53.2190652,6.5680077
+60011357,2,National Sun Yat-Sen University,Kaohsiung,Taiwan,"Kaohsiung, Taiwan",22.6203348,120.3120375
+60012369,2,Chinese Culture University Taiwan,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60012556,2,Philipps-Universität Marburg,Marburg,Germany,"Marburg, Germany",50.8090106,8.7704695
+60012708,2,Stanford University,Palo Alto,United States,"Palo Alto, United States",37.4443293,-122.1598465
+60013395,2,Yuan Ze University,Taoyuan,Taiwan,"Taoyuan, Taiwan",24.9929995,121.3010003
+60013959,2,University of Florida,Gainesville,United States,"Gainesville, United States",29.6519684,-82.3249846
+60014662,2,Drexel University,Philadelphia,United States,"Philadelphia, United States",39.9527237,-75.1635262
+60014930,2,Dokuz Eylül Üniversitesi,Izmir,Turkey,"Izmir, Turkey",38.4237433,27.1428019
+60016897,2,Erasmus School of Economics,Rotterdam,Netherlands,"Rotterdam, Netherlands",51.9244424,4.47775
+60017456,2,Jinan University,Guangzhou,China,"Guangzhou, China",23.1301964,113.2592945
+60017511,2,National Chung Hsing University,Taichung,Taiwan,"Taichung, Taiwan",24.163162,120.6478282
+60017606,2,Florida Atlantic University,Boca Raton,United States,"Boca Raton, United States",26.3586885,-80.0830984
+60018181,2,Aletheia University,Tamsui,Taiwan,"Tamsui, Taiwan",25.1813044,121.4531477
+60018353,2,Technische Universität Dresden,Dresden,Germany,"Dresden, Germany",51.0493286,13.7381437
+60018940,2,Universidad Rey Juan Carlos,Madrid,Spain,"Madrid, Spain",40.4167047,-3.7035825
+60019713,2,Saginaw Valley State University,Saginaw,United States,"Saginaw, United States",43.4200387,-83.9490365
+60019963,2,Yıldız Teknik Üniversitesi,Istanbul,Turkey,"Istanbul, Turkey",41.0766019,29.052495
+60020304,2,"University of Maryland, College Park",College Park,United States,"College Park, United States",38.980666,-76.9369189
+60020513,2,HSE University,Moscow,Russian Federation,"Moscow, Russian Federation",55.625578,37.6063916
+60020650,2,University of Bristol,Bristol,United Kingdom,"Bristol, United Kingdom",51.4538022,-2.5972985
+60020661,2,University of Liverpool,Liverpool,United Kingdom,"Liverpool, United Kingdom",53.4071991,-2.99168
+60020975,2,"California State University, Northridge",Northridge,United States,"Northridge, United States",34.2345615,-118.5369316
+60021562,2,Handelshögskolan i Stockholm,Stockholm,Sweden,"Stockholm, Sweden",59.3251172,18.0710935
+60021666,2,Nanjing University of Aeronautics and Astronautics,Nanjing,China,"Nanjing, China",32.0615513,118.7915619
+60022144,2,University of Central Florida,Orlando,United States,"Orlando, United States",28.5421109,-81.3790304
+60022265,2,Erasmus Universiteit Rotterdam,Rotterdam,Netherlands,"Rotterdam, Netherlands",51.9244424,4.47775
+60022927,2,University of Tehran,Tehran,Iran,"Tehran, Iran",35.6892523,51.3896004
+60023932,2,University of Technology Sydney,Sydney,Australia,"Sydney, Australia",-33.8698439,151.2082848
+60024438,2,University of North Texas,Denton,United States,"Denton, United States",33.1838787,-97.1413417
+60024948,2,"Indian Statistical Institute, Kolkata",Kolkata,India,"Kolkata, India",22.5726459,88.3638953
+60025225,2,University of Southampton,Southampton,United Kingdom,"Southampton, United Kingdom",50.9025349,-1.404189
+60025488,2,The University of Utah,Salt Lake City,United States,"Salt Lake City, United States",40.7596198,-111.886797
+60025578,2,Xidian University,Xi'an,China,"Xi'an, China",34.2607713,108.9423443
+60025778,2,"University of Michigan, Ann Arbor",Ann Arbor,United States,"Ann Arbor, United States",42.2681569,-83.7312291
+60025988,2,Universität Wien,Vienna,Austria,"Vienna, Austria",48.2083537,16.3725042
+60027072,2,Instituto Politcnico de Coimbra,Coimbra,Portugal,"Coimbra, Portugal",40.2111931,-8.4294632
+60028218,2,Alma Mater Studiorum Università di Bologna,Bologna,Italy,"Bologna, Italy",44.4938203,11.3426327
+60029140,2,Ming Chuan University,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60029157,2,Universiti Malaya,Kuala Lumpur,Malaysia,"Kuala Lumpur, Malaysia",3.1516964,101.6942371
+60029251,2,University of Miami,Coral Gables,United States,"Coral Gables, United States",25.7331105,-80.2585107
+60030162,2,Columbia University,New York,United States,"New York, United States",40.7127281,-74.0060152
+60032269,2,Aligarh Muslim University,Aligarh,India,"Aligarh, India",27.833333,78.166667
+60032330,2,Pohang University of Science and Technology,Pohang,South Korea,"Pohang, South Korea",36.0189315,129.3429384
+60032706,2,Miami University,Oxford,United States,"Oxford, United States",34.3663773,-89.5187664
+60032873,2,Shahid Beheshti University,Tehran,Iran,"Tehran, Iran",35.6892523,51.3896004
+60033284,2,Universidad de Sevilla,Sevilla,Spain,"Sevilla, Spain",37.3886303,-5.9953403
+60033461,2,University of Massachusetts Lowell,Lowell,United States,"Lowell, United States",42.6414437,-71.3085329
+60068809,2,University of Kragujevac,Kragujevac,Serbia,"Kragujevac, Serbia",44.0130251,20.91925
+60071706,2,"The University of the West Indies, St. Augustine Campus",St Augustine,Trinidad and Tobago,"St Augustine, Trinidad and Tobago",10.6464474,-61.4008066
+60072904,2,Macao Polytechnic University,Macau,Macao,"Macau, Macao",22.1899448,113.5380454
+60076781,2,Amrita Vishwa Vidyapeetham,Coimbatore,India,"Coimbatore, India",11.0018115,76.9628425
+60083525,2,Rosen College of Hospitality Management,Orlando,United States,"Orlando, United States",28.5421109,-81.3790304
+60102538,2,Karlsruher Institut für Technologie,Karlsruhe,Germany,"Karlsruhe, Germany",49.0068705,8.4034195
+60103153,2,Ulsan National Institute of Science and Technology,Ulsan,South Korea,"Ulsan, South Korea",35.5391697,129.3119136
+60104119,2,Islamic University of Technology,Gazipur,Bangladesh,"Gazipur, Bangladesh",23.9997558,90.4173629
+60104532,2,Indian School of Business,Hyderabad,India,"Hyderabad, India",17.360589,78.4740613
+60105146,2,Princess Nourah Bint Abdulrahman University,Riyadh,Saudi Arabia,"Riyadh, Saudi Arabia",24.638916,46.7160104
+60105210,2,Edith Cowan University,Perth,Australia,"Perth, Australia",-31.9558933,115.8605855
+60106017,2,Université Paris-Saclay,Gif-sur-Yvette,France,"Gif-sur-Yvette, France",48.7018823,2.134529
+60106360,2,NUS Business School,Singapore City,Singapore,"Singapore City, Singapore",1.2899175,103.8519072
+60107208,2,Sunway University,Bandar Sunway,Malaysia,"Bandar Sunway, Malaysia",3.0713838,101.6089714
+60107372,2,Indian Institute of Management Kashipur,Kashipur,India,"Kashipur, India",29.2117573,78.9617306
+60107377,2,Indian Institute of Management Udaipur,Udaipur,India,"Udaipur, India",24.578721,73.6862571
+60107838,2,Lille Économie Management ( LEM ),Lille,France,"Lille, France",50.6365654,3.0635282
+60108059,2,Rotterdam University of Applied Sciences,Rotterdam,Netherlands,"Rotterdam, Netherlands",51.9244424,4.47775
+60108699,2,University of Jeddah,Jeddah,Saudi Arabia,"Jeddah, Saudi Arabia",21.5810088,39.1653612
+60109000,2,IBS Hyderabad,Hyderabad,India,"Hyderabad, India",17.360589,78.4740613
+60113192,2,"Universitat Ramon Llull, ESADE",Barcelona,Spain,"Barcelona, Spain",41.3828939,2.1774322
+60116234,2,Tepper School of Business,Pittsburgh,United States,"Pittsburgh, United States",40.4416941,-79.9900861
+60116247,2,Penn State Smeal College of Business,University Park,United States,"University Park, United States",41.4400344,-87.683377
+60116269,2,Goizueta Business School,Atlanta,United States,"Atlanta, United States",33.7489924,-84.3902644
+60116324,2,Kogod School of Business,"Washington, D.C.",United States,"Washington, D.C., United States",38.8950368,-77.0365427
+60116332,2,Rennes School of Business,Rennes,France,"Rennes, France",48.1113387,-1.6800198
+60116456,2,Haslam College of Business,Knoxville,United States,"Knoxville, United States",35.9603948,-83.9210261
+60116516,2,Fisher College of Business,Columbus,United States,"Columbus, United States",39.9622601,-83.0007065
+60116608,2,Fuqua School of Business,Durham,United States,"Durham, United States",35.996653,-78.9018053
+60116860,2,University of Kansas School of Business,Lawrence,United States,"Lawrence, United States",41.001415,-80.350071
+60117649,2,"TUM School of Management, Munich",Munich,Germany,"Munich, Germany",48.1371079,11.5753822
+60121755,2,Singapore University of Social Sciences,Singapore City,Singapore,"Singapore City, Singapore",1.2899175,103.8519072
+60122799,2,John Chambers College of Business and Economics,Morgantown,United States,"Morgantown, United States",39.6296809,-79.9559437
+60138273,2,Trulaske College of Business,Columbia,United States,"Columbia, United States",34.0374165,-80.82240445378864
+60158043,2,PSB Paris School of Business,Paris,France,"Paris, France",48.8534951,2.3483915
+60175880,2,UniSA Business,Adelaide,Australia,"Adelaide, Australia",-34.9281805,138.5999312
+60176042,2,Deakin Business School,Melbourne,Australia,"Melbourne, Australia",-37.8142454,144.9631732
+60255170,2,Jerusalem School of Business Administration,Jerusalem,Israel,"Jerusalem, Israel",31.7788242,35.2257626
+60271834,2,FLAME University,Pune,India,"Pune, India",18.521428,73.8544541
+101364513,2,Liming University,Quanzhou,China,"Quanzhou, China",25.1901863,118.338717
+121884981,2,Medill/IMC,Evanston,United States,"Evanston, United States",42.0470043,-87.6846053
+126769423,2,Adana Alparslan Turkes Science and Technology University,Adana,Turkey,"Adana, Turkey",36.9863599,35.3252861
+60000036,1,Universidade Federal do Rio de Janeiro,Rio de Janeiro,Brazil,"Rio de Janeiro, Brazil",-22.9110137,-43.2093727
+60000060,1,Lehigh University,Bethlehem,United States,"Bethlehem, United States",40.6178915,-75.3786521
+60000134,1,Langara College,Vancouver,Canada,"Vancouver, Canada",49.2608724,-123.113952
+60000316,1,Srinakharinwirot University,Bangkok,Thailand,"Bangkok, Thailand",13.7524938,100.4935089
+60000508,1,University of Westminster,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60000521,1,Wilfrid Laurier University,Waterloo,Canada,"Waterloo, Canada",43.4652699,-80.5222961
+60000906,1,Universiti Sains Malaysia,Minden,Malaysia,"Minden, Malaysia",5.3624194,100.30365245565372
+60000937,1,Shenzhen University,Shenzhen,China,"Shenzhen, China",22.5445741,114.0545429
+60001081,1,China Telecommunications,Beijing,China,"Beijing, China",39.9057136,116.3912972
+60001187,1,Jeonbuk National University,Jeonju,South Korea,"Jeonju, South Korea",35.8237631,127.1472805
+60001426,1,East Tennessee State University,Johnson,United States,"Johnson, United States",32.3766071,-97.3568623
+60001434,1,Budapesti Corvinus Egyetem,Budapest,Hungary,"Budapest, Hungary",47.4978918,19.0401609
+60001565,1,Stellenbosch University,Stellenbosch,South Africa,"Stellenbosch, South Africa",-33.934444,18.869167
+60002144,1,Universidade do Algarve,Faro,Portugal,"Faro, Portugal",37.0162727,-7.9351771
+60002306,1,University of Calgary,Calgary,Canada,"Calgary, Canada",51.0456064,-114.057541
+60002505,1,Hanken - Svenska handelshögskolan,Helsinki,Finland,"Helsinki, Finland",60.1674881,24.9427473
+60002952,1,Helsingin Yliopisto,Helsinki,Finland,"Helsinki, Finland",60.1674881,24.9427473
+60002970,1,HEC Montréal,Montreal,Canada,"Montreal, Canada",45.5031824,-73.5698065
+60003003,1,Università degli Studi di Perugia,Perugia,Italy,"Perugia, Italy",43.1070321,12.402996209906487
+60003078,1,Zhejiang Normal University,Jinhua,China,"Jinhua, China",29.1080344,119.6486487
+60003668,1,"Università degli Studi del Piemonte Orientale ""Amedeo Avogadro""",Vercelli,Italy,"Vercelli, Italy",45.55538265,8.346283678327271
+60003892,1,Arizona State University,Tempe,United States,"Tempe, United States",33.4255117,-111.9400164
+60003942,1,Universidad Adolfo Ibáñez,Santiago,Chile,"Santiago, Chile",-33.4377756,-70.6504502
+60004128,1,Solent University,Southampton,United Kingdom,"Southampton, United Kingdom",50.9025349,-1.404189
+60004814,1,University of West London,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60004888,1,"INSEAD, Europe",Fontainebleau,France,"Fontainebleau, France",48.4049375,2.7015872
+60005429,1,National Taiwan University,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60005919,1,Utah Tech University,St George,United States,"St George, United States",37.104153,-113.5841313
+60006602,1,"University of Washington, Tacoma",Tacoma,United States,"Tacoma, United States",47.2455013,-122.438329
+60007040,1,Kwantlen Polytechnic University,Surrey,Canada,"Surrey, Canada",49.1913033,-122.849143
+60007278,1,"University of California, Irvine",Irvine,United States,"Irvine, United States",33.6856969,-117.8259819
+60007305,1,Bohai University,Jinzhou,China,"Jinzhou, China",41.494444,121.615278
+60007652,1,Old Dominion University,Norfolk,United States,"Norfolk, United States",36.8448348,-76.2863999
+60007903,1,Hebrew University of Jerusalem,Jerusalem,Israel,"Jerusalem, Israel",31.7788242,35.2257626
+60007966,1,Tecnológico de Monterrey,Monterrey,Mexico,"Monterrey, Mexico",25.6802019,-100.315258
+60008592,1,Hong Kong University of Science and Technology,Hong Kong,Hong Kong,"Hong Kong, Hong Kong",22.2793278,114.1628131
+60008783,1,Pusan National University,Busan,South Korea,"Busan, South Korea",35.1799528,129.0752365
+60008920,1,Taibah University,Madinah,Saudi Arabia,"Madinah, Saudi Arabia",24.471153,39.6111216
+60008928,1,The Hong Kong Polytechnic University,Hong Kong,Hong Kong,"Hong Kong, Hong Kong",22.2793278,114.1628131
+60009089,1,Gakushuin University,Tokyo,Japan,"Tokyo, Japan",35.6840574,139.7744912
+60009387,1,"Dongguk University, Seoul",Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60009563,1,Central European University,Vienna,Austria,"Vienna, Austria",48.2083537,16.3725042
+60009891,1,ESSEC Business School,Cergy-Pontoise,France,"Cergy-Pontoise, France",49.0527528,2.0388736
+60010061,1,Southern Connecticut State University,New Haven,United States,"New Haven, United States",41.3082138,-72.9250518
+60010265,1,University of Colorado at Colorado Springs,Colorado Springs,United States,"Colorado Springs, United States",38.8339578,-104.825348
+60010451,1,Santa Clara University,Santa Clara,United States,"Santa Clara, United States",37.2333253,-121.6846349
+60010494,1,University of Southern Maine,Portland,United States,"Portland, United States",45.5202471,-122.674194
+60010756,1,Dartmouth College,Hanover,United States,"Hanover, United States",37.744783,-77.4464165
+60010875,1,"Luddy School of Informatics, Computing, and Engineering",Bloomington,United States,"Bloomington, United States",39.1670396,-86.5342881
+60011375,1,Japan Advanced Institute of Science and Technology,Nomi,Japan,"Nomi, Japan",36.4392262,136.5424414
+60011664,1,University of Wollongong,Wollongong,Australia,"Wollongong, Australia",-34.4243941,150.89385
+60011754,1,Auburn University,Auburn,United States,"Auburn, United States",32.6098566,-85.4807825
+60012387,1,Georgia State University,Atlanta,United States,"Atlanta, United States",33.7489924,-84.3902644
+60012641,1,Duquesne University,Pittsburgh,United States,"Pittsburgh, United States",40.4416941,-79.9900861
+60012821,1,EBS Universität für Wirtschaft und Recht,Oestrich-Winkel,Germany,"Oestrich-Winkel, Germany",50.0071863,8.0167585
+60013166,1,"University of Applied Sciences Upper Austria, School of Medical Engineering and Applied Social Sciences",Linz,Austria,"Linz, Austria",48.3059078,14.286198
+60013575,1,Selçuk Üniversitesi,Selçuklu,Turkey,"Selçuklu, Turkey",37.8768663,32.4873945
+60013682,1,Seoul National University,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60013983,1,City University of Hong Kong,Hong Kong,Hong Kong,"Hong Kong, Hong Kong",22.2793278,114.1628131
+60014235,1,SUNY Oswego,Oswego,United States,"Oswego, United States",43.4112973,-76.1279841
+60014966,1,Peking University,Beijing,China,"Beijing, China",39.9057136,116.3912972
+60015356,1,University of Tasmania,Hobart,Australia,"Hobart, Australia",-42.8825088,147.3281233
+60015543,1,University of Pittsburgh,Pittsburgh,United States,"Pittsburgh, United States",40.4416941,-79.9900861
+60015595,1,Universität Bielefeld,Bielefeld,Germany,"Bielefeld, Germany",52.0191005,8.531007
+60015662,1,Herzen State Pedagogical University of Russia,Saint Petersburg,Russian Federation,"Saint Petersburg, Russian Federation",59.938732,30.316229
+60015706,1,University of the Free State,Bloemfontein,South Africa,"Bloemfontein, South Africa",-29.116395,26.215496
+60015941,1,University of Kentucky,Lexington,United States,"Lexington, United States",38.0464066,-84.4970393
+60016219,1,Uhtinskij Gosudarstvennyj Tehniceskij Universitet,Ukhta,Russian Federation,"Ukhta, Russian Federation",63.5623797,53.6842376
+60016569,1,Chapman University,Orange,United States,"Orange, United States",33.7500378,-117.8704931
+60016643,1,University of Washington-Bothell,Bothell,United States,"Bothell, United States",47.7623204,-122.2054035
+60016765,1,Kozminski University,Warsaw,Poland,"Warsaw, Poland",52.2319581,21.0067249
+60017062,1,Morgan State University,Baltimore,United States,"Baltimore, United States",39.2908816,-76.610759
+60017134,1,Justus-Liebig-Universität Gießen,Giessen,Germany,"Giessen, Germany",50.5862066,8.6742306
+60017347,1,Universität Luzern,Luzern,Switzerland,"Luzern, Switzerland",47.0505452,8.3054682
+60017803,1,Western Sydney University,Penrith,Australia,"Penrith, Australia",-33.7511954,150.6941711
+60018250,1,Indiana University Southeast,New Albany,United States,"New Albany, United States",38.2856247,-85.8241312
+60018273,1,University of Science and Technology Beijing,Beijing,China,"Beijing, China",39.9057136,116.3912972
+60018306,1,Wright State University,Dayton,United States,"Dayton, United States",39.7589478,-84.1916069
+60018610,1,Elon University,Elon,United States,"Elon, United States",36.1029132,-79.5066895
+60019160,1,Syddansk Universitet,Odense,Denmark,"Odense, Denmark",55.3997225,10.3852104
+60019245,1,University of Houston-Clear Lake,Houston,United States,"Houston, United States",29.7589382,-95.3676974
+60019544,1,Macquarie University,Sydney,Australia,"Sydney, Australia",-33.8698439,151.2082848
+60020241,1,Izmir Ekonomi Universitesi,Izmir,Turkey,"Izmir, Turkey",38.4237433,27.1428019
+60020261,1,Università della Calabria,Rende,Italy,"Rende, Italy",39.3319934,16.1843828
+60020420,1,American University,"Washington, D.C.",United States,"Washington, D.C., United States",38.8950368,-77.0365427
+60020638,1,Winona State University,Winona,United States,"Winona, United States",43.9582272,-91.7807784
+60021182,1,Sun Yat-Sen University,Guangzhou,China,"Guangzhou, China",23.1301964,113.2592945
+60021494,1,Sakarya Üniversitesi,Serdivan,Turkey,"Serdivan, Turkey",40.7603347,30.3629644
+60021624,1,The University of Toledo,Toledo,United States,"Toledo, United States",41.6529143,-83.5378173
+60021796,1,Università Bocconi,Milan,Italy,"Milan, Italy",45.4641943,9.1896346
+60021902,1,University of Pretoria,Pretoria,South Africa,"Pretoria, South Africa",-25.7459277,28.1879101
+60021931,1,Johannes Kepler University Linz,Linz,Austria,"Linz, Austria",48.3059078,14.286198
+60022249,1,Sacred Heart University Fairfield,Fairfield,United States,"Fairfield, United States",39.7886111,-82.6418883
+60022264,1,North-Eastern Hill University,Shillong,India,"Shillong, India",25.5760446,91.8825282
+60022415,1,Universitat Rovira i Virgili,Tarragona,Spain,"Tarragona, Spain",41.1172364,1.2546057
+60022659,1,University of Connecticut,Storrs,United States,"Storrs, United States",41.8084314,-72.2495231
+60022904,1,New Jersey Institute of Technology,Newark,United States,"Newark, United States",40.735657,-74.1723667
+60023113,1,"California State University, Bakersfield",Bakersfield,United States,"Bakersfield, United States",35.3738712,-119.0194639
+60024616,1,Hamline University,Minneapolis,United States,"Minneapolis, United States",44.9772995,-93.2654692
+60025038,1,"University of California, Berkeley",Berkeley,United States,"Berkeley, United States",37.8708393,-122.272863
+60025310,1,Heinrich-Heine-Universität Düsseldorf,Dusseldorf,Germany,"Dusseldorf, Germany",51.2254018,6.7763137
+60025475,1,University of Portsmouth,Portsmouth,United Kingdom,"Portsmouth, United Kingdom",50.800031,-1.0906023
+60025502,1,Chaoyang University of Technology,Taichung,Taiwan,"Taichung, Taiwan",24.163162,120.6478282
+60025709,1,The University of Sydney,Sydney,Australia,"Sydney, Australia",-33.8698439,151.2082848
+60026109,1,Paichai University,Daejeon,South Korea,"Daejeon, South Korea",36.3497007,127.3849016
+60026306,1,University of Nebraska–Lincoln,Lincoln,United States,"Lincoln, United States",40.8088861,-96.7077751
+60027018,1,National Chengchi University,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60027557,1,"California State University, Dominguez Hills",Carson,United States,"Carson, United States",35.3636563,-101.3353895
+60027576,1,University of New Hampshire Durham,Durham,United States,"Durham, United States",35.996653,-78.9018053
+60027625,1,Kansai University,Suita,Japan,"Suita, Japan",34.764884,135.51735
+60027652,1,University of Seoul,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60027709,1,National Taiwan University of Science and Technology,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60027884,1,Sejong University,Seoul,South Korea,"Seoul, South Korea",37.5666791,126.9782914
+60027950,1,Carnegie Mellon University,Pittsburgh,United States,"Pittsburgh, United States",40.4416941,-79.9900861
+60028009,1,Yunnan University,Kunming,China,"Kunming, China",25.0363006,102.7086139
+60028089,1,Darla Moore School of Business,Columbia,United States,"Columbia, United States",34.0374165,-80.82240445378864
+60028868,1,Università di Pisa,Pisa,Italy,"Pisa, Italy",43.7159395,10.4018624
+60029069,1,MRC Cognition and Brain Sciences Unit,Cambridge,United Kingdom,"Cambridge, United Kingdom",52.2055314,0.1186637
+60029170,1,Lunds Universitet,Lund,Sweden,"Lund, Sweden",55.7029296,13.1929449
+60029304,1,Hofstra University,Hempstead,United States,"Hempstead, United States",33.6949319,-93.6929825
+60029616,1,Aarhus Universitet,Aarhus,Denmark,"Aarhus, Denmark",56.1496278,10.2134046
+60029681,1,Pontificia Universidad Católica de Chile,Santiago,Chile,"Santiago, Chile",-33.4377756,-70.6504502
+60030835,1,University of Alberta,Edmonton,Canada,"Edmonton, Canada",53.5462055,-113.491241
+60030961,1,Santa Fe Institute,Santa Fe,United States,"Santa Fe, United States",35.6876096,-105.938456
+60030992,1,"California State University, East Bay",Hayward,United States,"Hayward, United States",37.6688205,-122.080796
+60031004,1,The University of Queensland,Brisbane,Australia,"Brisbane, Australia",-27.4689682,153.0234991
+60031040,1,Umeå Universitet,Umea,Sweden,"Umea, Sweden",63.8256568,20.2630745
+60031117,1,Boston College,Chestnut Hill,United States,"Chestnut Hill, United States",42.3306529,-71.1661647
+60031355,1,Webster University,St. Louis,United States,"St. Louis, United States",38.6280278,-90.1910154
+60031706,1,Utah State University,Logan,United States,"Logan, United States",40.1075089,-89.3768539
+60031707,1,Michigan State University,East Lansing,United States,"East Lansing, United States",42.7320307,-84.4721678
+60031791,1,Governors State University,University Park,United States,"University Park, United States",41.4400344,-87.683377
+60032179,1,University of Wisconsin-Madison,Madison,United States,"Madison, United States",43.074761,-89.3837613
+60032204,1,Sheffield Hallam University,Sheffield,United Kingdom,"Sheffield, United Kingdom",53.3806626,-1.4702278
+60032389,1,Hebei University of Technology,Tianjin,China,"Tianjin, China",39.3032619,117.4163641
+60032717,1,Universitat de Lleida,Lleida,Spain,"Lleida, Spain",41.6147605,0.6267842
+60032838,1,Stanford University School of Medicine,Stanford,United States,"Stanford, United States",37.427467,-122.1702445
+60032877,1,University of La Verne,La Verne,United States,"La Verne, United States",34.1008426,-117.7678355
+60033021,1,The University of New Mexico,Albuquerque,United States,"Albuquerque, United States",35.0841034,-106.650985
+60033308,1,Indian Institute of Management Ahmedabad,Ahmedabad,India,"Ahmedabad, India",23.0216238,72.5797068
+60033387,1,University of London,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60033420,1,York University,Toronto,Canada,"Toronto, Canada",43.6534817,-79.3839347
+60033432,1,Gonzaga University,Spokane,United States,"Spokane, United States",47.6571934,-117.42351
+60067711,1,Hellenic Open University,Patra,Greece,"Patra, Greece",38.246242,21.7350847
+60068856,1,Tartu Ülikool,Tartu,Estonia,"Tartu, Estonia",58.3801207,26.72245
+60069591,1,"Management Development Institute, Gurgaon",Gurugram,India,"Gurugram, India",28.4646148,77.0299194
+60071440,1,Mindanao State University – Iligan Institute of Technology,Iligan,Philippines,"Iligan, Philippines",8.2281556,124.2411508
+60071785,1,Sohar University,Sohar,Oman,"Sohar, Oman",24.3445577,56.7424766
+60071909,1,Ivane Javakhishvili Tbilisi State University,Tbilisi,Georgia,"Tbilisi, Georgia",41.6934591,44.8014495
+60071929,1,Universidad de Costa Rica,San Jose,Costa Rica,"San Jose, Costa Rica",9.9325427,-84.0795782
+60072522,1,Haas School of Business,Berkeley,United States,"Berkeley, United States",37.8708393,-122.272863
+60072605,1,International University of Monaco,Monte Carlo,Monaco,"Monte Carlo, Monaco",43.7402961,7.426559
+60072651,1,L-Università ta' Malta,Msida,Malta,"Msida, Malta",35.8956943,14.4891829
+60072749,1,Qatar University,Doha,Qatar,"Doha, Qatar",25.2856329,51.5264162
+60076757,1,"Amazon.com, Inc.",Seattle,United States,"Seattle, United States",47.6038321,-122.330062
+60079338,1,"The Nielsen Company (US), LLC",New York,United States,"New York, United States",40.7127281,-74.0060152
+60079444,1,Indian Institute of Management Kozhikode,Kozhikode,India,"Kozhikode, India",11.2450558,75.7754716
+60087757,1,Australian University,Safat,Kuwait,"Safat, Kuwait",29.33441225,47.94752228404107
+60090931,1,Henry B. Tippie College of Business,Iowa City,United States,"Iowa City, United States",41.6612561,-91.5299106
+60094745,1,Dominican University of California,San Rafael,United States,"San Rafael, United States",37.9747795,-122.5316686
+60098091,1,J. Mack Robinson College of Business,Atlanta,United States,"Atlanta, United States",33.7489924,-84.3902644
+60101841,1,UCSI University,Kuala Lumpur,Malaysia,"Kuala Lumpur, Malaysia",3.1516964,101.6942371
+60102127,1,Aix Marseille Université,Marseille,France,"Marseille, France",43.2961743,5.3699525
+60103682,1,Cardiff Metropolitan University,Cardiff,United Kingdom,"Cardiff, United Kingdom",51.4816546,-3.1791934
+60104028,1,University of Nicosia,Nicosia,Cyprus,"Nicosia, Cyprus",35.1746503,33.3638783
+60104058,1,"Institute of Management Technology, Nagpur",Nagpur,India,"Nagpur, India",21.1498134,79.0820556
+60104126,1,Jouf University,Sakakah,Saudi Arabia,"Sakakah, Saudi Arabia",29.9784008,40.2047701
+60104438,1,Istanbul Medeniyet University,Istanbul,Turkey,"Istanbul, Turkey",41.0766019,29.052495
+60104457,1,Universitas Muhammadiyah Yogyakarta,Yogyakarta,Indonesia,"Yogyakarta, Indonesia",-7.9778383999999996,110.36722565020224
+60104653,1,Université Grenoble Alpes,Saint Martin d'Heres,France,"Saint Martin d'Heres, France",45.1836683,5.75448
+60104720,1,University of Nottingham Ningbo China,Ningbo,China,"Ningbo, China",29.8622194,121.6203873
+60105147,1,Regent's University London,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60105232,1,ShanghaiTech University,Shanghai,China,"Shanghai, China",31.2312707,121.4700152
+60105536,1,Integral University,Lucknow,India,"Lucknow, India",26.8381,80.9346001
+60105822,1,Henley Business School,Reading,United Kingdom,"Reading, United Kingdom",51.4564242,-0.9700664
+60106685,1,Saveh University of Medical Sciences,Saveh,Iran,"Saveh, Iran",35.0206133,50.3584834
+60107184,1,NYU Shanghai,Shanghai,China,"Shanghai, China",31.2312707,121.4700152
+60107631,1,University of Petroleum and Energy Studies,Dehradun,India,"Dehradun, India",30.3255646,78.0436813
+60108384,1,National Taichung University of Science and Technology,Taichung,Taiwan,"Taichung, Taiwan",24.163162,120.6478282
+60108882,1,Wenzhou-Kean University,Wenzhou,China,"Wenzhou, China",27.9963899,120.695345
+60109562,1,EDHEC Business School,Roubaix,France,"Roubaix, France",50.6915893,3.1741734
+60109868,1,Lee Kuan Yew School of Public Policy,Singapore City,Singapore,"Singapore City, Singapore",1.2899175,103.8519072
+60110923,1,NEOMA Business School,Mont-Saint-Aignan,France,"Mont-Saint-Aignan, France",49.4679,1.0813
+60111747,1,University of South-Eastern Norway,Kongsberg,Norway,"Kongsberg, Norway",59.594550049999995,9.670860075643745
+60112748,1,The University of Chicago Booth School of Business,Chicago,United States,"Chicago, United States",41.8755616,-87.6244212
+60113899,1,"International Management Institute, Bhubaneswar",Bhubaneswar,India,"Bhubaneswar, India",20.2602964,85.8394521
+60113900,1,"International Management Institute, Kolkata",Kolkata,India,"Kolkata, India",22.5726459,88.3638953
+60114346,1,Bristol Business School,Bristol,United Kingdom,"Bristol, United Kingdom",51.4538022,-2.5972985
+60115579,1,Indian Institute of Management Amritsar,Amritsar,India,"Amritsar, India",31.6343083,74.8736788
+60115862,1,Uttaranchal University,Dehradun,India,"Dehradun, India",30.3255646,78.0436813
+60116152,1,Saunders College of Business,Rochester,United States,"Rochester, United States",43.157285,-77.615214
+60116225,1,Aston Business School,Birmingham,United Kingdom,"Birmingham, United Kingdom",52.4796992,-1.9026911
+60116255,1,C. T. Bauer College of Business,Houston,United States,"Houston, United States",29.7589382,-95.3676974
+60116262,1,Sheffield University Management School,Sheffield,United Kingdom,"Sheffield, United Kingdom",53.3806626,-1.4702278
+60116313,1,Carl H. Lindner College of Business,Cincinnati,United States,"Cincinnati, United States",39.1014537,-84.5124602
+60116392,1,Darden School of Business,Charlottesville,United States,"Charlottesville, United States",38.029306,-78.4766781
+60116407,1,D'Amore-McKim School of Business,Boston,United States,"Boston, United States",42.3554334,-71.060511
+60116478,1,Alberta School of Business,Edmonton,Canada,"Edmonton, Canada",53.5462055,-113.491241
+60116515,1,"National Sun Yat-sen University, College of Management",Kaohsiung,Taiwan,"Kaohsiung, Taiwan",22.6203348,120.3120375
+60116524,1,Questrom School of Business,Boston,United States,"Boston, United States",42.3554334,-71.060511
+60116537,1,Wake Forest School of Business,Winston Salem,United States,"Winston Salem, United States",36.0998131,-80.2440518
+60116635,1,Cornell SC Johnson College of Business,Ithaca,United States,"Ithaca, United States",42.4396039,-76.4968019
+60116755,1,John Molson School of Business,Montreal,Canada,"Montreal, Canada",45.5031824,-73.5698065
+60116969,1,Shaheed Sukhdev College of Business Studies,New Delhi,India,"New Delhi, India",28.6138954,77.2090057
+60117636,1,Institut Mines-Télécom Business School,Evry,France,"Evry, France",48.26406,3.25604
+60118051,1,"Faculteit Industrieel Ontwerpen, TU Delft",Delft,Netherlands,"Delft, Netherlands",51.999457199999995,4.362724538543995
+60118346,1,Martin J. Whitman School of Management,Syracuse,United States,"Syracuse, United States",43.0481221,-76.1474244
+60120016,1,Department of Engineering,Cambridge,United Kingdom,"Cambridge, United Kingdom",52.2055314,0.1186637
+60122139,1,ISM University of Management and Economics,Vilnius,Lithuania,"Vilnius, Lithuania",54.6870458,25.2829111
+60122532,1,Muma College of Business,Tampa,United States,"Tampa, United States",27.9477595,-82.458444
+60122536,1,Fowler College of Business,San Diego,United States,"San Diego, United States",32.7174202,-117.1627728
+60122553,1,Bryan School of Business and Economics,Greensboro,United States,"Greensboro, United States",36.0726355,-79.7919754
+60122589,1,E. J. Ourso College of Business,Baton Rouge,United States,"Baton Rouge, United States",30.4494155,-91.1869659
+60122601,1,Florida International University College of Business,Miami,United States,"Miami, United States",25.7741728,-80.19362
+60122739,1,Eller College of Management,Tucson,United States,"Tucson, United States",32.2228765,-110.974847
+60122758,1,Raymond J. Harbert College of Business,Auburn,United States,"Auburn, United States",32.6098566,-85.4807825
+60122759,1,LeBow College of Business,Philadelphia,United States,"Philadelphia, United States",39.9527237,-75.1635262
+60122764,1,Coggin College of Business,Jacksonville,United States,"Jacksonville, United States",30.3321838,-81.655651
+60122800,1,Sam M. Walton College of Business,Fayetteville,United States,"Fayetteville, United States",36.0625843,-94.1574328
+60123369,1,Antai College of Economics and Management,Shanghai,China,"Shanghai, China",31.2312707,121.4700152
+60123703,1,Loughborough University London,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60128747,1,School of Economics &amp; Management,Nanjing,China,"Nanjing, China",32.0615513,118.7915619
+60138679,1,Lutgert College of Business,Fort Myers,United States,"Fort Myers, United States",26.640628,-81.8723084
+60158100,1,International Hellenic University,Thessaloniki,Greece,"Thessaloniki, Greece",40.6403167,22.9352716
+60159673,1,Spears School of Business at Oklahoma State University,Stillwater,United States,"Stillwater, United States",36.1156306,-97.0585717
+60162124,1,Kent Business School,Canterbury,United Kingdom,"Canterbury, United Kingdom",51.2800275,1.0802533
+60170457,1,Essex Business School,Colchester,United Kingdom,"Colchester, United Kingdom",51.8896903,0.8994651
+60170469,1,School of Management,Swansea,United Kingdom,"Swansea, United Kingdom",51.6195955,-3.9459248
+60170563,1,Faculty of Business and Law,Portsmouth,United Kingdom,"Portsmouth, United Kingdom",50.800031,-1.0906023
+60171142,1,ISC Paris Business School,Paris,France,"Paris, France",48.8534951,2.3483915
+60173004,1,Nottingham University Business School China,Ningbo,China,"Ningbo, China",29.8622194,121.6203873
+60176025,1,UCL School of Management,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+60189515,1,Griffith Business School,Brisbane,Australia,"Brisbane, Australia",-27.4689682,153.0234991
+60190568,1,Odette School of Business,Windsor,Canada,"Windsor, Canada",42.2858536,-82.9780695
+60190890,1,UNSW Business School,Kensington,Australia,"Kensington, Australia",-33.9117191,151.2195058
+60193403,1,École de Gestion Telfer,Ottawa,Canada,"Ottawa, Canada",45.4208777,-75.6901106
+60196726,1,College of Business and Economics,Doha,Qatar,"Doha, Qatar",25.2856329,51.5264162
+60199632,1,Gachon University,Seongnam,South Korea,"Seongnam, South Korea",37.4201556,127.1262092
+60211707,1,University of Stellenbosch Business School,Cape Town,South Africa,"Cape Town, South Africa",-33.928992,18.417396
+60211835,1,Louvain School of Management,Louvain-la-Neuve,Belgium,"Louvain-la-Neuve, Belgium",50.6741689,4.613790587187648
+60211855,1,"Dipartimento di Economia, Management e Diritto dell'Impresa",Bari,Italy,"Bari, Italy",41.1257843,16.8620293
+60212023,1,The University of Sydney Business School,Sydney,Australia,"Sydney, Australia",-33.8698439,151.2082848
+60212346,1,Othman Yeop Abdullah Graduate School of Business,Kuala Lumpur,Malaysia,"Kuala Lumpur, Malaysia",3.1516964,101.6942371
+60227249,1,Iscte Business School,Lisbon,Portugal,"Lisbon, Portugal",38.7077507,-9.1365919
+60238182,1,College of Management,Taipei,Taiwan,"Taipei, Taiwan",25.0375198,121.5636796
+60272065,1,Rajamangala University of Technology Rattanakosin,Phutthamonthon,Thailand,"Phutthamonthon, Thailand",13.8012211,100.3243455
+60276438,1,Dentsu Group Inc.,Tokyo,Japan,"Tokyo, Japan",35.6840574,139.7744912
+100355100,1,Vancouver Community College,Vancouver,Canada,"Vancouver, Canada",49.2608724,-123.113952
+100435837,1,School of Business Administration,University,United States,"University, United States",25.7148148,-80.2769765
+101405996,1,Cape Town,Cape Town,South Africa,"Cape Town, South Africa",-33.928992,18.417396
+106121997,1,Villanova School of Business,Villanova,United States,"Villanova, United States",40.0373323,-75.3490769
+109641200,1,BarryAnalytics Ltd,Borehamwood,United Kingdom,"Borehamwood, United Kingdom",51.6604863,-0.2706506
+112391316,1,XLNT Consulting,Tilburg,Netherlands,"Tilburg, Netherlands",51.58561845,5.0660616131367675
+113868605,1,InSites Consulting,New York,United States,"New York, United States",40.7127281,-74.0060152
+117308432,1,ADS Telemarketing,Bristol,United Kingdom,"Bristol, United Kingdom",51.4538022,-2.5972985
+121884397,1,Kwantum LLC,La Crosse,United States,"La Crosse, United States",43.8122836,-91.2514355
+122406758,1,Warwick Analytics,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+123895126,1,Intelligencia Limited,Hong Kong,Hong Kong,"Hong Kong, Hong Kong",22.2793278,114.1628131
+124199746,1,Pansensic Limited,Bude,United Kingdom,"Bude, United Kingdom",50.8285252,-4.5469361
+124386756,1,Institut Agama Islam Darussalam (IAID),Ciamis,Indonesia,"Ciamis, Indonesia",-7.313159300000001,108.40489379583816
+125711562,1,Consumer Deposits Products and Payments (CDPP),Falmouth,United States,"Falmouth, United States",38.6767366,-84.3304592
+125805148,1,Insaas GmbH,Munich,Germany,"Munich, Germany",48.1371079,11.5753822
+125818967,1,CenturyLink,Bengaluru,India,"Bengaluru, India",12.9767936,77.590082
+126686248,1,Sol Plaatje University,Kimberley,South Africa,"Kimberley, South Africa",-28.7383012,24.7642251
+126729199,1,Qtati.com,London,United Kingdom,"London, United Kingdom",51.5073359,-0.12765
+127027408,1,Corporate Innovation and Emerging Technologies,Softtek,Mexico,"Softtek, Mexico",25.6730607,-100.3914473
+127772089,1,Que Advisors,Queretaro,Mexico,"Queretaro, Mexico",20.5927744,-100.3902245
+127775328,1,Lanagara College,Vancouver,Canada,"Vancouver, Canada",49.2608724,-123.113952
+127962130,1,Hackers and Founders Research,Palo Alto,United States,"Palo Alto, United States",37.4443293,-122.1598465
+128158317,1,DataEQ,Cape Town,South Africa,"Cape Town, South Africa",-33.928992,18.417396
+128210654,1,MARA,Mannheim,Germany,"Mannheim, Germany",49.4892913,8.4673098
+128301990,1,Hackers and Founders Research,San Jose,United States,"San Jose, United States",37.3361663,-121.890591
+129050825,1,University of Management and Technology (UMT) Main Campus,Ho Chi Minh City,Viet Nam,"Ho Chi Minh City, Viet Nam",10.7763897,106.7011391
+129787690,1,IAE Amiens,Amiens,France,"Amiens, France",49.8941708,2.2956951

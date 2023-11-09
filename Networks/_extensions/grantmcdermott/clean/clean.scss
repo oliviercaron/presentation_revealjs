@@ -234,3 +234,13 @@ $selection-bg: #26351c !default;
   height: auto;
   object-fit: contain;
 }
+
+// progress bar
+.reveal .progress {
+    background: rgba(0, 0, 0, 0.2);
+    height: 1%;
+}
+
+pre code.sourceCode {
+    font-size: 0.7em;
+}

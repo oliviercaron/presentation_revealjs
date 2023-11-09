@@ -1,14 +1,14 @@
 tsParticles.load({
   particles: {
     number: {
-      value: 80,
+      value: 50,
       density: {
         enable: true,
-        area: 800
+        area: 400
       }
     },
     color: {
-      value: ["#2EB67D", "#ECB22E", "#E01E5B", "#36C5F0"]
+      value: ["#011f4b", "#03396c", "#005b96", "#6497b1", "#b3cde0"]
     },
     shape: {
       type: "circle"

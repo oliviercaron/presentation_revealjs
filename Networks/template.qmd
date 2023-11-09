@@ -1,5 +1,6 @@
 ---
 title: Systematic Literature Review <br>A Network Analysis
+bibliography: references.bib
 subtitle: NLP Workshop
 format: 
   clean-revealjs
@@ -19,14 +20,13 @@ author:
       city: Paris
       state: France
 date: last-modified
+editor: 
+  markdown: 
+    wrap: 72
 ---
-```{r}
-
-```
-
 
 ```{python}
-#| label: data-loading
+#| label: libraries-data-python
 #| include: false
 #| eval: true
 import pandas as pd
@@ -37,66 +37,650 @@ list_references = pd.read_csv("data/nlp_references_final_18-08-2023.csv", sep=';
 
 ```
 
-## Research context 
+```{r}
+#| label: libraries-data-r
+#| include: false
+#| eval: true
 
-### Systematic literature review of marketing papers using NLP techniques.
+library(cowplot)
+library(tidyverse)
+library(ggstatsplot)
+library(reticulate)
+library(gt)
+library(plotly)
+library(countrycode)
+library(htmlwidgets)
+library(reactable)
+
+list_articles <- py$list_articles %>%
+  filter(subtypeDescription != "Erratum")
+  
+list_references <- py$list_references %>%
+  mutate(year = strtoi(substr(`prism:coverDate`,1,4))) %>%
+  rename(scopus_eid = "scopus-eid",
+         authid = "author-list.author.@auid")
+
+```
+
+## Research context
+
+### Systematic literature review of marketing research using NLP techniques.
+
 ### What are the factors driving the diffusion of NLP technologies in the field of marketing research?
-
-
 
 ## Data presentation
 
+### Articles
+
+-   There are [`r n_distinct(py$list_articles$entry_number)`]{.fg
+    style="--col: #e64173"} articles and
+    [`r n_distinct(py$list_articles$authid)`]{.fg
+    style="--col: #e64173"} unique authors
+
+-   Date of publication range from [`r min(py$list_articles$year)`]{.fg
+    style="--col: #e64173"} to [`r max(py$list_articles$year)`]{.fg
+    style="--col: #e64173"}
+
+### References
+
+-   There are [`r n_distinct(list_references$scopus_eid)`]{.fg
+    style="--col: #e64173"} unique references
+    ([`r nrow(list_references)`]{.fg style="--col: #e64173"} overall)
+    and [`r n_distinct(list_references$authid)`]{.fg
+    style="--col: #e64173"} unique first authors
+
+-   Date of publication range from
+    [`r min(list_references$year, na.rm = TRUE)`]{.fg
+    style="--col: #e64173"} to
+    [`r max(list_references$year, na.rm = TRUE)`]{.fg
+    style="--col: #e64173"}
+
+### Data collection
+
+-   All data were collected from Scopus.
+
+## Trends in publication volume
+
+```{r}
+#| label: evolution-publications
+#| fig-height: 10
+#| fig-width: 17
+#| fig-align: center
+
+nlp_papers <- list_articles
+
+#get rid of conference papers
+#nlp_papers_journal_only <- nlp_papers %>%
+  #filter(!grepl("conference", subtypeDescription, ignore.case = TRUE)) #%>%
+  #filter(year < 2023)
 
 
-### Some extra things you can do with the clean theme
+t0 <-prop.table(table(nlp_papers$`prism:publicationName`)) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq)) %>%
+  mutate(Var1 = sub(".*:", "", Var1)) %>% #just because title of Proceedings of the Academy... is too long to display
+  head(30)
 
-Special classes for emphasis
+t1<-as.data.frame(table(nlp_papers$year))
 
-- `.alert` class for default emphasis, e.g. [important note]{.alert}.
-- `.fg` class for custom colour, e.g. [important note]{.fg style="--col: #e64173"}.
-- `.bg` class for custom background, e.g. [important note]{.bg style="--col: #e64173"}.
+g01 <- ggplot(t0, aes(x=reorder(Var1, Freq), y=Freq)) +
+  geom_bar(stat="identity", fill="steelblue") +
+  coord_flip() +
+  theme_minimal() +
+  labs(title="Number of Articles per Journal", y="Proportion", x="") +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 10)
+  )
 
-Cross-references
+# Graph 2: Number of publications per year
+g02 <- ggplot(t1, aes(x=Var1, y=Freq, group=1)) +
+  geom_line(size=1.1, color="steelblue") +
+  geom_point(size=2, color="steelblue") +
+  geom_smooth(color="#7D7C7C", linewidth=0.5)+
+  theme_minimal() +
+  labs(title="Number of Publications per Year", y="", x="Year") +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    axis.title.x = element_blank(),
+    plot.title = element_text(hjust = 0.5)
+  )
 
-- `.button` class provides a Beamer-like button, e.g.
-[[Summary]{.button}](#sec-summary)
 
-## Want more?
-
-### See our longer demo slides
-
-We've deliberarely kept this template lean, to get you up and running as fast as
-possible.
-
-We provide a separate
-[demo template](https://github.com/grantmcdermott/quarto-revealjs-clean-demo),
-with more examples for integrating code, tables, figures, etc.
-
-  - See the live demo slides
-  [here](https://grantmcdermott.com/quarto-revealjs-clean-demo/template.html).
-
-## Summary {#sec-summary}
-
-### A minimal and elegant presentation theme
-
-The Quarto reveal.js clean theme aims to be a minimal and elegant presention
-theme.
-
-Install the theme.
-
-```{.bash}
-quarto install extension grantmcdermott/quarto-revealjs-clean
-#{background-iframe="colored-particles/index.html"}
+plotgrid <- plot_grid(g01,
+                      g02,
+                      label_size = 10,
+                      ncol=2,
+                      rel_widths =  c(1.5,1))
+ggsave(filename="images/evolution_publications_nlp_marketing.png",
+       width = 80, 
+       height = 40, 
+       units = "cm")
+plotgrid
 ```
 
-Use this lean template.
+```{r}
+#| label: worldwide-production
+#| column: page
+#| ncol: 2
+#| include: false
+#| eval: true
 
-```{.bash}
-quarto use template grantmcdermott/quarto-revealjs-clean
+#regroup most productive affiliations based on affiliation occurrences, not on cited_by count: the affiliations that produced the most work on the subject
+productive_affiliations <- list_articles %>%
+  filter(!is.na(afid)) %>%
+  group_by(afid) %>% 
+  reframe("number_occurences" = n(),
+              affilname,
+              affiliation_city,
+              affiliation_country
+            ) %>%
+  distinct(afid, .keep_all = TRUE) %>%
+  arrange(desc(number_occurences))
+
+
+
+ggdotplotstats(
+  data       = head(productive_affiliations,25),
+  y          = affilname,
+  x          = number_occurences,
+  test.value = 25,
+  type       = "robust",
+  title      = "Distribution of academic productions among the 25 most productive affiliations",
+  xlab       = "Number of productions (articles, books, review, conferences, etc.)"
+)
+
+ggsave("images/25most_productive_affiliations.svg", width=10)
+
 ```
 
-Use the longer demo template.
+## Production per affiliation {.absolute}
 
-```{.bash}
-quarto use template grantmcdermott/quarto-revealjs-clean-demo
+::: {.absolute top="60" left="-120"}
+```{r}
+#| label: worldwide-production-affiliation
+#| fig-height: 7
+#| fig-width: 13
+
+#have a look at countries on a worldmap
+#specify some theme properties
+plain <- theme(
+  axis.text        = element_blank(),
+  axis.line        = element_blank(),
+  axis.ticks       = element_blank(),
+  panel.border     = element_blank(),
+  panel.grid       = element_blank(),
+  axis.title       = element_blank(),
+  panel.background = element_rect(fill = "white"),
+  plot.title = element_text(hjust = 0.5)
+)
+
+#important to include the country name and the country name so that tidygeocoder can find the right city
+#exemple : I had some problems with the city "Cambridge" which is in the US and in the UK. Now they both have different latitude and longitude
+productive_affiliations$city_country <- paste(productive_affiliations$affiliation_city, productive_affiliations$affiliation_country, sep = ", ")
+
+#enables us to get latitude and longitude of affiliation cities so we can place the cities on a worldmap
+#It's a bit long so I commented it and saved the result in a csv file
+#result_tidygeocoder <- tidygeocoder::geocode(productive_affiliations,
+                                          #city_country,
+                                          #method="osm") #OpenStreetMap data
+
+result_tidygeocoder <-read.csv("data/affiliations_geocoded.csv")
+
+#write_csv(result_tidygeocoder, "data/affiliations_geocoded.csv")
+
+result_tidygeocoder <- result_tidygeocoder %>% filter(!is.na(affiliation_city))
+
+mapWorld <- borders("world", colour="gray30", fill="#cbc8c3", size=0.2)
+world <- map_data("world")
+worldplot <- ggplot() +
+  geom_polygon(data = world, aes(x = long, y = lat, group = group)) +
+  geom_point(data = result_tidygeocoder, color="#f38181", alpha=0.9, aes(x=long, y = lat, size = number_occurences))+
+  geom_point(data = result_tidygeocoder,
+             colour="black",
+             shape=1,
+             aes(x=long, y = lat,
+                 size = number_occurences,
+                 text= paste0("Affiliation: ",
+                              affilname,
+                              "\nAffiliation city: ",
+                              affiliation_city,
+                              "\nNumber of productions: ",
+                              number_occurences),
+                 stroke = 0.20))+ #stroke is the width of the second black point and shape=1 means we just want circles, not the full points
+  mapWorld+
+  plain+
+  coord_map("equirectangular")+
+  coord_cartesian(ylim = c(-50, 90))+ #get rid of Antarctica;
+  labs(title="")+
+  scale_size(range = c(1, 6))
+
+worldplot_plotly_object <- ggplotly(worldplot, tooltip = "text")
+worldplot_plotly_object %>% 
+  config(scrollZoom = TRUE)
+
+
+htmlwidgets::saveWidget(worldplot_plotly_object, "images/worldplot.html")
 ```
+:::
+
+## Citations per country ([full screen](https://oliviercaron.github.io/presentation_revealjs/Networks/networks/3D_worldmap_citations.html)) {.absolute}
+
+::: {.absolute top="70" left="-85"}
+```{r}
+#| label: worldwide-production-3D
+#| fig-height: 7
+#| fig-width: 13
+
+cited_country <- list_articles %>%
+  filter(!is.na(affiliation_country)) %>%
+  group_by(entry_number,affiliation_country) %>%
+  distinct(affiliation_country, .keep_all = TRUE) %>%
+  ungroup() %>%
+  group_by(affiliation_country) %>%
+  reframe("number_citations" = sum(citedby_count)) %>%
+  arrange(desc(number_citations))#%>%
+  #mutate(number_citations = log(number_citations+1))
+
+data3d <- cited_country %>% 
+  mutate(code = countrycode::countrycode(sourcevar = affiliation_country,
+                                 origin = "country.name",
+                                 destination = "iso3c")) #we need three-letter country codes (ISO 3166-1 alpha-3) to pass into plot_geo, otherwise it doesn't work
+
+
+#Set country boundaries as light grey
+l <- list(color = toRGB("#d1d1d1"), width = 0.5)
+#Specify map projection and options
+g <- list(
+           showframe      = TRUE,
+           showcoastlines = FALSE,
+           showsubunits   = TRUE,
+           projection     = list(type = 'orthographic'), #globe
+           resolution     = '100',
+           showcountries  = TRUE,
+           countrycolor   = '#d1d1d1',
+           showocean      = TRUE,
+           oceancolor     = '#c9d2e0',
+           showlakes      = FALSE,
+           lakecolor      = '#99c0db',
+           showrivers     = FALSE,
+           rivercolor     = '#99c0db',
+           family         = "sans-serif",
+           showlegend     = FALSE
+          )
+
+
+#worldmap with log(number of productions) 
+p <- plot_geo(data3d) %>%
+     add_trace(z = ~log(number_citations),
+               color     = ~number_citations,
+               colors    = 'OrRd',
+               locations = ~code,
+               text      = ~affiliation_country,
+               showscale = FALSE,
+               marker    = list(line = l)) %>%
+     layout(title = "",
+            geo = g,
+            margin = list(l = 40, r = 10, b = 30, t = 30)) #%>% hide_colorbar() we can either specify showscale = FALSE at the trace level or pipe with hide_colorbar()
+         
+p
+
+
+saveWidget(p,"images/3D_worldmap_citations.html")
+```
+:::
+
+## Construct data for network analysis‎
+
+### Arranging data for future nodes
+
+::: {.fragment .fade-in-then-out .column-page}
+```{r}
+#| label: arrange-data
+
+test <- list_articles %>%
+  group_by(authid) %>%
+  select(authid, authname, entry_number) %>%
+  mutate(n = n())
+
+result <- test %>%
+  group_by(authid) %>%
+  filter(n_distinct(authname) > 1) %>%
+  distinct(authid, .keep_all = TRUE)
+
+result %>% reactable(
+  striped = TRUE,
+  defaultPageSize = 5,
+  defaultColDef = colDef(minWidth = 100) # Set a minimum width of 100px for all columns
+)
+```
+:::
+
+## Construct data for network analysis
+
+### Arranging data for future nodes
+
+```{r}
+#| label: arrange-data-names
+#| column: page
+
+# Merge list_articles with result on the authid column
+merged_df <- left_join(list_articles, result, by = "authid")
+
+# Replace authname values in list_articles with those from result
+list_articles$authname <- ifelse(!is.na(merged_df$authname.y), merged_df$authname.y, list_articles$authname)
+
+test <- list_articles %>%
+  group_by(authid) %>%
+  select(authid, authname, entry_number) %>%
+  mutate(n = n())
+
+result <- test %>%
+  group_by(authid) %>%
+  filter(n_distinct(authname) > 1) %>%
+  distinct(authid, .keep_all = TRUE)
+
+result %>% reactable(
+  defaultPageSize = 5,
+  defaultColDef = colDef(minWidth = 100) # Set a minimum width of 100px for all columns
+)
+```
+
+The author names are now unique.
+
+```{r}
+#| label: show-code
+#| echo: true
+#| eval: false
+#| code-line-numbers: "|3|4"
+
+result <- test %>%
+  group_by(authid) %>%
+  filter(n_distinct(authname) > 1) %>% # Filter out authors with multiple names
+  distinct(authid, .keep_all = TRUE)
+```
+
+The "`.keep_all = TRUE`" property keeps the first occurrence of each
+group, which is the first row encountered for each unique combination of
+authid and authname.
+
+## Construct data for network analysis
+
+### Building an author collaboration dataframe
+
+-   Pair authors who have collaborated on the same article
+-   Example: Paul, Luc, Claire and Anne
+
+::: {.fragment .fade-up .column-page}
+| Author1 | Author2 |
+|---------|---------|
+| Paul    | Luc     |
+| Paul    | Claire  |
+| Paul    | Anne    |
+| Luc     | Claire  |
+| Luc     | Anne    |
+| Claire  | Anne    |
+:::
+
+```{r}
+#| label: latex-equation
+#| eval: false
+#| echo: false
+
+$C(n, 2)=\frac{n !}{2 !(n-2) !}$
+where $n$ is the number of authors
+```
+
+## Construct data for network analysis‎
+
+### Author collaboration dataframe: code
+
+```{python}
+#| label: python-pairs-authors
+#| eval: false
+#| echo: true
+#| column: screen-inset
+
+# Filter articles by a range of years using the 'year' column.
+filtered_articles = list_articles[(list_articles['year'] >= start_year) & (list_articles['year'] <= end_year)]
+
+# Initialize an empty list to hold the author pairs.
+author_pairs = []
+
+# Group the filtered articles by 'entry_number' and aggregate 'authid' and 'authname' into lists.
+grouped = filtered_articles.groupby('entry_number')[['authid', 'authname']].agg(list).reset_index()
+
+# Iterate over each grouped entry.
+for _, row in grouped.iterrows():
+    # Get the entry number from the row.
+    entry_number = row['entry_number']
+    # Get the list of author IDs for this entry.
+    authors = row['authid']
+    # Get the list of author names for this entry.
+    authnames = row['authname']
+
+    # If there is only one author, append a pair of the same author to the list.
+    if len(authors) == 1:
+        author_pairs.append((entry_number, authors[0], authors[0], authnames[0], authnames[0]))
+    # If there is more than one author, create all possible unique pairs.
+    elif len(authors) > 1:
+        # Create combinations of author indices (0, 1), (0, 2), etc.
+        author_combinations = list(combinations(range(len(authors)), 2))
+        # For each combination of indices, append the corresponding author IDs and names to the list.
+        for i, j in author_combinations:
+            author_pairs.append((entry_number, authors[i], authors[j], authnames[i], authnames[j]))
+
+# Create a DataFrame from the list of author pairs with specified column names.
+result_df = pd.DataFrame(author_pairs, columns=['entry_number', 'authid1', 'authid2', 'authname1', 'authname2'])
+
+# Extract only the columns with author names to create a collaboration DataFrame.
+collaboration_df = result_df[["authname1", "authname2"]]
+```
+
+## Create weighted edges
+
+### Sort cases where a-\>b and b-\>a
+
+::: columns
+::: {.column width="50%"}
+| Author1  | Author2  | Weight |
+|----------|----------|--------|
+| **Paul** | **Luc**  | **1**  |
+| Claire   | Anne     | 1      |
+| Claire   | Louis    | 1      |
+| **Luc**  | **Paul** | **1**  |
+:::
+
+::: {.column .fragment .fade-up width="50%"}
+| Author1  | Author2 | Weight |
+|----------|---------|--------|
+| **Paul** | **Luc** | **2**  |
+| Claire   | Anne    | 1      |
+| Claire   | Louis   | 1      |
+:::
+:::
+
+<br>
+
+```{python}
+#| label: python-weighted-edges
+#| eval: false
+#| echo: true
+
+collaboration_df = pd.DataFrame(np.sort(collaboration_df.values, axis=1), columns=collaboration_df.columns)
+collaboration_df['value'] = 1
+collaboration_df = collaboration_df.groupby(["authname1", "authname2"], sort=False, as_index=False).sum()
+```
+
+## Create the network
+
+### And add information to the nodes
+
+```{python}
+#| label: python-node-dict
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|3|4|6,7|11,12,13,14,15,16|20,21|24|27,28"
+
+# Create a graph from a pandas DataFrame using 'authname1' and 'authname2' as the nodes
+# and 'value' as the edge weight
+G = nx.from_pandas_edgelist(collaboration_df, 'authname1', 'authname2', 
+                            edge_attr='value', create_using=nx.Graph())
+# Set a default color for all edges in the graph
+for u, v in G.edges:
+    G[u][v]["color"] = "#7D7C7C"
+
+# Define a dictionary of network analysis functions to compute different centrality metrics
+metrics = {
+    'centrality': nx.degree_centrality,  # Basic centrality measure based on degree
+    'betweenness': nx.betweenness_centrality,  # Measure of a node's bridging of paths
+    'closeness': nx.closeness_centrality,  # Measure of average distance to all other nodes
+    'eigenvector_centrality': partial(nx.eigenvector_centrality, max_iter=1000),  # Measure of node influence
+    'burt_constraint_weighted': partial(nx.constraint, weight="value"),  # Measure of node's constraint considering edge weights
+    'burt_constraint_unweighted': nx.constraint  # Measure of node's constraint ignoring edge weights
+}
+
+# Apply each centrality metric to the graph and set it as a node attribute
+for attr, func in metrics.items():
+    nx.set_node_attributes(G, func(G), attr)
+
+# Retrieve author information from the filtered articles using a custom function
+author_info = get_author_info(filtered_articles, COLUMNS_TO_COLLECT)
+
+# Set additional author attributes to the graph nodes based on the author_info
+for col in COLUMNS_TO_COLLECT:
+    nx.set_node_attributes(G, author_info[col], col)
+```
+
+# Networks (finally) {background-iframe="colored-particles/index.html"}
+
+## Matplotlib {.absolute}
+
+::: fade-in-then-out
+```{python}
+#| label: python-matplotlib
+#| eval: false
+#| echo: true
+plt.figure(figsize=(20,20))
+pos = nx.kamada_kawai_layout(G)
+
+nx.draw(G, with_labels=True, node_color='skyblue', edge_cmap=plt.cm.Blues, pos=pos)
+```
+:::
+
+::: {.fragment .absolute .fade-up top="-100" right="-50" height="83%" width="83%"}
+![](images/network-matplotlib.png)
+:::
+
+## Pyvis
+
+::: {.fragment .fade-in-then-out}
+```{python}
+#| label: python-pyvis
+#| eval: false
+#| echo: true
+from pyvis.network import Network
+
+net = Network(notebook=True, cdn_resources='remote', width=1500, height=1500, bgcolor="white", font_color="black")
+#net.show_buttons(filter_=['physics'])
+net.set_options("""
+const options = {
+  "physics": {
+    "forceAtlas2Based": {
+      "gravitationalConstant": -13,
+      "centralGravity": 0.015,
+      "springLength": 70
+    },
+    "minVelocity": 0.75,
+    "solver": "forceAtlas2Based"
+  }
+}
+""")
+
+net.from_nx(G)
+net.show("networks/authors/network_2022_2023_pyvis.html")
+```
+:::
+
+::: {.fragment .absolute .fade-up top="50" right="-30" height="700"}
+<iframe width="1100" height="700" src="networks/authors/network_2022_2023_pyvis.html" title="Pyvis 2022 2023" frameborder="0" class="column-page">
+
+</iframe>
+:::
+
+## Pyvis with Louvain
+
+::: {.fragment .fade-in-then-out}
+```{python}
+#| label: python-pyvis-louvain
+#| eval: false
+#| echo: true
+import community as community_louvain
+
+# Compute the best partition
+communities = community_louvain.best_partition(G)
+
+nx.set_node_attributes(G, communities, 'group')
+```
+:::
+
+::: {.fragment .absolute .fade-up top="50" right="-30" height="700"}
+<iframe width="1100" height="700" src="networks/authors/network_2022_2023_louvain_pyvis.html" title="Pyvis 2022 2023" frameborder="0">
+
+</iframe>
+:::
+
+## ipysigma 2022-2023 [@plique:hal-03903518v1]
+
+::: {.fragment .fade-in-then-out}
+```{python}
+#| label: python-ipysigma-2022-2023
+#| eval: false
+#| echo: true
+Sigma.write_html(G,
+   default_edge_type       = "curve",                                                     # Default edge type
+   clickable_edges         = True,                                                        # Clickable edges
+   edge_size               = "value",                                                     # Set edge size
+   fullscreen              = True,                                                        # Display in fullscreen
+   label_density           = 3,                                                           # Label density (= increase to have more labels appear at normal zoom level)
+   label_font              = "Helvetica Neue",                                            # Label font
+   max_categorical_colors  = 10,                                                          # Max categorical colors
+   node_border_color_from  = 'node',                                                      # Node border color from node attribute
+   node_color              = "community",                                                 # Set node colors
+   node_label_size         = "citations",                                                 # Node label size
+   node_label_size_range   = (12, 36),                                                    # Node label size range
+   node_metrics            = {"community": {"name": "louvain", "resolution": 1}},         # Specify node metrics
+   node_size               = "citations",                                                 # Node size
+   node_size_range         = (3, 30),                                                     # Node size range
+   path                    = f"networks/authors/{start_year}_{end_year}_sigma_v2.html",   # Output file path
+   start_layout            = 3,                                                           # Start layout algorithm
+   #node_border_color      = "black",                                                     # Node border color
+   #edge_color             = "#7D7C7C"                                                    # Edge color
+   # node_label_color      = "community"                                                  # Node label color
+                 )
+
+    return G, df
+```
+:::
+
+::: {.fragment .absolute .fade-up top="50" right="-30" height="900"}
+<iframe width="1500" height="900" src="networks/authors/2021_2023_sigma_v2.html" title="Sigma graph" frameborder="0" class="column-page">
+
+</iframe>
+:::
+
+## To be continued...
+
+-   Qualitative analysis of the authors' communities over time
+-   Writing, writing, writing the paper
+
+::: {style="text-align: center"}
+### Thank you for your attention
+:::
+
+
+| **Code**                                 | **Slides**                               | **Personal Github**                               |
+|------------------------|------------------------|------------------------|
+| ![](images/networks_code_qr.png){width="100%"} | ![](images/slides_qr.png){width="100%"} | ![](images/github_qr.png){width="100%"} |
+
+## References
