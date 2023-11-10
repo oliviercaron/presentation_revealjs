@@ -215,7 +215,7 @@ plain <- theme(
   plot.title = element_text(hjust = 0.5)
 )
 
-#important to include the country name and the country name so that tidygeocoder can find the right city
+#important to include the country name and the city name so that tidygeocoder can find the right city
 #exemple : I had some problems with the city "Cambridge" which is in the US and in the UK. Now they both have different latitude and longitude
 productive_affiliations$city_country <- paste(productive_affiliations$affiliation_city, productive_affiliations$affiliation_country, sep = ", ")
 
