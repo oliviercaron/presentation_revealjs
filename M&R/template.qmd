@@ -104,11 +104,11 @@ import pandas as pd
 
 -   They are particularly suitable for marketing concerns:
 
-    -   Evaluate customer feebacks, gauging public sentiment
+    - Evaluate customer feebacks, gauging public sentiment
 
-    -   Detect emotional responses to products and marketing campaigns
+    - Detect emotional responses to products and marketing campaigns
 
-    -   Detect trends and consumer preferences.
+    - Detect trends, consumer preferences and needs.
 
 ## Specific research practices
 
