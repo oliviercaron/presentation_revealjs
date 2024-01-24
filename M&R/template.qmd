@@ -1,0 +1,480 @@
+---
+title: The diffusion of NLP methods in marketing research
+#bibliography: references.bib
+subtitle: A systematic analysis
+format: 
+  clean-revealjs
+author:
+  - name: Olivier Caron
+    orcid: 0000-0000-0000-0000
+    email: olivier.caron@dauphine.psl.eu
+    affiliations:
+      name: "Paris Dauphine - PSL"
+      city: Paris
+      state: France
+  - name: Christophe Benavent
+    orcid: 0000-0002-7253-5747
+    email: christophe.benavent@dauphine.psl.eu
+    affiliations:
+      name: "Paris Dauphine - PSL"
+      city: Paris
+      state: France
+date: last-modified
+editor: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+csl: apa.csl
+---
+
+```{r}
+#| label: libraries-data-r
+#| include: false
+#| eval: true
+
+library(cowplot)
+library(tidyverse)
+library(ggstatsplot)
+library(reticulate)
+library(gt)
+library(plotly)
+library(countrycode)
+library(htmlwidgets)
+library(reactable)
+
+scimago <- read.csv2("data/scimago_journals_marketing_onlyQ3_2022.csv")
+
+list_articles <- read.csv2("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv") %>%
+  filter(year < 2024) %>%
+  filter(entry_number != 769) %>% #remove the "NLP" article about neurolinguistic programming
+  filter(!str_detect(subtypeDescription, "Proceedings|Conference|Transactions|Erratum|Letter|Note"))
+
+
+#replace "." in the columns names by "_". But if there are multiple dots like "...", we replace only by one "_"
+# if the dots are in the start or end of the column name, we remove them. Also replace multiple "_" by one "_"
+
+colnames(list_articles) <- gsub("\\.+", ".", colnames(list_articles)) 
+colnames(list_articles) <- gsub("^\\.|\\.$", "", colnames(list_articles)) 
+colnames(list_articles) <- gsub("\\.", "_", colnames(list_articles)) 
+colnames(list_articles) <- gsub("_+", "_", colnames(list_articles))
+
+colnames(scimago) <- gsub("\\.+", ".", colnames(scimago))
+colnames(scimago) <- gsub("^\\.|\\.$", "", colnames(scimago))
+colnames(scimago) <- gsub("\\.", "_", colnames(scimago))
+colnames(scimago) <- gsub("_+", "_", colnames(scimago))
+
+write.csv2(list_articles, "data/filtered_articles", row.names = FALSE)
+
+#table(list_articles$subtypeDescription)
+  
+
+#list_references <- py$list_references %>%
+  #mutate(year = strtoi(substr(`prism:coverDate`,1,4))) %>%
+  #rename(scopus_eid = "scopus-eid",
+         #authid = "author-list.author.@auid")
+
+```
+
+```{python}
+#| label: libraries-data-python
+#| include: false
+#| eval: true
+import pandas as pd
+
+#list_articles = pd.read_csv("data/filtered_articles", sep=';', decimal=',')
+
+#list_articles = pd.read_csv("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv", sep=';', decimal=',')
+#list_articles = list_articles.loc[list_articles["year"] < 2024]
+
+#list_articles = list_articles[list_articles['marketing'] == 1] #only marketing articles
+#list_references = pd.read_csv("data/nlp_references_final_18-08-2023.csv", sep=';', decimal=',')
+
+```
+
+## Research context
+
+### NLP methods are increasingly used in marketing research
+
+-   NLP methods enable the conversion of text into quantifiable data for
+    in-depth analysis.
+
+-   These methods make it possible to evaluate a very large amount of
+    data, which is often impossible or incomplete with qualitative
+    methods.
+
+-   They are particularly suitable for marketing concerns:
+
+    - Evaluate customer feebacks, gauging public sentiment
+
+    - Detect emotional responses to products and marketing campaigns
+
+    - Detect trends, consumer preferences and needs.
+
+## Specific research practices
+
+-   Institutional Framework promote competition in academia driven by
+    journal rankings and citation scores, influencing researcher
+    compensation and career advancement. [@richard2015]
+
+-   Concentration of research in major publishers (Elsevier, Thomson)
+    with an increasing number of journals with facilitated access
+    through bibliographic search interfaces.
+
+## What are the factors driving the diffusion of NLP methods?
+
+-   Researcher must elaborate strategies to advance their career
+    [@kolesnikov2018]
+
+    -   Balance between productivity, impact, originality, legitimacy,
+        learning costs.
+
+-   These strategies can be thought of in terms of the technology
+    acceptance model from @davis1989
+
+    -   Adopt NLP methods based on interest (1) and ease of use (2)
+
+-   NLP methods are used in close communities of practice [@lave1991;
+    @hauser2006]
+
+-   Management trends [@abrahamson1991]
+
+## Data presentation
+
+### Articles
+
+-   There are [`r n_distinct(list_articles$entry_number)`]{.fg
+    style="--col: #e64173"} articles and
+    [`r n_distinct(list_articles$authid)`]{.fg style="--col: #e64173"}
+    unique authors
+
+-   Date of publication range from [`r min(list_articles$year)`]{.fg
+    style="--col: #e64173"} to [`r max(list_articles$year)`]{.fg
+    style="--col: #e64173"}
+
+### Data collection
+
+-   All data were collected from Scopus.
+
+### Keywords
+
+-   "natural language processing", "nlp", "embeddings", "chatgpt",
+    "liwc", "transformers", "word2vec", "wordtovec", "lda", "text
+    mining", "text-mining", "text analysis", "text analytics",
+    "text-analytics", "text-analysis"
+
+### Journals
+
+-   [`r nrow(scimago)`]{.fg
+    style="--col: #e64173"} journals ranked from the first to third quartile according to the [SCImago Journal
+    Rank](https://www.scimagojr.com/journalrank.php?category=1406&area=1400&type=j "SCImago Marketing") in the field of marketing.
+
+
+
+```{r}
+#| label: worldwide-production
+#| column: page
+#| ncol: 2
+#| include: false
+#| eval: true
+
+# regroup must productive affiliations by affiliation
+# We count only one production per affiliation even if 3 authors from the same affiliation have published the same paper together
+productive_affiliations <- list_articles %>%
+  filter(!is.na(afid)) %>%
+  group_by(entry_number,afid) %>%
+  distinct(afid, .keep_all = TRUE) %>%
+  ungroup() %>%
+  group_by(afid, affilname, affiliation_city, affiliation_country) %>%
+  reframe("number_productions" = n()) %>%
+  arrange(desc(number_productions))
+
+
+
+ggsave("images/25most_productive_affiliations.svg", width=10)
+```
+
+## Production per affiliation {.absolute}
+
+::: {.absolute top="60" left="-120"}
+```{r}
+#| label: worldwide-production-affiliation
+#| fig-height: 7
+#| fig-width: 13
+
+#have a look at countries on a worldmap
+#specify some theme properties
+plain <- theme(
+  axis.text        = element_blank(),
+  axis.line        = element_blank(),
+  axis.ticks       = element_blank(),
+  panel.border     = element_blank(),
+  panel.grid       = element_blank(),
+  axis.title       = element_blank(),
+  panel.background = element_rect(fill = "white"),
+  plot.title = element_text(hjust = 0.5)
+)
+
+#important to include the country name and the city name so that tidygeocoder can find the right city
+#exemple : I had some problems with the city "Cambridge" which is in the US and in the UK. Now they both have different latitude and longitude
+productive_affiliations$city_country <- paste(productive_affiliations$affiliation_city, productive_affiliations$affiliation_country, sep = ", ")
+
+#enables us to get latitude and longitude of affiliation cities so we can place the cities on a worldmap
+#It's a bit long so I commented it and saved the result in a csv file
+#result_tidygeocoder <- tidygeocoder::geocode(productive_affiliations,
+                                          #city_country,
+                                          #method="osm") #OpenStreetMap data
+                                          
+#write_csv(result_tidygeocoder, "data/affiliations_geocoded.csv")
+
+result_tidygeocoder <-read.csv("data/affiliations_geocoded.csv")
+
+result_tidygeocoder <- result_tidygeocoder %>% filter(!is.na(affiliation_city))
+
+mapWorld <- borders("world", colour="gray30", fill="#cbc8c3", size=0.2)
+world <- map_data("world")
+worldplot <- ggplot() +
+  geom_polygon(data = world, aes(x = long, y = lat, group = group)) +
+  geom_point(data = result_tidygeocoder, color="#f38181", alpha=0.9, aes(x=long, y = lat, size = number_productions))+
+  geom_point(data = result_tidygeocoder,
+             colour="black",
+             shape=1,
+             aes(x=long, y = lat,
+                 size = number_productions,
+                 text= paste0("Affiliation: ",
+                              affilname,
+                              "\nAffiliation city: ",
+                              affiliation_city,
+                              "\nNumber of productions: ",
+                              number_productions),
+                 stroke = 0.20))+ #stroke is the width of the second black point and shape=1 means we just want circles, not the full points
+  mapWorld+
+  plain+
+  coord_map("equirectangular")+
+  coord_cartesian(ylim = c(-50, 90))+ #get rid of Antarctica;
+  labs(title="")+
+  scale_size(range = c(1, 6))
+
+worldplot_plotly_object <- ggplotly(worldplot, tooltip = "text")
+worldplot_plotly_object %>% 
+  config(scrollZoom = TRUE)
+
+
+htmlwidgets::saveWidget(worldplot_plotly_object, "images/worldplot.html")
+```
+:::
+
+## Citations per country {.absolute}
+
+::: {.absolute top="70" left="-85"}
+```{r}
+#| label: worldwide-production-3D
+#| fig-height: 7
+#| fig-width: 13
+
+cited_country <- list_articles %>%
+  filter(!is.na(affiliation_country)) %>%
+  group_by(entry_number,affiliation_country) %>%
+  distinct(affiliation_country, .keep_all = TRUE) %>%
+  ungroup() %>%
+  group_by(affiliation_country) %>%
+  reframe("number_citations" = sum(citedby_count)) %>%
+  arrange(desc(number_citations))
+
+cited_affiliation <- list_articles %>%
+  filter(!is.na(affilname)) %>%
+  group_by(entry_number,affilname) %>%
+  distinct(affilname, .keep_all = TRUE) %>%
+  ungroup() %>%
+  group_by(affilname, affiliation_country, affiliation_city) %>%
+  reframe("number_citations" = sum(citedby_count)) %>%
+  arrange(desc(number_citations))#%>%
+
+
+data3d <- cited_country %>% 
+  mutate(code = countrycode::countrycode(sourcevar = affiliation_country,
+                                 origin = "country.name",
+                                 destination = "iso3c")) #we need three-letter country codes (ISO 3166-1 alpha-3) to pass into plot_geo, otherwise it doesn't work
+
+
+#Set country boundaries as light grey
+l <- list(color = toRGB("#d1d1d1"), width = 0.5)
+#Specify map projection and options
+g <- list(
+           showframe      = TRUE,
+           showcoastlines = FALSE,
+           showsubunits   = TRUE,
+           projection     = list(type = 'orthographic'), #globe
+           resolution     = '100',
+           showcountries  = TRUE,
+           countrycolor   = '#d1d1d1',
+           showocean      = TRUE,
+           oceancolor     = '#c9d2e0',
+           showlakes      = FALSE,
+           lakecolor      = '#99c0db',
+           showrivers     = FALSE,
+           rivercolor     = '#99c0db',
+           family         = "sans-serif",
+           showlegend     = FALSE
+          )
+
+
+#worldmap with log(number of productions) 
+p <- plot_geo(data3d) %>%
+     add_trace(z = ~log(number_citations),
+               color     = ~number_citations,
+               colors    = 'OrRd',
+               locations = ~code,
+               text      = ~affiliation_country,
+               showscale = FALSE,
+               marker    = list(line = l)) %>%
+     layout(title = "",
+            geo = g,
+            margin = list(l = 40, r = 10, b = 30, t = 30)) #%>% hide_colorbar() we can either specify showscale = FALSE at the trace level or pipe with hide_colorbar()
+         
+p
+
+ggdotplotstats(
+  data       = head(cited_country,25),
+  y          = affiliation_country,
+  x          = number_citations,
+  test.value = 25,
+  type       = "robust",
+  title      = "Distribution of academic citations among the 25 most cited countries",
+  xlab       = "Number of citations (articles, review, editorial)"
+)
+
+saveWidget(p,"images/3D_worldmap_citations.html")
+```
+:::
+
+## A focus on affiliations: number of [productions]{.fg style="--col: #e64173"}
+
+```{r}
+#| label: ggstatplot-productions
+#| fig-height: 6
+#| fig-width: 11
+
+ggdotplotstats(
+  data       = head(productive_affiliations,25),
+  y          = affilname,
+  x          = number_productions,
+  test.value = 25,
+  type       = "robust",
+  title      = "Distribution of academic productions among the 25 most productive affiliations",
+  xlab       = "Number of productions (articles, review, editorial)"
+)
+```
+
+## A focus on affiliations: number of [citations]{.fg style="--col: #3cb371"}
+
+```{r}
+#| label: ggstatplot-citations
+#| fig-height: 6
+#| fig-width: 11
+
+ggdotplotstats(
+  data       = head(cited_affiliation,25),
+  y          = affilname,
+  x          = number_citations,
+  test.value = 25,
+  type       = "robust",
+  title      = "Distribution of academic citations among the 25 most cited affiliations",
+  xlab       = "Number of citations (articles, review, editorial)"
+)
+```
+
+## Management trend in publication volume
+
+```{r}
+#| label: evolution-publications
+#| fig-height: 12
+#| fig-width: 20
+#| fig-align: center
+#| column: page
+
+nlp_papers <- list_articles
+
+#get rid of conference papers
+#nlp_papers_journal_only <- nlp_papers %>%
+  #filter(!grepl("conference", subtypeDescription, ignore.case = TRUE)) #%>%
+  #filter(year < 2023)
+
+
+t0 <-prop.table(table(nlp_papers$`prism_publicationName`)) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq)) %>%
+  mutate(Var1 = sub(".*:", "", Var1)) %>% #just because title of Proceedings of the Academy... is too long to display
+  head(30)
+
+t0 <- left_join(t0, scimago, by = c(Var1 = "Title"))
+
+t1<-as.data.frame(table(nlp_papers$year)) 
+
+g01 <- ggplot(t0, aes(x=reorder(paste(Var1, "-", SJR_Quartile, "| Rank:", Rank), Freq), y=Freq)) +
+  geom_bar(stat="identity", fill="steelblue") +
+  coord_flip() +
+  theme_minimal(base_size = 12) + 
+  labs(title="Number of Articles per Journal", y="Proportion", x="") +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 45, hjust = 1),  
+    axis.text.y = element_text(size = 10),
+    plot.title = element_text(size = 16)
+  )
+
+
+# Graph 2: Number of publications per year
+g02 <- ggplot(t1, aes(x=Var1, y=Freq, group=1)) +
+  geom_line(size=1.1, color="steelblue") +
+  geom_point(size=2, color="steelblue") +
+  geom_smooth(color="#7D7C7C", linewidth=0.5)+
+  theme_minimal() +
+  labs(title="Number of Publications per Year", y="", x="Year") +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+    axis.title.x = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16) # Set title size to 16
+  )
+
+
+plotgrid <- plot_grid(g01,
+                      g02,
+                      label_size = 10,
+                      ncol=2,
+                      rel_widths =  c(1,1))
+ggsave(filename="images/evolution_publications_nlp_marketing.png",
+       width = 80, 
+       height = 40, 
+       units = "cm")
+plotgrid
+```
+
+# The network of authors is becoming increasingly sparse {background-iframe="colored-particles/index.html"}
+
+## The structure of author networks (until 2015)
+
+## The structure of author networks (until 2023)
+
+## Some measures of network structure
+
+## A concentric propagation of topics
+
+-   STM algorithm with year as covariates
+
+## To be continued...
+
+-   Qualitative analysis of the authors' communities over time
+-   Writing, writing, writing the paper
+
+::: {style="text-align: center"}
+### Thank you for your attention
+:::
+
+| **Code**                                       | **Slides**                              | **Personal Github**                     |
+|------------------------|------------------------|------------------------|
+| ![](images/networks_code_qr.png){width="100%"} | ![](images/slides_qr.png){width="100%"} | ![](images/github_qr.png){width="100%"} |
+
+## References
+
+::: {#refs}
+:::
