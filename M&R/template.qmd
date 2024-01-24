@@ -24,6 +24,7 @@ editor:
   markdown: 
     wrap: 72
 bibliography: references.bib
+csl: apa.csl
 ---
 
 ```{r}
@@ -107,16 +108,35 @@ import pandas as pd
 
     -   Detect emotional responses to products and marketing campaigns
 
-    -   Detect trends and consumer preferences...
+    -   Detect trends and consumer preferences.
 
-### What are the factors driving the diffusion of NLP methods?
+## Specific research practices
 
--   NLP methods enable the conversion of text into quantifiable data for
-    in-depth analysis.
+-   Institutional Framework promote competition in academia driven by
+    journal rankings and citation scores, influencing researcher
+    compensation and career advancement. [@richard2015]
 
--   eee
+-   Concentration of research in major publishers (Elsevier, Thomson)
+    with an increasing number of journals with facilitated access
+    through bibliographic search interfaces.
 
--   
+## What are the factors driving the diffusion of NLP methods?
+
+-   Researcher must elaborate strategies to advance their career
+    [@kolesnikov2018]
+
+    -   Balance between productivity, impact, originality, legitimacy,
+        learning costs.
+
+-   These strategies can be thought of in terms of the technology
+    acceptance model from @davis1989
+
+    -   Adopt NLP methods based on interest (1) and ease of use (2)
+
+-   NLP methods are used in close communities of practice [@lave1991;
+    @hauser2006]
+
+-   Management trends [@abrahamson1991]
 
 ## Data presentation
 
@@ -135,71 +155,20 @@ import pandas as pd
 
 -   All data were collected from Scopus.
 
-## Trends in publication volume
+### Keywords
 
-```{r}
-#| label: evolution-publications
-#| fig-height: 12
-#| fig-width: 20
-#| fig-align: center
-#| column: page
+-   "natural language processing", "nlp", "embeddings", "chatgpt",
+    "liwc", "transformers", "word2vec", "wordtovec", "lda", "text
+    mining", "text-mining", "text analysis", "text analytics",
+    "text-analytics", "text-analysis"
 
-nlp_papers <- list_articles
+### Journals
 
-#get rid of conference papers
-#nlp_papers_journal_only <- nlp_papers %>%
-  #filter(!grepl("conference", subtypeDescription, ignore.case = TRUE)) #%>%
-  #filter(year < 2023)
+-   [`r nrow(scimago)`]{.fg
+    style="--col: #e64173"} journals ranked from the first to third quartile according to the [SCImago Journal
+    Rank](https://www.scimagojr.com/journalrank.php?category=1406&area=1400&type=j "SCImago Marketing") in the field of marketing.
 
 
-t0 <-prop.table(table(nlp_papers$`prism_publicationName`)) %>%
-  as.data.frame() %>%
-  arrange(desc(Freq)) %>%
-  mutate(Var1 = sub(".*:", "", Var1)) %>% #just because title of Proceedings of the Academy... is too long to display
-  head(30)
-
-t0 <- left_join(t0, scimago, by = c(Var1 = "Title"))
-
-t1<-as.data.frame(table(nlp_papers$year)) 
-
-g01 <- ggplot(t0, aes(x=reorder(paste(Var1, "-", SJR_Quartile, "| Rank:", Rank), Freq), y=Freq)) +
-  geom_bar(stat="identity", fill="steelblue") +
-  coord_flip() +
-  theme_minimal(base_size = 12) + 
-  labs(title="Number of Articles per Journal", y="Proportion", x="") +
-  theme(
-    axis.title.x = element_text(size = 16),
-    axis.text.x = element_text(size = 14, angle = 45, hjust = 1),  
-    axis.text.y = element_text(size = 10),
-    plot.title = element_text(size = 16)
-  )
-
-
-# Graph 2: Number of publications per year
-g02 <- ggplot(t1, aes(x=Var1, y=Freq, group=1)) +
-  geom_line(size=1.1, color="steelblue") +
-  geom_point(size=2, color="steelblue") +
-  geom_smooth(color="#7D7C7C", linewidth=0.5)+
-  theme_minimal() +
-  labs(title="Number of Publications per Year", y="", x="Year") +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
-    axis.title.x = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 16) # Set title size to 16
-  )
-
-
-plotgrid <- plot_grid(g01,
-                      g02,
-                      label_size = 10,
-                      ncol=2,
-                      rel_widths =  c(1,1))
-ggsave(filename="images/evolution_publications_nlp_marketing.png",
-       width = 80, 
-       height = 40, 
-       units = "cm")
-plotgrid
-```
 
 ```{r}
 #| label: worldwide-production
@@ -215,7 +184,7 @@ productive_affiliations <- list_articles %>%
   group_by(entry_number,afid) %>%
   distinct(afid, .keep_all = TRUE) %>%
   ungroup() %>%
-  group_by(afid, affilname, affiliation_country) %>%
+  group_by(afid, affilname, affiliation_city, affiliation_country) %>%
   reframe("number_productions" = n()) %>%
   arrange(desc(number_productions))
 
@@ -265,18 +234,18 @@ mapWorld <- borders("world", colour="gray30", fill="#cbc8c3", size=0.2)
 world <- map_data("world")
 worldplot <- ggplot() +
   geom_polygon(data = world, aes(x = long, y = lat, group = group)) +
-  geom_point(data = result_tidygeocoder, color="#f38181", alpha=0.9, aes(x=long, y = lat, size = number_occurences))+
+  geom_point(data = result_tidygeocoder, color="#f38181", alpha=0.9, aes(x=long, y = lat, size = number_productions))+
   geom_point(data = result_tidygeocoder,
              colour="black",
              shape=1,
              aes(x=long, y = lat,
-                 size = number_occurences,
+                 size = number_productions,
                  text= paste0("Affiliation: ",
                               affilname,
                               "\nAffiliation city: ",
                               affiliation_city,
                               "\nNumber of productions: ",
-                              number_occurences),
+                              number_productions),
                  stroke = 0.20))+ #stroke is the width of the second black point and shape=1 means we just want circles, not the full points
   mapWorld+
   plain+
@@ -414,14 +383,83 @@ ggdotplotstats(
 )
 ```
 
-## Construct data for network analysis‎
+## Management trend in publication volume
 
-### Arranging data for future nodes
+```{r}
+#| label: evolution-publications
+#| fig-height: 12
+#| fig-width: 20
+#| fig-align: center
+#| column: page
 
-::: {.fragment .fade-in-then-out .column-page}
-:::
+nlp_papers <- list_articles
 
-# Networks (finally) {background-iframe="colored-particles/index.html"}
+#get rid of conference papers
+#nlp_papers_journal_only <- nlp_papers %>%
+  #filter(!grepl("conference", subtypeDescription, ignore.case = TRUE)) #%>%
+  #filter(year < 2023)
+
+
+t0 <-prop.table(table(nlp_papers$`prism_publicationName`)) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq)) %>%
+  mutate(Var1 = sub(".*:", "", Var1)) %>% #just because title of Proceedings of the Academy... is too long to display
+  head(30)
+
+t0 <- left_join(t0, scimago, by = c(Var1 = "Title"))
+
+t1<-as.data.frame(table(nlp_papers$year)) 
+
+g01 <- ggplot(t0, aes(x=reorder(paste(Var1, "-", SJR_Quartile, "| Rank:", Rank), Freq), y=Freq)) +
+  geom_bar(stat="identity", fill="steelblue") +
+  coord_flip() +
+  theme_minimal(base_size = 12) + 
+  labs(title="Number of Articles per Journal", y="Proportion", x="") +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 45, hjust = 1),  
+    axis.text.y = element_text(size = 10),
+    plot.title = element_text(size = 16)
+  )
+
+
+# Graph 2: Number of publications per year
+g02 <- ggplot(t1, aes(x=Var1, y=Freq, group=1)) +
+  geom_line(size=1.1, color="steelblue") +
+  geom_point(size=2, color="steelblue") +
+  geom_smooth(color="#7D7C7C", linewidth=0.5)+
+  theme_minimal() +
+  labs(title="Number of Publications per Year", y="", x="Year") +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+    axis.title.x = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16) # Set title size to 16
+  )
+
+
+plotgrid <- plot_grid(g01,
+                      g02,
+                      label_size = 10,
+                      ncol=2,
+                      rel_widths =  c(1,1))
+ggsave(filename="images/evolution_publications_nlp_marketing.png",
+       width = 80, 
+       height = 40, 
+       units = "cm")
+plotgrid
+```
+
+# The network of authors is becoming increasingly sparse {background-iframe="colored-particles/index.html"}
+
+## The structure of author networks (until 2015)
+
+## The structure of author networks (until 2023)
+
+## Some measures of network structure
+
+## A concentric propagation of topics
+
+-   STM algorithm with year as covariates
 
 ## To be continued...
 
@@ -437,3 +475,6 @@ ggdotplotstats(
 | ![](images/networks_code_qr.png){width="100%"} | ![](images/slides_qr.png){width="100%"} | ![](images/github_qr.png){width="100%"} |
 
 ## References
+
+::: {#refs}
+:::
