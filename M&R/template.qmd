@@ -47,7 +47,12 @@ scimago <- read.csv2("data/scimago_journals_marketing_onlyQ3_2022.csv")
 list_articles <- read.csv2("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv") %>%
   filter(year < 2024) %>%
   filter(entry_number != 769) %>% #remove the "NLP" article about neurolinguistic programming
-  filter(!str_detect(subtypeDescription, "Proceedings|Conference|Transactions|Erratum|Letter|Note"))
+  filter(!str_detect(subtypeDescription, "Proceedings|Conference|Transactions|Erratum|Letter|Note")) %>%
+  mutate(
+    authkeywords = str_replace_all(authkeywords, "\\|", ""), # Delete the "|" separator
+    authkeywords = str_squish(authkeywords), # Let only one space between words and delete the space at the beginning and the end of the string
+    combined_text = paste(dc_title, dc_description, authkeywords),
+    combined_test = tolower(combined_text)) # lower so it will be easier to count words
 
 
 #replace "." in the columns names by "_". But if there are multiple dots like "...", we replace only by one "_"
@@ -63,7 +68,7 @@ colnames(scimago) <- gsub("^\\.|\\.$", "", colnames(scimago))
 colnames(scimago) <- gsub("\\.", "_", colnames(scimago))
 colnames(scimago) <- gsub("_+", "_", colnames(scimago))
 
-write.csv2(list_articles, "data/filtered_articles", row.names = FALSE)
+write.csv2(list_articles, "data/filtered_articles.csv", row.names = FALSE)
 
 #table(list_articles$subtypeDescription)
   
@@ -104,11 +109,9 @@ import pandas as pd
 
 -   They are particularly suitable for marketing concerns:
 
-    - Evaluate customer feebacks, gauging public sentiment
-
-    - Detect emotional responses to products and marketing campaigns
-
-    - Detect trends, consumer preferences and needs.
+    -   Evaluate customer feebacks, gauging public sentiment
+    -   Detect emotional responses to products and marketing campaigns
+    -   Detect trends, consumer preferences and needs.
 
 ## Specific research practices
 
@@ -164,11 +167,10 @@ import pandas as pd
 
 ### Journals
 
--   [`r nrow(scimago)`]{.fg
-    style="--col: #e64173"} journals ranked from the first to third quartile according to the [SCImago Journal
-    Rank](https://www.scimagojr.com/journalrank.php?category=1406&area=1400&type=j "SCImago Marketing") in the field of marketing.
-
-
+-   [`r nrow(scimago)`]{.fg style="--col: #e64173"} journals ranked from
+    the first to third quartile according to the [SCImago Journal
+    Rank](https://www.scimagojr.com/journalrank.php?category=1406&area=1400&type=j "SCImago Marketing")
+    in the field of marketing.
 
 ```{r}
 #| label: worldwide-production
@@ -461,6 +463,25 @@ plotgrid
 
 -   STM algorithm with year as covariates
 
+## Main NLP techniques used
+
+We want to count the number of times each NLP technique is used in the articles.
+To do so, we will detect the present of the name of the techniques and their different synonyms in the abstracts, title, and keywords of the articles.
+If it appears multiple times, we will count it only once.
+
+
+```{r}
+#| label: count-nlp-techniques
+
+list_articles_techniques <- list_articles %>%
+  distinct(entry_number, .keep_all = TRUE)
+
+
+
+```
+
+## Diffusion and delay of NLP techniques
+
 ## To be continued...
 
 -   Qualitative analysis of the authors' communities over time
@@ -471,7 +492,7 @@ plotgrid
 :::
 
 | **Code**                                       | **Slides**                              | **Personal Github**                     |
-|------------------------|------------------------|------------------------|
+|---------------------------|-----------------------|-----------------------|
 | ![](images/networks_code_qr.png){width="100%"} | ![](images/slides_qr.png){width="100%"} | ![](images/github_qr.png){width="100%"} |
 
 ## References
