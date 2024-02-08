@@ -440,6 +440,7 @@ where $n$ is the number of authors
 #| eval: false
 #| echo: true
 #| column: screen-inset
+#| code-line-numbers: "2|8|20,21,23,25,27,28|31,34"
 
 # Filter articles by a range of years using the 'year' column.
 filtered_articles = list_articles[(list_articles['year'] >= start_year) & (list_articles['year'] <= end_year)]
@@ -506,6 +507,7 @@ collaboration_df = result_df[["authname1", "authname2"]]
 #| label: python-weighted-edges
 #| eval: false
 #| echo: true
+#| code-line-numbers: "1|2|3"
 
 collaboration_df = pd.DataFrame(np.sort(collaboration_df.values, axis=1), columns=collaboration_df.columns)
 collaboration_df['value'] = 1
@@ -552,7 +554,7 @@ for col in COLUMNS_TO_COLLECT:
     nx.set_node_attributes(G, author_info[col], col)
 ```
 
-# Networks (finally) {background-iframe="colored-particles/index.html"}
+# Networks (finally) {.absolute background-iframe="colored-particles/index.html"}
 
 ## Matplotlib {.absolute}
 
@@ -579,6 +581,7 @@ nx.draw(G, with_labels=True, node_color='skyblue', edge_cmap=plt.cm.Blues, pos=p
 #| label: python-pyvis
 #| eval: false
 #| echo: true
+#| code-line-numbers: "1,3|4|5,6,7,8,9,10,11,13,14|19,20"
 from pyvis.network import Network
 
 net = Network(notebook=True, cdn_resources='remote', width=1500, height=1500, bgcolor="white", font_color="black")
