@@ -700,7 +700,6 @@ most_technical_articles <- list_articles_techniques[order(list_articles_techniqu
 
 Royal2 <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
 
-# Créer le graphe ggplot
 fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
   geom_line(aes(y = LIWC, color = "LIWC")) +
   geom_line(aes(y = ChatGPT, color = "ChatGPT")) +
@@ -721,9 +720,9 @@ fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
     y = "Cumulative Count"
   ) +
   theme_minimal() +
-  theme(legend.position = "none") # Cacher la légende car les labels sont directement sur les courbes
+  theme(legend.position = "none") # Hide the legend because the labels are directly on the curves
 
-# Ajouter les labels à la fin de chaque courbe avec geom_text_repel
+# Add labels at the end of each curve with geom_text_repel
 labels_positions <- data.frame(
   year = 2023, # Année de référence pour positionner les labels
   LIWC = cumulative_techniques_year$LIWC[which.max(cumulative_techniques_year$year)],
@@ -738,14 +737,13 @@ labels_positions <- data.frame(
   RoBERTa = cumulative_techniques_year$RoBERTa[which.max(cumulative_techniques_year$year)]
 )
 
-# Pour chaque technique, ajouter un label en utilisant geom_text_repel
+# For each technique, add a label using geom_text_repel
 for(technique in names(labels_positions)[-1]) {
   fig2 <- fig2 + geom_text_repel(data = labels_positions, 
                                aes_string(x = "year", y = technique, label = sprintf("'%s'", technique)),
                                nudge_x = 0.5, nudge_y = 0, force = 10)
 }
 
-# Afficher le graphe
 print(fig2)
 ```
 
