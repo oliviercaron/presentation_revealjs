@@ -41,6 +41,8 @@ library(plotly)
 library(countrycode)
 library(htmlwidgets)
 library(reactable)
+library(wesanderson)
+library(ggrepel)
 
 scimago <- read.csv2("data/scimago_journals_marketing_onlyQ3_2022.csv")
 
@@ -52,7 +54,7 @@ list_articles <- read.csv2("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv") %
     authkeywords = str_replace_all(authkeywords, "\\|", ""), # Delete the "|" separator
     authkeywords = str_squish(authkeywords), # Let only one space between words and delete the space at the beginning and the end of the string
     combined_text = paste(dc_title, dc_description, authkeywords),
-    combined_test = tolower(combined_text)) # lower so it will be easier to count words
+    combined_text = tolower(combined_text)) # lower so it will be easier to count words
 
 
 #replace "." in the columns names by "_". But if there are multiple dots like "...", we replace only by one "_"
@@ -476,8 +478,275 @@ If it appears multiple times, we will count it only once.
 list_articles_techniques <- list_articles %>%
   distinct(entry_number, .keep_all = TRUE)
 
+## NLP TECHNIQUES
+
+liwc_alt <- c(
+  "liwc",
+  "linguistic inquiry and word count",
+  "linguistic inquiry & word count",
+  "linguistic inquiry word count",
+  "linguistic word count"
+)
+
+chatgpt_alt <- c(
+  "chatgpt", "chat gpts",
+  "chat gpt", "chat gpts",
+  "openai chatgpt", "openai chatgpts",
+  "chat generative pre-trained transformer", "chat generative pre-trained transformers",
+  "chat generative pretrained transformer", "chat generative pretrained transformers"
+)
+bert_alt <- c(
+  "bert",
+  "bi-directional encoder representation from transformer",
+  "bi-directional encoder representation from transformers",
+  "bi-directional encoder representations from transformer",
+  "bi-directional encoder representations from transformers",
+  "bidirectional encoder representation from transformer",
+  "bidirectional encoder representation from transformers",
+  "bidirectional encoder representations from transformer",
+  "bidirectional encoder representations from transformers",
+  "bi directional encoder representation from transformer",
+  "bi directional encoder representation from transformers",
+  "bi directional encoder representations from transformer",
+  "bi directional encoder representations from transformers"
+)
+
+llm_alt <- c(
+  "large language model", "large language models",
+  "llm", "llms",
+  "large scale language model", "large scale language models"
+)
+
+lda_alt <- c(
+  "latent dirichlet allocation", "latent dirichlet allocations",
+  "lda", "ldas",
+  "dirichlet allocation", "dirichlet allocations"
+)
+
+stm_alt <- c(
+  "structural topic model", "structural topic models",
+  "structural topic modeling", "structural topic modelings",
+  "structural topic modelling", "structural topic modellings"
+)
+
+ner_alt <- c(
+  "named entity recognition", "named entity recognitions",
+  "entity recognition", "entity recognitions"
+)
+
+sentiment_analysis_alt <- c(
+  "sentiment analysis"
+)
+
+topic_modeling_alt <- c(
+  "topic modeling", "topic modelings",
+  "topic model", "topic models",
+  "topic modelling", "topic modellings"
+)
+
+tfidf_alt <- c(
+  "tf-idf", "tf-idfs",
+  "tfidf", "tfidfs",
+  "term frequency-inverse document frequency", "term frequency-inverse document frequencies",
+  "term frequency inverse document frequency", "term frequency inverse document frequencies"
+)
+
+embeddings_alt <- c(
+  "word embedding", "word embeddings",
+  "embeddings"
+)
+
+transformers_alt <- c(
+  "transformer", "transformers",
+  "transformer model", "transformer models"
+)
+
+roberta_alt <- c(
+  "roberta", "robertas",
+  "robustly optimized bert approach", "robustly optimized bert approaches"
+)
+
+word2vec_alt <- c(
+  "word2vec", "word2vecs",
+  "word to vec", "word to vecs",
+  "word 2 vec", "word 2 vecs",
+  "word2vec model", "word2vec models",
+  "word to vectors", "word to vector",
+  "word 2 vectors", "word 2 vector"
+)
+
+fasttext_alt <- c(
+  "fasttext", "fasttexts"
+)
+
+textrank_alt <- c(
+  "textrank", "textranks"
+)
+
+gpt2_alt <- c(
+  "gpt2", "gpt-2", "gpt 2",
+  "generative pre-trained transformer 2", "generative pre-trained transformers 2",
+  "generative pretrained transformer 2", "generative pretrained transformers 2"
+)
+
+gpt3_alt <- c(
+  "gpt3", "gpt-3", "gpt 3",
+  "generative pre-trained transformer 3", "generative pre-trained transformers 3",
+  "generative pretrained transformer 3", "generative pretrained transformers 3"
+)
+
+pos_tagging_alt <- c(
+  "pos tagging", "pos taggings",
+  "part of speech tagging", "parts of speech tagging",
+  "pos tagger", "pos taggers"
+)
+
+para_alt <- c(
+  "paralanguage classifier", "paralanguage classifiers",
+  "textual paralanguage classifier", "textual paralanguage classifiers"
+)
+
+leximancer_alt <- c(
+  "leximancer"
+)
+
+passivepy_alt <- c(
+  "passivepy"
+)
+
+# count the presence of each technique in the abstracts, title, and keywords
+check_presence <- function(text, keywords) {
+  sapply(keywords, function(keyword) grepl(keyword, text, ignore.case = TRUE)) %>% any()
+}
+
+# Add columns for each technique based on above dictionaries
+techniques <- list(LIWC = liwc_alt, ChatGPT = chatgpt_alt, LLM = llm_alt, LDA = lda_alt, STM = stm_alt, 
+                   BERT = bert_alt, NER = ner_alt, Sentiment_Analysis = sentiment_analysis_alt, 
+                   TFIDF = tfidf_alt, Embeddings = embeddings_alt, Transformers = transformers_alt, 
+                   RoBERTa = roberta_alt, Word2Vec = word2vec_alt, FastText = fasttext_alt, 
+                   TextRank = textrank_alt, GPT2 = gpt2_alt, GPT3 = gpt3_alt, POS_Tagging = pos_tagging_alt,
+                   PARA = para_alt, Leximancer = leximancer_alt, PassivePy = passivepy_alt)
+
+for (technique_name in names(techniques)) {
+  list_articles_techniques[[technique_name]] <- sapply(list_articles_techniques$combined_text, check_presence, techniques[[technique_name]])
+  list_articles_techniques[[technique_name]] <- as.integer(list_articles_techniques[[technique_name]])
+}
+
+# number of techniques per year
+techniques_per_year <- list_articles_techniques %>%
+  group_by(year) %>%
+  summarise(across(names(techniques), sum, na.rm = TRUE)) %>%
+  ungroup()
+
+# cumulative number of techniques per year
+cumulative_techniques_year <- techniques_per_year %>%
+  arrange(year) %>%
+  mutate(across(-year, cumsum))
+
+techniques_2023 <- cumulative_techniques_year %>%
+  filter(year == 2023) %>% 
+  pivot_longer(-year, names_to = "technique", values_to = "count") %>%
+  select(-year) %>%
+  arrange(desc(count))
 
 
+
+top_1O_techniques <- techniques_2023$technique  %>%
+  head(10)
+
+top_1O_techniques
+top_1O_techniques
+
+palette_colors <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
+
+# Créer le graphe
+fig <- ggplot(cumulative_techniques_year, aes(x = year)) +
+  geom_line(aes(y = Sentiment_Analysis, color = "Sentiment Analysis")) +
+  geom_line(aes(y = LDA, color = "LDA")) +
+  geom_line(aes(y = LIWC, color = "LIWC")) +
+  geom_line(aes(y = ChatGPT, color = "ChatGPT")) +
+  geom_line(aes(y = Embeddings, color = "Embeddings")) +
+  geom_line(aes(y = Transformers, color = "Transformers")) +
+  geom_line(aes(y = Leximancer, color = "Leximancer")) +
+  geom_line(aes(y = BERT, color = "BERT")) +
+  geom_line(aes(y = STM, color = "STM")) +
+  geom_line(aes(y = Word2Vec, color = "Word2Vec")) +
+  scale_color_manual(values = palette_colors) +
+  labs(
+    title = "Evolution of NLP Techniques in Marketing (Top 10 by 2023)",
+    subtitle = "Cumulative sum of the number of articles mentioning each technique",
+    x = "",
+    y = "Cumulative Number of Occurrences"
+  ) +
+  xlim(2009, 2023) +
+  theme_minimal() +
+  theme(legend.position = "bottom", legend.title = element_blank())
+# pass the ggplot object to plotly
+ggplotly(fig)
+
+
+
+
+
+
+# Sum the number of techniques used in each article
+list_articles_techniques$sum_techniques <- rowSums(list_articles_techniques[names(techniques)])
+most_technical_articles <- list_articles_techniques[order(list_articles_techniques$sum_techniques, decreasing = TRUE),] %>%
+  select(entry_number, dc_title, 23, year, sum_techniques, Rank, SJR, citedby_count)
+
+```
+```{r}
+#other technique to plot with label on curves 
+
+Royal2 <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
+
+# Créer le graphe ggplot
+fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
+  geom_line(aes(y = LIWC, color = "LIWC")) +
+  geom_line(aes(y = ChatGPT, color = "ChatGPT")) +
+  geom_line(aes(y = LLM, color = "LLM")) +
+  geom_line(aes(y = LDA, color = "LDA")) +
+  geom_line(aes(y = STM, color = "STM")) +
+  geom_line(aes(y = BERT, color = "BERT")) +
+  geom_line(aes(y = Sentiment_Analysis, color = "Sentiment Analysis")) +
+  geom_line(aes(y = Embeddings, color = "Embeddings")) +
+  geom_line(aes(y = Transformers, color = "Transformers")) +
+  geom_line(aes(y = RoBERTa, color = "RoBERTa")) +
+  scale_color_manual(values = Royal2) +
+  xlim(2009, 2024) +
+  labs(
+    title = "Evolution of NLP Techniques (Top 10 by 2023)",
+    subtitle = "Cumulative sum of articles mentioning each technique",
+    x = "Year",
+    y = "Cumulative Count"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none") # Cacher la légende car les labels sont directement sur les courbes
+
+# Ajouter les labels à la fin de chaque courbe avec geom_text_repel
+labels_positions <- data.frame(
+  year = 2023, # Année de référence pour positionner les labels
+  LIWC = cumulative_techniques_year$LIWC[which.max(cumulative_techniques_year$year)],
+  ChatGPT = cumulative_techniques_year$ChatGPT[which.max(cumulative_techniques_year$year)],
+  LLM = cumulative_techniques_year$LLM[which.max(cumulative_techniques_year$year)],
+  LDA = cumulative_techniques_year$LDA[which.max(cumulative_techniques_year$year)],
+  STM = cumulative_techniques_year$STM[which.max(cumulative_techniques_year$year)],
+  BERT = cumulative_techniques_year$BERT[which.max(cumulative_techniques_year$year)],
+  "Sentiment Analysis" = cumulative_techniques_year$Sentiment_Analysis[which.max(cumulative_techniques_year$year)],
+  Embeddings = cumulative_techniques_year$Embeddings[which.max(cumulative_techniques_year$year)],
+  Transformers = cumulative_techniques_year$Transformers[which.max(cumulative_techniques_year$year)],
+  RoBERTa = cumulative_techniques_year$RoBERTa[which.max(cumulative_techniques_year$year)]
+)
+
+# Pour chaque technique, ajouter un label en utilisant geom_text_repel
+for(technique in names(labels_positions)[-1]) {
+  fig2 <- fig2 + geom_text_repel(data = labels_positions, 
+                               aes_string(x = "year", y = technique, label = sprintf("'%s'", technique)),
+                               nudge_x = 0.5, nudge_y = 0, force = 10)
+}
+
+# Afficher le graphe
+print(fig2)
 ```
 
 ## Diffusion and delay of NLP techniques
