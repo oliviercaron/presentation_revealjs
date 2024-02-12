@@ -3,7 +3,8 @@ title: The diffusion of NLP methods in marketing research
 #bibliography: references.bib
 subtitle: A systematic analysis
 format: 
-  clean-revealjs
+  clean-revealjs:
+    self-contained: true
 author:
   - name: Olivier Caron
     orcid: 0000-0000-0000-0000
@@ -19,7 +20,8 @@ author:
       name: "Paris Dauphine - PSL"
       city: Paris
       state: France
-date: last-modified
+date: 02/13/2024
+date-format: long
 editor: 
   markdown: 
     wrap: 72
@@ -82,66 +84,48 @@ write.csv2(list_articles, "data/filtered_articles.csv", row.names = FALSE)
 
 ```
 
-```{python}
-#| label: libraries-data-python
-#| include: false
-#| eval: true
-import pandas as pd
-
-#list_articles = pd.read_csv("data/filtered_articles", sep=';', decimal=',')
-
-#list_articles = pd.read_csv("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv", sep=';', decimal=',')
-#list_articles = list_articles.loc[list_articles["year"] < 2024]
-
-#list_articles = list_articles[list_articles['marketing'] == 1] #only marketing articles
-#list_references = pd.read_csv("data/nlp_references_final_18-08-2023.csv", sep=';', decimal=',')
-
-```
-
 ## Research context
 
 ### NLP methods are increasingly used in marketing research
 
--   NLP methods enable the conversion of text into quantifiable data for
-    in-depth analysis.
+NLP methods enable the conversion of text into quantifiable data for
+in-depth analysis enabling the analysis of large volumes of text.
 
--   These methods make it possible to evaluate a very large amount of
-    data, which is often impossible or incomplete with qualitative
-    methods.
+They are particularly suitable for marketing concerns:
 
--   They are particularly suitable for marketing concerns:
-
-    -   Evaluate customer feebacks, gauging public sentiment
-    -   Detect emotional responses to products and marketing campaigns
-    -   Detect trends, consumer preferences and needs.
+-   Evaluate customer feebacks, gauging public sentiment
+-   Detect emotional responses to products and marketing campaigns
+-   Detect trends, consumer preferences and needs.
 
 ## Specific research practices
 
--   Institutional Framework promote competition in academia driven by
-    journal rankings and citation scores, influencing researcher
-    compensation and career advancement. [@richard2015]
+Institutional Framework promote competition in academia driven by
+journal rankings and citation scores, influencing researcher
+compensation and career advancement. [@richard2015]
 
--   Concentration of research in major publishers (Elsevier, Thomson)
-    with an increasing number of journals with facilitated access
-    through bibliographic search interfaces.
+Concentration of research in major publishers (Elsevier, Thomson) with
+an increasing number of journals with facilitated access through
+bibliographic search interfaces.
 
-## What are the factors driving the diffusion of NLP methods?
+## What are the factors driving the diffusion of NLP methods? 1/2
 
--   Researcher must elaborate strategies to advance their career
-    [@kolesnikov2018]
+Researcher must elaborate strategies to advance their career
+[@kolesnikov2018]
 
-    -   Balance between productivity, impact, originality, legitimacy,
-        learning costs.
+-   Balance between productivity, impact, originality, legitimacy,
+    learning costs.
 
--   These strategies can be thought of in terms of the technology
-    acceptance model from @davis1989
+These strategies can be thought of in terms of the technology acceptance
+model from @davis1989
 
-    -   Adopt NLP methods based on interest (1) and ease of use (2)
+-   Adopt NLP methods based on interest (1) and ease of use (2)
 
--   NLP methods are used in close communities of practice [@lave1991;
-    @hauser2006]
+## What are the factors driving the diffusion of NLP methods? 2/2
 
--   Management trends [@abrahamson1991]
+NLP methods are used in close communities of practice [@lave1991;
+@hauser2006]
+
+Management trends [@abrahamson1991]
 
 ## Data presentation
 
@@ -150,7 +134,7 @@ import pandas as pd
 -   There are [`r n_distinct(list_articles$entry_number)`]{.fg
     style="--col: #e64173"} articles and
     [`r n_distinct(list_articles$authid)`]{.fg style="--col: #e64173"}
-    unique authors
+    different authors
 
 -   Date of publication range from [`r min(list_articles$year)`]{.fg
     style="--col: #e64173"} to [`r max(list_articles$year)`]{.fg
@@ -196,6 +180,8 @@ productive_affiliations <- list_articles %>%
 
 ggsave("images/25most_productive_affiliations.svg", width=10)
 ```
+
+# General data vizualisation {background-color="#40666e"}
 
 ## Production per affiliation {.absolute}
 
@@ -453,24 +439,72 @@ ggsave(filename="images/evolution_publications_nlp_marketing.png",
 plotgrid
 ```
 
-# The network of authors is becoming increasingly sparse {background-iframe="colored-particles/index.html"}
+# Networks & Communities {background-iframe="colored-particles/index.html"}
 
-## The structure of author networks (until 2015)
+## The structure of author networks ([until 2015](https://oliviercaron.github.io/systematic_lit_review/networks/authors/1996_2015_VF.html){target="_blank"})
 
-## The structure of author networks (until 2023)
+![](data/networks/1996-2015-auteurs.png){width="100%"}
+
+## The structure of author networks ([until 2023](https://oliviercaron.github.io/systematic_lit_review/networks/authors/1996_2023_VF.html){target="_blank"})
+
+![](data/networks/1996-2023-auteurs_node_size_large.png){width="100%"}
 
 ## Some measures of network structure
 
-## A concentric propagation of topics
+![](images/density_networks.png){fig-align="center"}
 
--   STM algorithm with year as covariates
+## The unequal spread of citations between communities
+
+![](images/pareto_chart_ggplot_no_xtickslabels.png){fig-align="center"}
+
+# Topics {background-color="#40666e"}
+
+## Topic modeling with STM
+
+-   STM algorithm with years as covariates [@roberts2014]
+
+![](images/stm_topic16.jpg){fig-align="center" width="120%"}
+
+## A concentric diffusion of topics
+
+::: r-stack
+![](images/stm_effect16.jpg){fig-align="center" width="85%"
+height="70%"}
+
+![](images/stm_period.png){.fragment fig-align="center" width="90%"}
+:::
+
+# A focus on methods {background-color="#40666e"}
 
 ## Main NLP techniques used
 
-We want to count the number of times each NLP technique is used in the articles.
-To do so, we will detect the present of the name of the techniques and their different synonyms in the abstracts, title, and keywords of the articles.
-If it appears multiple times, we will count it only once.
+-   "O" or "1" if a technique is detected in the articles
 
+-   combined text of abstract, title, and keywords
+
+-   detection of the technique name and the different spellings
+
+```{r}
+#| label: show-code
+#| echo: true
+#| eval: false
+
+bert_alt <- c(
+  "bert",
+  "bi-directional encoder representation from transformer",
+  "bi-directional encoder representation from transformers",
+  "bi-directional encoder representations from transformer",
+  "bi-directional encoder representations from transformers",
+  "bidirectional encoder representation from transformer",
+  "bidirectional encoder representation from transformers",
+  "bidirectional encoder representations from transformer",
+  "bidirectional encoder representations from transformers",
+  "bi directional encoder representation from transformer",
+  "bi directional encoder representation from transformers",
+  "bi directional encoder representations from transformer",
+  "bi directional encoder representations from transformers"
+)
+```
 
 ```{r}
 #| label: count-nlp-techniques
@@ -491,7 +525,6 @@ liwc_alt <- c(
 chatgpt_alt <- c(
   "chatgpt", "chat gpts",
   "chat gpt", "chat gpts",
-  "openai chatgpt", "openai chatgpts",
   "chat generative pre-trained transformer", "chat generative pre-trained transformers",
   "chat generative pretrained transformer", "chat generative pretrained transformers"
 )
@@ -627,6 +660,7 @@ techniques <- list(LIWC = liwc_alt, ChatGPT = chatgpt_alt, LLM = llm_alt, LDA = 
                    TextRank = textrank_alt, GPT2 = gpt2_alt, GPT3 = gpt3_alt, POS_Tagging = pos_tagging_alt,
                    PARA = para_alt, Leximancer = leximancer_alt, PassivePy = passivepy_alt)
 
+# create a column for each technique to which we apply the check_presence function to populate the column with 1s and 0s
 for (technique_name in names(techniques)) {
   list_articles_techniques[[technique_name]] <- sapply(list_articles_techniques$combined_text, check_presence, techniques[[technique_name]])
   list_articles_techniques[[technique_name]] <- as.integer(list_articles_techniques[[technique_name]])
@@ -649,18 +683,38 @@ techniques_2023 <- cumulative_techniques_year %>%
   select(-year) %>%
   arrange(desc(count))
 
-
-
 top_1O_techniques <- techniques_2023$technique  %>%
   head(10)
 
-top_1O_techniques
-top_1O_techniques
+# Sum the number of techniques used in each article
+list_articles_techniques$sum_techniques <- rowSums(list_articles_techniques[names(techniques)])
+most_technical_articles <- list_articles_techniques[order(list_articles_techniques$sum_techniques, decreasing = TRUE),] %>%
+  select(entry_number, dc_title, 23, year, sum_techniques, Rank, SJR, citedby_count)
 
-palette_colors <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
+```
 
-# Créer le graphe
-fig <- ggplot(cumulative_techniques_year, aes(x = year)) +
+## Evolution of NLP techniques
+
+```{r}
+#| label: graph-techniques-table
+
+techniques_2023 %>%
+  pivot_wider(names_from = technique, values_from = count) %>%
+  gt() %>%
+  tab_options(
+    column_labels.font.weight = "bold"
+  )
+  
+```
+
+```{r}
+#| label: graph-techniques-plotly
+
+#other technique to plot with label on curves 
+
+Royal2 <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
+
+fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
   geom_line(aes(y = Sentiment_Analysis, color = "Sentiment Analysis")) +
   geom_line(aes(y = LDA, color = "LDA")) +
   geom_line(aes(y = LIWC, color = "LIWC")) +
@@ -671,48 +725,8 @@ fig <- ggplot(cumulative_techniques_year, aes(x = year)) +
   geom_line(aes(y = BERT, color = "BERT")) +
   geom_line(aes(y = STM, color = "STM")) +
   geom_line(aes(y = Word2Vec, color = "Word2Vec")) +
-  scale_color_manual(values = palette_colors) +
-  labs(
-    title = "Evolution of NLP Techniques in Marketing (Top 10 by 2023)",
-    subtitle = "Cumulative sum of the number of articles mentioning each technique",
-    x = "",
-    y = "Cumulative Number of Occurrences"
-  ) +
-  xlim(2009, 2023) +
-  theme_minimal() +
-  theme(legend.position = "bottom", legend.title = element_blank())
-# pass the ggplot object to plotly
-ggplotly(fig)
-
-
-
-
-
-
-# Sum the number of techniques used in each article
-list_articles_techniques$sum_techniques <- rowSums(list_articles_techniques[names(techniques)])
-most_technical_articles <- list_articles_techniques[order(list_articles_techniques$sum_techniques, decreasing = TRUE),] %>%
-  select(entry_number, dc_title, 23, year, sum_techniques, Rank, SJR, citedby_count)
-
-```
-```{r}
-#other technique to plot with label on curves 
-
-Royal2 <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
-
-fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
-  geom_line(aes(y = LIWC, color = "LIWC")) +
-  geom_line(aes(y = ChatGPT, color = "ChatGPT")) +
-  geom_line(aes(y = LLM, color = "LLM")) +
-  geom_line(aes(y = LDA, color = "LDA")) +
-  geom_line(aes(y = STM, color = "STM")) +
-  geom_line(aes(y = BERT, color = "BERT")) +
-  geom_line(aes(y = Sentiment_Analysis, color = "Sentiment Analysis")) +
-  geom_line(aes(y = Embeddings, color = "Embeddings")) +
-  geom_line(aes(y = Transformers, color = "Transformers")) +
-  geom_line(aes(y = RoBERTa, color = "RoBERTa")) +
   scale_color_manual(values = Royal2) +
-  xlim(2009, 2024) +
+  xlim(2010, 2024) +
   labs(
     title = "Evolution of NLP Techniques (Top 10 by 2023)",
     subtitle = "Cumulative sum of articles mentioning each technique",
@@ -722,32 +736,71 @@ fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
   theme_minimal() +
   theme(legend.position = "none") # Hide the legend because the labels are directly on the curves
 
+#fig2 <- fig2 +
+  #geom_point(aes(y = Sentiment_Analysis), color="black", size=0.75) +
+  #geom_point(aes(y = LDA), color="black", size=0.75) +
+  #geom_point(aes(y = LIWC), color="black", size=0.75) +
+  #geom_point(aes(y = ChatGPT), color="black", size=0.75) +
+  #geom_point(aes(y = Embeddings), color="black", size=0.75) +
+  #geom_point(aes(y = Transformers), color="black", size=0.75) +
+  #geom_point(aes(y = Leximancer), color="black", size=0.75) +
+  #geom_point(aes(y = BERT), color="black", size=0.75) +
+  #geom_point(aes(y = STM), color="black", size=0.75) +
+  #geom_point(aes(y = Word2Vec), color="black", size=0.75)
+  
+
 # Add labels at the end of each curve with geom_text_repel
 labels_positions <- data.frame(
-  year = 2023, # Année de référence pour positionner les labels
-  LIWC = cumulative_techniques_year$LIWC[which.max(cumulative_techniques_year$year)],
-  ChatGPT = cumulative_techniques_year$ChatGPT[which.max(cumulative_techniques_year$year)],
-  LLM = cumulative_techniques_year$LLM[which.max(cumulative_techniques_year$year)],
-  LDA = cumulative_techniques_year$LDA[which.max(cumulative_techniques_year$year)],
-  STM = cumulative_techniques_year$STM[which.max(cumulative_techniques_year$year)],
-  BERT = cumulative_techniques_year$BERT[which.max(cumulative_techniques_year$year)],
-  "Sentiment Analysis" = cumulative_techniques_year$Sentiment_Analysis[which.max(cumulative_techniques_year$year)],
-  Embeddings = cumulative_techniques_year$Embeddings[which.max(cumulative_techniques_year$year)],
-  Transformers = cumulative_techniques_year$Transformers[which.max(cumulative_techniques_year$year)],
-  RoBERTa = cumulative_techniques_year$RoBERTa[which.max(cumulative_techniques_year$year)]
+  year = 2023, # reference year for positioning labels
+  Sentiment_Analysis = cumulative_techniques_year$Sentiment_Analysis[cumulative_techniques_year$year == 2023],
+  LDA = cumulative_techniques_year$LDA[cumulative_techniques_year$year == 2023],
+  LIWC = cumulative_techniques_year$LIWC[cumulative_techniques_year$year == 2023],
+  ChatGPT = cumulative_techniques_year$ChatGPT[cumulative_techniques_year$year == 2023],
+  Embeddings = cumulative_techniques_year$Embeddings[cumulative_techniques_year$year == 2023],
+  Transformers = cumulative_techniques_year$Transformers[cumulative_techniques_year$year == 2023],
+  Leximancer = cumulative_techniques_year$Leximancer[cumulative_techniques_year$year == 2023],
+  BERT = cumulative_techniques_year$BERT[cumulative_techniques_year$year == 2023],
+  STM = cumulative_techniques_year$STM[cumulative_techniques_year$year == 2023],
+  Word2Vec = cumulative_techniques_year$Word2Vec[cumulative_techniques_year$year == 2023]
 )
 
+fig_plotly <- fig2 #to use without geom_text_repel but geom_text because not supported yet by plotly
+for(technique in names(labels_positions)[-1]) {
+  fig_plotly <- fig_plotly + geom_text(data = labels_positions, 
+                               aes_string(x = "year", y = technique, label = gsub("_", " ", sprintf("'%s'", technique))),
+                               nudge_x = 0.5, nudge_y = 0)
+}
+ggplotly(fig_plotly)
+
+```
+
+```{r}
+#| label: graph-techniques-ggplot
+#| eval: false
+#| echo: false
 # For each technique, add a label using geom_text_repel
 for(technique in names(labels_positions)[-1]) {
   fig2 <- fig2 + geom_text_repel(data = labels_positions, 
-                               aes_string(x = "year", y = technique, label = sprintf("'%s'", technique)),
+                               aes_string(x = "year", y = technique, gsub("_", " ", sprintf("'%s'", technique))),
                                nudge_x = 0.5, nudge_y = 0, force = 10)
 }
-
-print(fig2)
+fig2
 ```
 
 ## Diffusion and delay of NLP techniques
+
+## Dominantly marketing: the selective borrowing of NLP methods
+
+<iframe width="1200" height="1000" src="images/top20ref.html" title="Sigma graph" frameborder="0" class="column-page">
+
+</iframe>
+
+## To conclude:
+
+1.  NLP methods are more and more used in marketing but dictionary-based
+    methods remain the norm, with an emphasis on sentiment analysis.
+
+2.  Diffusion
 
 ## To be continued...
 
@@ -766,3 +819,5 @@ print(fig2)
 
 ::: {#refs}
 :::
+
+## Appendix
