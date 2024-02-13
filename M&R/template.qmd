@@ -120,12 +120,38 @@ model from @davis1989
 
 -   Adopt NLP methods based on interest (1) and ease of use (2)
 
+::: notes
+1.  Researchers are strategically adopting NLP methods to enhance their
+    productivity and originality in marketing research
+
+2.  infusion of NLP methods in marketing research driven by researchers'
+    interest in innovative tools and the perceived ease of integrating
+    these methods into their work.
+
+3.  deliberate choice to balance research output (productivity) with the
+    creation of impactful and original work within the marketing
+    discipline.
+
+4.  Researchers might lean towards NLP methods that offer a low barrier
+    to entry and high potential for enhancing the visibility and
+    legitimacy of their work.
+:::
+
 ## What are the factors driving the diffusion of NLP methods? 2/2
 
 NLP methods are used in close communities of practice [@lave1991;
 @hauser2006]
 
 Management trends [@abrahamson1991]
+
+::: notes
+1.  Community Practice: The adoption of NLP methods is fostered within
+    tight-knit scholarly communities, suggesting that peer learning and
+    shared practices play a crucial role in their diffusion.
+
+2.  Diffusion linked to CULTURAL PHENOMENON RATHER THAN RATIONAL
+    DECISION MAKING
+:::
 
 ## Data presentation
 
@@ -453,7 +479,25 @@ plotgrid
 
 ![](images/density_networks.png){fig-align="center"}
 
+::: notes
+1.  Network growth is outpacing the formation of new collaborations,
+    leading to a less densely connected community.
+
+2.  The increasing number of communities reflects a diversification in
+    research subjects and group formations.
+
+3.  A surge in collaborations suggests a trend towards more collective
+    research efforts in NLP.
+
+4.  The expanding average size of research groups per community
+    indicates the formation of larger, more collaborative teams.
+:::
+
 ## The unequal spread of citations between communities
+
+The top 5 communities account for [13.65% of authors]{.fg
+style="--col: #e64173"} (126) and [46% of citations]{.fg
+style="--col: #e64173"} (14851)
 
 ![](images/pareto_chart_ggplot_no_xtickslabels.png){fig-align="center"}
 
@@ -463,9 +507,34 @@ plotgrid
 
 -   STM algorithm with years as covariates [@roberts2014]
 
+::: notes
+what we can understand from the result of these topics is that
+
+1.  words like "customer", "reviews" and "sentiment" : strong focus on
+    consumer perceptions.
+
+2.  words related to service quality : improve service offerings.
+
+3.  terms like "brand," "strategy," and "engagement" appearing :
+    strategic brand positioning.
+
+4.  "social media" related terms indicates that platforms are key
+    sources for data mining, providing rich insights for market trends
+    and consumer behavior analysis.
+
+5.  "segmentation" with analytical terms shows an inclination towards
+    using NLP for slicing the market into well-defined segments.
+:::
+
 ![](images/stm_topic16.jpg){fig-align="center" width="120%"}
 
 ## A concentric diffusion of topics
+
+::: notes
+1.  The number of topics per period increases steadily without the
+    relative number of articles per topic decreasing, in a process of
+    accumulation rather than substitution.
+:::
 
 ::: r-stack
 ![](images/stm_effect16.jpg){fig-align="center" width="85%"
@@ -590,8 +659,8 @@ embeddings_alt <- c(
 )
 
 transformers_alt <- c(
-  "transformer", "transformers",
-  "transformer model", "transformer models"
+  "transformers",
+  "transformers model", "transformer models"
 )
 
 roberta_alt <- c(
@@ -669,7 +738,7 @@ for (technique_name in names(techniques)) {
 # number of techniques per year
 techniques_per_year <- list_articles_techniques %>%
   group_by(year) %>%
-  summarise(across(names(techniques), sum, na.rm = TRUE)) %>%
+  summarise(across(all_of(names(techniques)), sum, na.rm = TRUE)) %>%
   ungroup()
 
 # cumulative number of techniques per year
@@ -789,6 +858,20 @@ fig2
 
 ## Diffusion and delay of NLP techniques
 
+There is a significant time lag between the emergence of techniques and
+their actual use in marketing research:
+
+-   LIWC: 1993 -\> 2014
+-   LDA: 2003 -\> 2010
+
+which is decreasing over time:
+
+-   Embeddings: 2013 -\> 2017
+
+-   BERT: 2018 -\> 2021
+
+-   ChatGPT: 2022 -\> 2023
+
 ## Dominantly marketing: the selective borrowing of NLP methods
 
 <iframe width="1200" height="1000" src="images/top20ref.html" title="Sigma graph" frameborder="0" class="column-page">
@@ -797,23 +880,17 @@ fig2
 
 ## To conclude:
 
-1.  NLP methods are more and more used in marketing but dictionary-based
-    methods remain the norm, with an emphasis on sentiment analysis.
-
-2.  Diffusion
-
-## To be continued...
-
--   Qualitative analysis of the authors' communities over time
--   Writing, writing, writing the paper
-
-::: {style="text-align: center"}
-### Thank you for your attention
-:::
-
-| **Code**                                       | **Slides**                              | **Personal Github**                     |
-|---------------------------|-----------------------|-----------------------|
-| ![](images/networks_code_qr.png){width="100%"} | ![](images/slides_qr.png){width="100%"} | ![](images/github_qr.png){width="100%"} |
+1.  NLP methods' adoption in top-tier marketing journals suggests it's
+    not a mere trend but an innovation gaining solid ground in the
+    field.
+2.  The cost of learning NLP is decreasing over time, facilitated by a
+    growing repository of shared knowledge.
+3.  The integration and diffusion of NLP techniques are bolstered within
+    communities of practice.
+4.  Diffusion is driven by new research questions, data availability,
+    and suitable techniques.
+5.  Delay between the introduction of a technique and its adoption is
+    decreasing over time.
 
 ## References
 
