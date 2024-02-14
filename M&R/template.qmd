@@ -784,8 +784,13 @@ first_use <- first_use %>%
 
 ```
 
+## Delay in the use of techniques
+
 ```{r}
 #| label: first-use-techniques-fill
+#| fig-height: 7
+#| fig-width: 13
+
 first_use$year_publication[first_use$technique == "ChatGPT"] <- "2022"
 first_use$year_publication[first_use$technique == "LLM"] <- ""
 first_use$year_publication[first_use$technique == "LDA"] <- "2003"
@@ -811,7 +816,7 @@ first_use <- first_use %>%
   filter(year_publication != "") %>%
   mutate(year_publication = as.integer(year_publication),
          year_first_use = as.integer(year_first_use),
-         delay  = year_first_use - year_publication,,
+         delay  = year_first_use - year_publication,
          technique_year = paste(technique,"-",year_publication)) %>%
   arrange(year_publication)
 
@@ -832,14 +837,6 @@ techniques_lolipop
 ggsave("images/first_use_techniques.png", width = 10, height = 6, dpi = 600)
 
 ```
-
-
-
-```{r}
-
-
-```
-
 
 
 ## Evolution of NLP techniques
