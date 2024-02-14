@@ -560,7 +560,6 @@ height="70%"}
 
 bert_alt <- c(
   "bert",
-  "bi-directional encoder representation from transformer",
   "bi-directional encoder representation from transformers",
   "bi-directional encoder representations from transformer",
   "bi-directional encoder representations from transformers",
@@ -615,7 +614,6 @@ bert_alt <- c(
 
 llm_alt <- c(
   "large language model", "large language models",
-  "llm", "llms",
   "large scale language model", "large scale language models"
 )
 
@@ -761,6 +759,88 @@ most_technical_articles <- list_articles_techniques[order(list_articles_techniqu
   select(entry_number, dc_title, 23, year, sum_techniques, Rank, SJR, citedby_count)
 
 ```
+```{r}
+#| label: first-use-techniques
+
+first_use <- data.frame(technique = character(), year = integer())
+
+# Loop through each column starting from the 2nd column
+for (col in 2:ncol(techniques_per_year)) {
+  # Find the first row where the value is greater than 0
+  first_row <- which(techniques_per_year[[col]] > 0)[1]
+  
+  # Check if there is at least one value greater than 0
+  if (length(first_row) > 0) {
+    # Get the year from the first column for this row
+    year <- techniques_per_year$year[first_row]
+    
+    # Append to the first_use dataframe
+    first_use <- rbind(first_use, data.frame(technique = names(techniques_per_year)[col], year_first_use = year))
+  }
+}
+
+first_use <- first_use %>%
+  arrange(desc(year_first_use))
+
+```
+
+```{r}
+#| label: first-use-techniques-fill
+first_use$year_publication[first_use$technique == "ChatGPT"] <- "2022"
+first_use$year_publication[first_use$technique == "LLM"] <- ""
+first_use$year_publication[first_use$technique == "LDA"] <- "2003"
+first_use$year_publication[first_use$technique == "STM"] <- "2014"
+first_use$year_publication[first_use$technique == "BERT"] <- "2018"
+first_use$year_publication[first_use$technique == "NER"] <- ""
+first_use$year_publication[first_use$technique == "Sentiment_Analysis"] <- ""
+first_use$year_publication[first_use$technique == "TFIDF"] <- "test"
+first_use$year_publication[first_use$technique == "Embeddings"] <- "2013"
+first_use$year_publication[first_use$technique == "Transformers"] <- "2017"
+first_use$year_publication[first_use$technique == "RoBERTa"] <- "2019"
+first_use$year_publication[first_use$technique == "Word2Vec"] <- "2013"
+first_use$year_publication[first_use$technique == "FastText"] <- "2015"
+first_use$year_publication[first_use$technique == "TextRank"] <- "2004"
+first_use$year_publication[first_use$technique == "GPT2"] <- "2019"
+first_use$year_publication[first_use$technique == "GPT3"] <- "2020"
+first_use$year_publication[first_use$technique == "POS_Tagging"] <- ""
+first_use$year_publication[first_use$technique == "PARA"] <- "2023"
+first_use$year_publication[first_use$technique == "Leximancer"] <- ""
+first_use$year_publication[first_use$technique == "PassivePy"] <- "2023"
+
+first_use <- first_use %>%
+  filter(year_publication != "") %>%
+  mutate(year_publication = as.integer(year_publication),
+         year_first_use = as.integer(year_first_use),
+         delay  = year_first_use - year_publication,,
+         technique_year = paste(technique,"-",year_publication)) %>%
+  arrange(year_publication)
+
+techniques_lolipop <- ggplot(first_use, aes(x = reorder(technique_year, year_publication), y = year_first_use)) +
+  geom_segment(aes(xend = technique_year, yend = year_publication), colour = "gray") +
+  geom_point(aes(y = year_first_use), colour = "#ff2c2c", size = 3) +
+  geom_point(aes(y = year_publication), colour = "skyblue", size = 3) +
+  geom_text(aes(x = technique_year, y = (year_first_use + year_publication) / 2, label = delay), vjust = -0.5) +
+  coord_flip() +
+  labs(y = "Year", x = "", title = "Timeline of Techniques") +
+  scale_x_discrete(limits = rev(first_use$technique_year)) +
+  theme_minimal()
+
+techniques_lolipop
+
+#ggplotly(techniques_lolipop, tooltip = c("technique", "year_publication", "year_first_use", "delay"))
+
+ggsave("images/first_use_techniques.png", width = 10, height = 6, dpi = 600)
+
+```
+
+
+
+```{r}
+
+
+```
+
+
 
 ## Evolution of NLP techniques
 
