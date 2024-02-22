@@ -1,0 +1,327 @@
+---
+title: "Mermaid Diagrams"
+title-block-banner: true
+author: "Olivier CARON"
+institute: "Paris Dauphine - PSL"
+date : "today"
+toc: true
+number-sections: true
+number-depth: 2
+format: html
+editor: visual
+execute:
+  echo: true
+  warning: false
+  message: false
+fig-align: "center"
+code-fold: true
+---
+## 1
+```{mermaid}
+graph TD;
+  A[Originality] ---|"- methods"| B((publication acceptance))
+  A ---|"- applications"| B
+  C[Legitimacy] ---|"+ external"| B
+  C ---|"+ internal"| B
+  D[Learning cost] ---|"-"| B
+  E[Publications stocks/Growth] ---|"inverse on originality"| A
+  E ---|"proportional on legitimacy"| C
+  E ---|"inverse on learning cost"| D
+  F[Global diffusion] ---|"- learning cost"| D
+  E ---|"+ top tiers\n- low tiers"| F
+  B ---|"+ researcher adoption"| G((researcher adoption))
+  F ---|"-"| G
+  G ---|"faster adoption by top rank journals"| E
+  G ---|"propagation > diffusion: reduced co-authorship graph density"| F
+
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  classDef interaction fill:#fff,stroke:#333,stroke-dasharray: 5, 5;
+  classDef emphasis fill:#f9f,stroke:#333;
+  
+  class A,C emphasis;
+  class B,D interaction;
+```
+## 2
+```{mermaid}
+graph TD
+  subgraph " "
+    A[Global diffusion]
+    B[Learning cost] --> A
+    C[Publications stocks/Growth] -->|"+ top tiers\n- low tiers"| A
+  end
+
+  subgraph " "
+    D[Originality]
+    E[Legitimacy] --> D
+    B --> E
+    C -->|"+ on legitimacy\n- on originality"| E
+  end
+
+  D -->|"- methods\n- applications"| F[publication acceptance]
+  E -->|"+ external\n+ internal"| F
+  B -.->|"- learning cost"| F
+  F -->|"+ researcher adoption"| G[researcher adoption]
+  G -.->|"+ on legitimacy\n- on learning cost"| E
+  G --> C
+  A -. "+ on adoption\n- on learning cost" .-> G
+
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  classDef diffusion fill:#ccf,stroke:#333,stroke-width:2px;
+  classDef interaction fill:#fff,stroke:#333,stroke-dasharray: 5, 5;
+  classDef emphasis fill:#f9f,stroke:#333;
+  
+  class A diffusion;
+  class D,E emphasis;
+  class B,C interaction;
+```
+## 3
+```{mermaid}
+graph LR
+  subgraph "Researcher Adoption"
+    RA[Researcher Adoption] -->|Propagates Techniques| CO[Cost Optimization]
+    RA -->|Seeks Originality| OP[Originality]
+    RA -->|Requires Legitimacy| LE[Legitimacy]
+  end
+  
+  subgraph "Publication Acceptance"
+    PA[Publication Acceptance] --> RA
+    PA -.->|Influenced by Publications' Stocks/Growth| PS[Publications Stocks/Growth]
+    PA -->|Influenced by Originality| OP
+    PA -->|Influenced by Legitimacy| LE
+  end
+
+  subgraph "Techniques Diffusion"
+    TD[Techniques Diffusion] --> PA
+    TD -->|Affected by Learning Cost| LC[Learning Cost]
+    TD -.->|Influenced by Global Diffusion| GD[Global Diffusion]
+    LC -->|Affects| GD
+    PS -->|Affects| GD
+  end
+
+  subgraph "Feedback Loops"
+    OP -->|Feedback on| PS
+    LE -->|Feedback on| PS
+    GD -->|General Impact on| RA
+    CO -.->|Lowers Learning Cost| LC
+  end
+
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  classDef feedback fill:#ff9,stroke:#333,stroke-dasharray: 2, 2;
+  classDef process fill:#ccf,stroke:#333,stroke-width:2px;
+  classDef emphasis fill:#f9f,stroke:#333;
+  
+  class RA,PA,TD process;
+  class OP,LE,PS feedback;
+  class LC,GD emphasis;
+
+```
+## 4
+```{mermaid}
+graph TD
+  %% Define nodes
+  GD(Global Diffusion) -->|Drives| OP(Originality)
+  GD -->|Validates| LE(Legitimacy)
+  GD -->|Outcome of| PA(Publication Acceptance)
+  GD -->|Result of| RA(Researcher Adoption)
+  GD -->|Influenced by| PS[Publications Stocks/Growth]
+  GD -->|Affected by| LC[Learning Cost]
+
+  %% Define additional relationships
+  OP -->|Affects| PA
+  LE -->|Affects| PA
+  PA -->|Influences| RA
+  RA -->|Feeds back into| GD
+  PS -->|Contributes to| OP
+  PS -->|Contributes to| LE
+  LC -->|Impedes| RA
+
+  %% Define styles
+  class GD central;
+  class OP,LE,PA,RA node;
+  class PS,LC nodeSecondary;
+
+  %% Define custom class styles
+  classDef central fill:#ff6f61,stroke:#333,stroke-width:4px;
+  classDef node fill:#fff,stroke:#333,stroke-width:2px;
+  classDef nodeSecondary fill:#f9f,stroke:#333,stroke-width:1px;
+```
+## 5
+```{mermaid}
+graph TD
+  %% Define nodes
+  GD(Global Diffusion) -->|Drives| OP(Originality)
+  GD -->|Validates| LE(Legitimacy)
+  GD -->|Outcome of| PA(Publication Acceptance)
+  GD -->|Result of| RA(Researcher Adoption)
+  GD -->|Influenced by| PS[Publications Stocks/Growth]
+  GD -->|Affected by| LC[Learning Cost]
+
+  %% Define additional relationships
+  OP -->|Affects| PA
+  LE -->|Affects| PA
+  PA -->|Influences| RA
+  RA -->|Feeds back into| GD
+  PS -->|Contributes to| OP
+  PS -->|Contributes to| LE
+  LC -->|Impedes| RA
+
+  %% Influence node ordering with invisible edges
+  LE -.-> OP
+  OP -.-> LC
+
+  %% Define styles
+  class GD central;
+  class OP,LE,PA,RA node;
+  class PS,LC nodeSecondary;
+
+  %% Define custom class styles
+  classDef central fill:#ff6f61,stroke:#333,stroke-width:4px;
+  classDef node fill:#fff,stroke:#333,stroke-width:2px;
+  classDef nodeSecondary fill:#f9f,stroke:#333,stroke-width:1px;
+```
+## 6
+
+```{mermaid}
+graph LR
+  %% Define nodes
+  GD(Global Diffusion) --- OP(Originality)
+  GD --- LE(Legitimacy)
+  GD --- PA(Publication Acceptance)
+  GD --- PS[Publications Stocks/Growth]
+  GD --> LC[Learning Cost]
+  
+  %% Define edges with thick arrows for emphasis
+  GD <---> RA(Researcher Adoption)
+  RA <---> GD
+  
+  %% Define additional relationships
+  OP --- PA
+  LE --- PA
+  PA --->|Influences| RA
+  PS --->|Increases| OP
+  PS --- LE
+  LC -->|Impedes| RA
+
+  %% Styling for emphasis
+  classDef default fill:#fff,stroke:#333,stroke-width:1px;
+  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;
+  classDef thickArrow stroke-width:3px,stroke:#333;
+  
+  class GD,RA emphasis;
+
+  %% Apply thick arrow styling
+  linkStyle 5 stroke:#ff6f61,stroke-width:4px;
+  linkStyle 6 stroke:#ff6f61,stroke-width:4px;
+
+```
+## 10
+```{mermaid}
+graph LR
+  %% Define nodes
+  GD(Global Diffusion) --- PS[Publications Stocks/Growth]
+  GD --- LE(Legitimacy)
+  GD --- PA(Publication Acceptance)
+  GD --- PS[Publications Stocks/Growth]
+  GD --> LC[Learning Cost]
+  PS --->|Increases| OP(Originality)
+  PS --->LE(Legitimacy)
+  PS --->LC(Learning Cost)
+  
+  %% Define edges with thick arrows for emphasis
+  GD <---> RA(Researcher Adoption)
+  RA <---> GD
+  
+  %% Define additional relationships
+  OP --- PA
+  LE --- PA
+  PA --->|Influences| RA
+  PS --->|Increases| OP
+  PS --- LE
+  LC -->|Impedes| RA
+  
+  %% Styling for emphasis
+  classDef default fill:#fff,stroke:#333,stroke-width:1px;
+  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;
+  classDef thickArrow stroke-width:3px,stroke:#333;
+  
+  class GD,RA emphasis;
+
+  %% Apply thick arrow styling
+  linkStyle 5 stroke:#ff6f61,stroke-width:4px;
+  linkStyle 6 stroke:#ff6f61,stroke-width:4px;
+```
+
+## 7
+```{mermaid}
+graph LR
+  %% Redefine nodes without Global Diffusion as a single node
+  PS("Publications Stocks/Growth") --- OP("Originality")
+  PS --- LE("Legitimacy")
+  PS --- PA("Publication Acceptance")
+  PS --- LC("Learning Cost")
+  PS <---> RA("Researcher Adoption")
+  
+  %% Define additional relationships
+  OP --- PA
+  LE --- PA
+  PA --- RA
+  LC --- RA
+
+  %% Styling for emphasis and thick arrows
+  classDef default fill:#fff,stroke:#333,stroke-width:1px;
+  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;
+  
+  class PS emphasis;
+
+  %% Define global diffusion frame
+  subgraph GD["Global Diffusion"]
+    OP
+    LE
+    PA
+    LC
+    RA
+    PS
+  end
+  
+  %% Apply styling
+  linkStyle 0 stroke:#ff6f61,stroke-width:2px;
+  linkStyle 1 stroke:#ff6f61,stroke-width:2px;
+  linkStyle 2 stroke:#ff6f61,stroke-width:2px;
+  linkStyle 3 stroke:#ff6f61,stroke-width:2px;
+  linkStyle 4 stroke:#ff6f61,stroke-width:2px, arrowhead:vee, arrowtail:vee;
+```
+## 8
+```{mermaid}
+graph TD
+  subgraph " "
+    A[Global Diffusion]
+    B[Learning Cost] -->|"- learning cost"| A
+    C[Publications Stocks/Growth] -->|"+ top tiers\n- low tiers"| A
+  end
+
+  subgraph " "
+    D[Originality]
+    E[Legitimacy] -->|"+ on legitimacy"| D
+    B -->|"- learning cost"| E
+    C -->|"+ on legitimacy\n- on originality"| E
+  end
+
+  F -->|"+ researcher adoption"| G[Researcher Adoption]
+  D -->|"- methods\n- applications"| F[Publication Acceptance]
+  E -->|"+ external\n+ internal"| F
+  B -.->|"- learning cost"| F
+  G -.->|"+ on legitimacy\n- on learning cost"| E
+  G -->|"+ publications impact"| C
+  A -. "+ on adoption\n- on learning cost" .-> G
+
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  classDef diffusion fill:#ccf,stroke:#333,stroke-width:2px;
+  classDef interaction fill:#fff,stroke:#333,stroke-dasharray: 5, 5;
+  classDef emphasis fill:#f9f,stroke:#333;
+  
+  class A diffusion;
+  class D,E emphasis;
+  class B,C interaction;
+
+```
+
