@@ -51,6 +51,7 @@ scimago <- read.csv2("data/scimago_journals_marketing_onlyQ3_2022.csv")
 list_articles <- read.csv2("data/marketing_Q1_to_Q3_scimago_journals_NLP.csv") %>%
   filter(year < 2024) %>%
   filter(entry_number != 769) %>% #remove the "NLP" article about neurolinguistic programming
+  filter(entry_number != 568) %>% #remove article not related to NLP and marketing ("transformers")
   filter(!str_detect(subtypeDescription, "Proceedings|Conference|Transactions|Erratum|Letter|Note")) %>%
   mutate(
     authkeywords = str_replace_all(authkeywords, "\\|", ""), # Delete the "|" separator
@@ -714,6 +715,22 @@ passivepy_alt <- c(
   "passivepy"
 )
 
+neural_networks_alt <- c(
+  "neural network", "neural networks",
+  "neural net", "neural nets"
+)
+
+transformers_alt <- c(
+  "transformers",
+  "transformers model", "transformer models"
+)
+
+glove_alt <- c("glove", "global vectors for word representation", "global vectors")
+
+t5_alt <- c("text-to-text transfer transformer", "text-to-text transfer transformers", "text to text transfer transformer", "text to text transfer transformers")
+camembert_alt <- c("camembert", "camemberts")
+flaubert_alt <- c("flaubert", "flauberts")
+
 # count the presence of each technique in the abstracts, title, and keywords
 check_presence <- function(text, keywords) {
   sapply(keywords, function(keyword) grepl(keyword, text, ignore.case = TRUE)) %>% any()
@@ -721,8 +738,10 @@ check_presence <- function(text, keywords) {
 
 # Add columns for each technique based on above dictionaries
 techniques <- list(LIWC = liwc_alt, ChatGPT = chatgpt_alt, LLM = llm_alt, LDA = lda_alt, STM = stm_alt, 
-                   BERT = bert_alt, NER = ner_alt, Sentiment_Analysis = sentiment_analysis_alt, 
-                   TFIDF = tfidf_alt, Embeddings = embeddings_alt, Transformers = transformers_alt, 
+                   BERT = bert_alt, NER = ner_alt, Sentiment_Analysis = sentiment_analysis_alt, Topic_Modeling = topic_modeling_alt,
+                   Neural_networks = neural_networks_alt, Transformers = transformers_alt, GloVe = glove_alt, T5 = t5_alt,
+                   TFIDF = tfidf_alt, Embeddings = embeddings_alt, Transformers = transformers_alt, Camembert = camembert_alt,
+                   Flaubert = flaubert_alt,
                    RoBERTa = roberta_alt, Word2Vec = word2vec_alt, FastText = fasttext_alt, 
                    TextRank = textrank_alt, GPT2 = gpt2_alt, GPT3 = gpt3_alt, POS_Tagging = pos_tagging_alt,
                    PARA = para_alt, Leximancer = leximancer_alt, PassivePy = passivepy_alt)
@@ -783,16 +802,6 @@ techniques_2023 %>%
 Royal2 <- wesanderson::wes_palette("GrandBudapest1", n = 10, type = "continuous")
 
 fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
-  geom_line(aes(y = Sentiment_Analysis, color = "Sentiment Analysis")) +
-  geom_line(aes(y = LDA, color = "LDA")) +
-  geom_line(aes(y = LIWC, color = "LIWC")) +
-  geom_line(aes(y = ChatGPT, color = "ChatGPT")) +
-  geom_line(aes(y = Embeddings, color = "Embeddings")) +
-  geom_line(aes(y = Transformers, color = "Transformers")) +
-  geom_line(aes(y = Leximancer, color = "Leximancer")) +
-  geom_line(aes(y = BERT, color = "BERT")) +
-  geom_line(aes(y = STM, color = "STM")) +
-  geom_line(aes(y = Word2Vec, color = "Word2Vec")) +
   scale_color_manual(values = Royal2) +
   xlim(2010, 2024) +
   labs(
@@ -802,35 +811,23 @@ fig2 <- ggplot(cumulative_techniques_year, aes(x = year)) +
     y = "Cumulative Count"
   ) +
   theme_minimal() +
-  theme(legend.position = "none") # Hide the legend because the labels are directly on the curves
+  theme(legend.position = "none") # hide legends since they are on the curves
 
-#fig2 <- fig2 +
-  #geom_point(aes(y = Sentiment_Analysis), color="black", size=0.75) +
-  #geom_point(aes(y = LDA), color="black", size=0.75) +
-  #geom_point(aes(y = LIWC), color="black", size=0.75) +
-  #geom_point(aes(y = ChatGPT), color="black", size=0.75) +
-  #geom_point(aes(y = Embeddings), color="black", size=0.75) +
-  #geom_point(aes(y = Transformers), color="black", size=0.75) +
-  #geom_point(aes(y = Leximancer), color="black", size=0.75) +
-  #geom_point(aes(y = BERT), color="black", size=0.75) +
-  #geom_point(aes(y = STM), color="black", size=0.75) +
-  #geom_point(aes(y = Word2Vec), color="black", size=0.75)
-  
+# Add lines for each technique
+for (technique in top_1O_techniques) {
+  fig2 <- fig2 + geom_line(aes_string(y = technique, color = sprintf("'%s'", technique)))
+}
 
-# Add labels at the end of each curve with geom_text_repel
-labels_positions <- data.frame(
-  year = 2023, # reference year for positioning labels
-  Sentiment_Analysis = cumulative_techniques_year$Sentiment_Analysis[cumulative_techniques_year$year == 2023],
-  LDA = cumulative_techniques_year$LDA[cumulative_techniques_year$year == 2023],
-  LIWC = cumulative_techniques_year$LIWC[cumulative_techniques_year$year == 2023],
-  ChatGPT = cumulative_techniques_year$ChatGPT[cumulative_techniques_year$year == 2023],
-  Embeddings = cumulative_techniques_year$Embeddings[cumulative_techniques_year$year == 2023],
-  Transformers = cumulative_techniques_year$Transformers[cumulative_techniques_year$year == 2023],
-  Leximancer = cumulative_techniques_year$Leximancer[cumulative_techniques_year$year == 2023],
-  BERT = cumulative_techniques_year$BERT[cumulative_techniques_year$year == 2023],
-  STM = cumulative_techniques_year$STM[cumulative_techniques_year$year == 2023],
-  Word2Vec = cumulative_techniques_year$Word2Vec[cumulative_techniques_year$year == 2023]
-)
+data_2023 <- cumulative_techniques_year[cumulative_techniques_year$year == 2023, ]
+
+
+labels_positions <- data.frame(year = 2023) 
+
+for (technique in top_1O_techniques) {
+  if (technique %in% names(data_2023)) {
+    labels_positions[[technique]] <- data_2023[[technique]]
+  }
+}
 
 fig_plotly <- fig2 #to use without geom_text_repel but geom_text because not supported yet by plotly
 for(technique in names(labels_positions)[-1]) {
@@ -888,26 +885,38 @@ first_use <- first_use %>%
 #| fig-height: 7
 #| fig-width: 13
 
+#NER source : Nadeau, David & Sekine, Satoshi. (2007). A Survey of Named Entity Recognition and Classification. Lingvisticae Investigationes. 30. 10.1075/li.30.1.03nad. 
+
 first_use$year_publication[first_use$technique == "ChatGPT"] <- "2022"
-first_use$year_publication[first_use$technique == "LLM"] <- ""
+first_use$year_publication[first_use$technique == "LIWC"] <- "1993"
+first_use$year_publication[first_use$technique == "VADER"] <- "2004" #Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
+#first_use$year_publication[first_use$technique == "LLM"] <- "2022"
 first_use$year_publication[first_use$technique == "LDA"] <- "2003"
 first_use$year_publication[first_use$technique == "STM"] <- "2014"
 first_use$year_publication[first_use$technique == "BERT"] <- "2018"
-first_use$year_publication[first_use$technique == "NER"] <- ""
-first_use$year_publication[first_use$technique == "Sentiment_Analysis"] <- ""
+first_use$year_publication[first_use$technique == "NER"] <- "1996" #Sixth Message Understanding Conference (MUC-6) (R. Grishman & Sundheim 1996)
+first_use$year_publication[first_use$technique == "Sentiment_Analysis"] <- "2002" #Pang B, Lee L, Vaithyanathan S (2002) Thumbs up? Sentiment classification using machine learning techniques. In: Proceedings of the ACL-02 conference on empirical methods in natural language processing, Morristown, NJ, USA. Association for Computational Linguistics, pp 79–86
+first_use$year_publication[first_use$technique == "Topic_Modeling"] <- "1999" #Hofmann, T. (1999, August). Probabilistic latent semantic indexing. In Proceedings of the 22nd annual international ACM SIGIR conference on Research and development in information retrieval (pp. 50-57).
 first_use$year_publication[first_use$technique == "TFIDF"] <- ""
 first_use$year_publication[first_use$technique == "Embeddings"] <- "2013"
 first_use$year_publication[first_use$technique == "Transformers"] <- "2017"
-first_use$year_publication[first_use$technique == "RoBERTa"] <- "2019"
+#first_use$year_publication[first_use$technique == "RoBERTa"] <- "2019"
 first_use$year_publication[first_use$technique == "Word2Vec"] <- "2013"
 first_use$year_publication[first_use$technique == "FastText"] <- "2015"
 first_use$year_publication[first_use$technique == "TextRank"] <- "2004"
-first_use$year_publication[first_use$technique == "GPT2"] <- "2019"
+#first_use$year_publication[first_use$technique == "GPT2"] <- "2019"
 first_use$year_publication[first_use$technique == "GPT3"] <- "2020"
-first_use$year_publication[first_use$technique == "POS_Tagging"] <- ""
-first_use$year_publication[first_use$technique == "PARA"] <- "" ## 2023 but it's the paper that introduced the technique so it's not the first use
+#first_use$year_publication[first_use$technique == "POS_Tagging"] <- ""
+#first_use$year_publication[first_use$technique == "PARA"] <- "" ## 2023 but it's the paper that introduced the technique so it's not the first use
 first_use$year_publication[first_use$technique == "Leximancer"] <- "2005"
-first_use$year_publication[first_use$technique == "PassivePy"] <- "" ## 2023 but same as PARA
+#first_use$year_publication[first_use$technique == "PassivePy"] <- "" ## 2023 but same as PARA
+#first_use$year_publication[first_use$technique == "LDA2Vec"] <- "2016"
+#first_use$year_publication[first_use$technique == "LSTM"] <- "1997"
+#first_use$year_publication[first_use$technique == "GRU"] <- "2014"
+#first_use$year_publication[first_use$technique == "RNN"] <- "1986"
+#first_use$year_publication[first_use$technique == "CNN"] <- "1989"
+
+
 
 first_use <- first_use %>%
   filter(year_publication != "" & year_first_use != "") %>%
@@ -917,15 +926,31 @@ first_use <- first_use %>%
          technique_year = paste(technique,"-",year_publication)) %>%
   arrange(year_publication)
 
+## I only change the order of the rows to make the graph more readable. I want embeddings to appear before word2vec
+
+# Identify the index of the rows
+index_embeddings <- which(first_use$technique == "Embeddings")
+index_word2vec <- which(first_use$technique == "Word2Vec")
+
+# SAve the rows
+ligne_embeddings <- first_use[index_embeddings, ]
+ligne_word2vec <- first_use[index_word2vec, ]
+
+# Switch the rows
+first_use[index_embeddings, ] <- ligne_word2vec
+first_use[index_word2vec, ] <- ligne_embeddings
+
 techniques_lolipop <- ggplot(first_use, aes(x = reorder(technique_year, year_publication), y = year_first_use)) +
-  geom_segment(aes(xend = technique_year, yend = year_publication), colour = "gray") +
-  geom_point(aes(y = year_first_use), colour = "#ff2c2c", size = 3) +
-  geom_point(aes(y = year_publication), colour = "skyblue", size = 3) +
+  geom_segment(aes(xend = technique_year, yend = year_publication), colour = "#3a3a3a", linewidth=0.1) +
+  geom_point(aes(y = year_first_use), colour = "#023047", size = 2.5) +
+  geom_point(aes(y = year_publication), colour = "#ff2c2c", size = 2.5) +
   geom_text(aes(x = technique_year, y = (year_first_use + year_publication) / 2, label = delay), vjust = -0.5) +
   coord_flip() +
-  labs(y = "Year", x = "", title = "Timeline of Techniques") +
+  labs(y = "Year", x = "", title = "Timeline of Methods") +
   scale_x_discrete(limits = rev(first_use$technique_year)) +
   theme_minimal()
+
+
 
 techniques_lolipop
 

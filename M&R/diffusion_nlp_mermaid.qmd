@@ -418,39 +418,17 @@ graph TD
 %%| column: page
 
 graph LR
-  %% Redefine nodes without Global Diffusion as a single node
-  PS("Publications Stocks/Growth") --- OP("Originality")
-  PS --- LE("Legitimacy")
-  PS --- PA("Publication Acceptance")
-  PS --- LC("Learning Cost")
-  PS <---> RA("Researcher Adoption")
-  
-  %% Define additional relationships
-  OP --- PA
-  LE --- PA
-  PA --- RA
-  LC --- RA
+  A[Publications stocks/Growth<br>- top tiers<br>- low tiers] -->|+| B[Originality<br>-methods<br>-applications]
+  B -->|+| C[Legitimacy<br>-external<br>-internal]
+  C -->|+| E[researcher adoption]
+  E -->|+| F[publication acceptation]
+  F --> B
+  B -->|-| F
+  C -->|-| D[Learning cost]
+  D -->|-| E
+  A -->|+| E
+  G[Global diffusion] -->|-| A
+  F --> E
+  E -->|+| F
 
-  %% Styling for emphasis and thick arrows
-  classDef default fill:#fff,stroke:#333,stroke-width:1px;
-  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;
-  
-  class PS emphasis;
-
-  %% Define global diffusion frame
-  subgraph GD["Global Diffusion"]
-    OP
-    LE
-    PA
-    LC
-    RA
-    PS
-  end
-  
-  %% Apply styling
-  linkStyle 0 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 1 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 2 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 3 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 4 stroke:#ff6f61,stroke-width:2px, arrowhead:vee, arrowtail:vee;
 ```

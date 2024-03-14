@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Olivier CARON">
-<meta name="dcterms.date" content="2024-02-23">
+<meta name="dcterms.date" content="2024-03-04">
 
 <title>Mermaid Diagrams</title>
 <style>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 23, 2024</p>
+        <p class="date">March 4, 2024</p>
       </div>
     </div>
     
@@ -988,41 +988,18 @@ Figure&nbsp;1
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>graph LR</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  %% Redefine nodes without Global Diffusion as a single node</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  PS("Publications Stocks/Growth") --- OP("Originality")</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  PS --- LE("Legitimacy")</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  PS --- PA("Publication Acceptance")</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  PS --- LC("Learning Cost")</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  PS &lt;---&gt; RA("Researcher Adoption")</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  %% Define additional relationships</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  OP --- PA</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  LE --- PA</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  PA --- RA</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  LC --- RA</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  %% Styling for emphasis and thick arrows</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  classDef default fill:#fff,stroke:#333,stroke-width:1px;</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  class PS emphasis;</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  %% Define global diffusion frame</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  subgraph GD["Global Diffusion"]</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    OP</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    LE</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    PA</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    LC</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    RA</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    PS</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  end</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  %% Apply styling</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  linkStyle 0 stroke:#ff6f61,stroke-width:2px;</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  linkStyle 1 stroke:#ff6f61,stroke-width:2px;</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  linkStyle 2 stroke:#ff6f61,stroke-width:2px;</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  linkStyle 3 stroke:#ff6f61,stroke-width:2px;</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  linkStyle 4 stroke:#ff6f61,stroke-width:2px, arrowhead:vee, arrowtail:vee;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  A[Publications stocks/Growth&lt;br&gt;- top tiers&lt;br&gt;- low tiers] --&gt;|+| B[Originality&lt;br&gt;-methods&lt;br&gt;-applications]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  B --&gt;|+| C[Legitimacy&lt;br&gt;-external&lt;br&gt;-internal]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  C --&gt;|+| E[researcher adoption]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  E --&gt;|+| F[publication acceptation]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  F --&gt; B</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  B --&gt;|-| F</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  C --&gt;|-| D[Learning cost]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  D --&gt;|-| E</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  A --&gt;|+| E</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  G[Global diffusion] --&gt;|-| A</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  F --&gt; E</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  E --&gt;|+| F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display column-page">
 <div id="fig-mermaid" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1030,41 +1007,19 @@ Figure&nbsp;1
 <div aria-describedby="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-mermaid">graph LR
-  %% Redefine nodes without Global Diffusion as a single node
-  PS("Publications Stocks/Growth") --- OP("Originality")
-  PS --- LE("Legitimacy")
-  PS --- PA("Publication Acceptance")
-  PS --- LC("Learning Cost")
-  PS &lt;---&gt; RA("Researcher Adoption")
-  
-  %% Define additional relationships
-  OP --- PA
-  LE --- PA
-  PA --- RA
-  LC --- RA
+  A[Publications stocks/Growth&lt;br&gt;- top tiers&lt;br&gt;- low tiers] --&gt;|+| B[Originality&lt;br&gt;-methods&lt;br&gt;-applications]
+  B --&gt;|+| C[Legitimacy&lt;br&gt;-external&lt;br&gt;-internal]
+  C --&gt;|+| E[researcher adoption]
+  E --&gt;|+| F[publication acceptation]
+  F --&gt; B
+  B --&gt;|-| F
+  C --&gt;|-| D[Learning cost]
+  D --&gt;|-| E
+  A --&gt;|+| E
+  G[Global diffusion] --&gt;|-| A
+  F --&gt; E
+  E --&gt;|+| F
 
-  %% Styling for emphasis and thick arrows
-  classDef default fill:#fff,stroke:#333,stroke-width:1px;
-  classDef emphasis fill:#ff6f61,stroke:#333,stroke-width:4px, color:#fff;
-  
-  class PS emphasis;
-
-  %% Define global diffusion frame
-  subgraph GD["Global Diffusion"]
-    OP
-    LE
-    PA
-    LC
-    RA
-    PS
-  end
-  
-  %% Apply styling
-  linkStyle 0 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 1 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 2 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 3 stroke:#ff6f61,stroke-width:2px;
-  linkStyle 4 stroke:#ff6f61,stroke-width:2px, arrowhead:vee, arrowtail:vee;
 </pre>
 </div>
 </div>
