@@ -16,6 +16,7 @@ execute:
 fig-align: "center"
 code-fold: true
 ---
+
 ```{r}
 #| eval: false
 #| echo: true
@@ -24,6 +25,56 @@ command_svg <- "mmdc -i images/mermaid.mmd -o images/cost_utility.svg"
 system(command_svg)
 command_png <- "mmdc -i images/mermaid.mmd -o images/cost_utility.png"
 system(command_png)
+```
+
+## HAA
+
+```{mermaid}
+graph LR
+  %% Define main nodes
+  GD((Global Diffusion)) -->|Determines| PS[Publications Stocks/Growth]
+  GD -..->|Influences| LC[Learning Costs]
+  PS -->|Affects| LE[Legitimacy]
+  PS -.->|Affects| COSTS
+  PA[Publication Acceptance] -->|Steers| RA[Researcher Adoption]
+  LC -..->|Facilitates| RA((Researcher Adoption))
+  
+  subgraph COSTS[Costs/Utility]
+    OR[Originality]
+    LE
+    LC
+  end
+  
+  %% Define subgraphs for journal segmentation
+  subgraph JOUR[Top/Down Acceptation]
+    TR_OP[High tier journals] -->|Diffused in| TR_PA[Low tier journals]
+  end
+  
+  subgraph RES[Communities]
+    SR_LE[Researcher]
+  end
+
+  %% Connect main graph to subgraphs
+  SR_LE --> PA
+  OR --> TR_OP
+  LE --> RES
+  TR_PA --> PA
+
+
+  %% Styling for emphasis
+  classDef default fill:#fff,stroke:#333,stroke-width:1px;
+  classDef emphasis fill:#f96,stroke:#333,stroke-width:2px, color:#fff;
+  classDef influenced fill:#ff6,stroke:#333,stroke-width:2px, color:#333;
+  classDef impacting fill:#f66,stroke:#333,stroke-width:2px, color:#fff;
+  
+  class GD,RA emphasis;
+  class LC,OR,LE influenced;
+  class PA impacting;
+
+  linkStyle 0 stroke:#333,stroke-width:3px;
+  linkStyle 1 stroke:#333,stroke-width:3px;
+  linkStyle 4 stroke:#333,stroke-width:3px;
+  linkStyle 5 stroke:#333,stroke-width:3px;
 ```
 
 ## 1
@@ -361,6 +412,7 @@ graph TD
 
 
 ```
+
 ## Second choice ?
 
 ```{mermaid}
@@ -410,6 +462,7 @@ graph TD
   linkStyle 4 stroke:#333,stroke-width:3px;
   linkStyle 5 stroke:#333,stroke-width:3px;
 ```
+
 ## 7
 
 ```{mermaid}

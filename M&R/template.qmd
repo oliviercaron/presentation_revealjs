@@ -20,7 +20,7 @@ author:
       name: "Paris Dauphine - PSL"
       city: Paris
       state: France
-date: 02/13/2024
+date: 05/06/2024
 date-format: long
 editor: 
   markdown: 
@@ -108,7 +108,7 @@ Concentration of research in major publishers (Elsevier, Thomson) with
 an increasing number of journals with facilitated access through
 bibliographic search interfaces.
 
-## What are the factors driving the diffusion of NLP methods? 1/2
+## Research strategies
 
 Researcher must elaborate strategies to advance their career
 [@kolesnikov2018]
@@ -119,7 +119,9 @@ Researcher must elaborate strategies to advance their career
 These strategies can be thought of in terms of the technology acceptance
 model from @davis1989
 
--   Adopt NLP methods based on interest (1) and ease of use (2)
+-   Adopt NLP methods based on interest in innovative tools (1) and the
+    perceived ease of integrating these methods into their work (2)
+    -   
 
 ::: notes
 1.  Researchers are strategically adopting NLP methods to enhance their
@@ -138,12 +140,14 @@ model from @davis1989
     legitimacy of their work.
 :::
 
-## What are the factors driving the diffusion of NLP methods? 2/2
+## Management trends & communities
 
 NLP methods are used in close communities of practice [@lave1991;
-@hauser2006]
+@hauser2006] where peer learning and shared practices enable the
+diffusion of methods
 
-Management trends [@abrahamson1991]
+Management trends [@abrahamson1991], diffusion is linked to a cultural
+phenomenon rather than rational decision making
 
 ::: notes
 1.  Community Practice: The adoption of NLP methods is fostered within
@@ -153,6 +157,10 @@ Management trends [@abrahamson1991]
 2.  Diffusion linked to CULTURAL PHENOMENON RATHER THAN RATIONAL
     DECISION MAKING
 :::
+
+## Conceptual framework
+
+![](images/conceptual_framework.jpg){fig-align="center"}
 
 ## Data presentation
 
@@ -287,6 +295,8 @@ htmlwidgets::saveWidget(worldplot_plotly_object, "images/worldplot.html")
 #| label: worldwide-production-3D
 #| fig-height: 7
 #| fig-width: 13
+#| eval: false
+#| echo: false
 
 cited_country <- list_articles %>%
   filter(!is.na(affiliation_country)) %>%
@@ -370,6 +380,8 @@ saveWidget(p,"images/3D_worldmap_citations.html")
 #| label: ggstatplot-productions
 #| fig-height: 6
 #| fig-width: 11
+#| eval: false
+#| echo: false
 
 ggdotplotstats(
   data       = head(productive_affiliations,25),
@@ -388,6 +400,8 @@ ggdotplotstats(
 #| label: ggstatplot-citations
 #| fig-height: 6
 #| fig-width: 11
+#| eval: false
+#| echo: false
 
 ggdotplotstats(
   data       = head(cited_affiliation,25),
@@ -779,7 +793,6 @@ most_technical_articles <- list_articles_techniques[order(list_articles_techniqu
 
 ```
 
-
 ## Evolution of NLP techniques
 
 ```{r}
@@ -960,10 +973,10 @@ ggsave("images/first_use_techniques.png", width = 10, height = 6, dpi = 600)
 
 ```
 
-::: {.notes}
+::: notes
 There is a significant time lag between the emergence of techniques and
-their actual use in marketing research.
-This delay is decreasing over time, suggesting that the cost of learning NLP is decreasing.
+their actual use in marketing research. This delay is decreasing over
+time, suggesting that the cost of learning NLP is decreasing.
 :::
 
 ## Dominantly marketing: the selective borrowing of NLP methods
@@ -971,6 +984,15 @@ This delay is decreasing over time, suggesting that the cost of learning NLP is 
 <iframe width="1200" height="1000" src="images/top20ref.html" title="Sigma graph" frameborder="0" class="column-page">
 
 </iframe>
+
+## Future of NLP in marketing
+
+-   LLMs lower learning costs for sentiment analysis and classification
+    tasks
+-   LLMs enable agent based
+-   Fine-tuned machine learning methods still perform better for
+    specific tasks [@krugmann2024]
+-   but LLMs achieve very good results without prior training
 
 ## To conclude:
 
