@@ -288,7 +288,7 @@ htmlwidgets::saveWidget(worldplot_plotly_object, "images/worldplot.html")
 ```
 :::
 
-## Citations per country {.absolute}
+## Citations per country {.absolute} {visibility="hidden"}
 
 ::: {.absolute top="70" left="-85"}
 ```{r}
@@ -374,7 +374,7 @@ saveWidget(p,"images/3D_worldmap_citations.html")
 ```
 :::
 
-## A focus on affiliations: number of [productions]{.fg style="--col: #e64173"}
+## A focus on affiliations: number of [productions]{.fg style="--col: #e64173"} {visibility="hidden"}
 
 ```{r}
 #| label: ggstatplot-productions
@@ -394,7 +394,7 @@ ggdotplotstats(
 )
 ```
 
-## A focus on affiliations: number of [citations]{.fg style="--col: #3cb371"}
+## A focus on affiliations: number of [citations]{.fg style="--col: #3cb371"} {visibility="hidden"}
 
 ```{r}
 #| label: ggstatplot-citations
@@ -987,14 +987,17 @@ time, suggesting that the cost of learning NLP is decreasing.
 
 ## Future of NLP in marketing
 
+-   NLP methods' adoption in top-tier marketing journals suggests it's
+    not a mere trend but an innovation gaining solid ground in the
+    field.
 -   LLMs lower learning costs for sentiment analysis and classification
     tasks
--   LLMs enable agent based
+-   LLMs enable agent based simulation [@tornberg2023simulating]
 -   Fine-tuned machine learning methods still perform better for
     specific tasks [@krugmann2024]
 -   but LLMs achieve very good results without prior training
 
-## To conclude:
+## To conclude: {visibility="hidden"}
 
 1.  NLP methods' adoption in top-tier marketing journals suggests it's
     not a mere trend but an innovation gaining solid ground in the
