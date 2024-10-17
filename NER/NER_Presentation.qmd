@@ -134,4 +134,12 @@ I used the [GliNER Studio Colab notebook](https://colab.research.google.com/driv
 
 # StreamLit App for your data
 
+-   <https://huggingface.co/spaces/oliviercaron/GLiNER_file>
+
+
+-   Clone the repository on your own computer:
+
+
+-   <https://github.com/oliviercaron/GliNER_streamlit>
+
 # Bibliography
