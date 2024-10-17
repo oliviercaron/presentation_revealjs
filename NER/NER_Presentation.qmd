@@ -92,9 +92,9 @@ I used the [GliNER Studio Colab notebook](https://colab.research.google.com/driv
 
 ![](images/clipboard-3370357996.png)
 
-# Finetuning  - gliner_multi-v2.1
+# Finetuning - gliner_multi-v2.1
 
-![](images/clipboard-4278200773.png)
+![](images/clipboard-116564616.png)
 
 # Finetuning - [Custom model](https://colab.research.google.com/drive/12V3nFQtYHg3NuzK5GQab6HI0LQ8lMeWm#scrollTo=X1qJ0OebJjBk) for Covid-19 vaccines' side effects
 
@@ -102,8 +102,7 @@ I used the [GliNER Studio Colab notebook](https://colab.research.google.com/driv
 
 # Pharmaceutical Brands
 
-:::{.latex}
-
+::: latex
 \begin{table}[ht]
 \centering
 \begin{tabular}{ccccc}
@@ -115,13 +114,11 @@ I used the [GliNER Studio Colab notebook](https://colab.research.google.com/driv
 \includegraphics[width=0.18\textwidth]{images/wordclouds/wordcloud_BioNTech_Oslo_10.png} \\
 \end{tabular}
 \end{table}
-
 :::
 
 # Pharmaceutical Companies
 
-:::{.latex}
-
+::: latex
 \begin{table}[ht]
 \centering
 \begin{tabular}{cc}
@@ -133,12 +130,8 @@ I used the [GliNER Studio Colab notebook](https://colab.research.google.com/driv
 \includegraphics[width=0.4\textwidth]{images/keyness/keyness_Pfizer.png} \\
 \end{tabular}
 \end{table}
-
 :::
 
 # StreamLit App for your data
-
-
-
 
 # Bibliography
