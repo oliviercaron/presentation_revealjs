@@ -1,0 +1,128 @@
+---
+title: "Public Reaction to Pharmaceutical Preannouncements on Social Media: A Signaling Perspective"
+#bibliography: references.bib
+#format: 
+  #pdf:
+    #documentclass: article
+    #classoption: a4paper
+    #fontsize: 10pt
+format:
+  #pdf:
+    #classoption: aspectratio=169,10pt
+  beamer:
+    #aspectratio: 169
+    fontsize: 8pt
+    font: serif
+    #keep_tex: true
+    pdf-engine: xelatex
+    preamble: |
+      \usepackage{etoolbox}
+      \setcounter{secnumdepth}{5}
+      \setcounter{tocdepth}{5}
+      \setcounter{maxdepth}{6}
+      \usepackage{fontspec}
+      \setmainfont{Roboto} 
+      \setbeamercolor{normal text}{fg=red} % Définit le texte normal en rouge
+      %\usetheme{Berlin}  % Thème avec bleu/gris
+      \setbeamertemplate{navigation symbols}{% Active les symboles de navigation
+          \insertslidenavigationsymbol
+          \insertframenavigationsymbol
+          \insertbackfindforwardnavigationsymbol
+      }
+author:
+  - name: Olivier Caron
+    #orcid: 0000-0000-0000-0000
+    email: olivier.caron@dauphine.psl.eu
+    affiliations:
+      name: "Paris Dauphine - PSL"
+      city: Paris
+      state: France
+  - name: Christophe Benavent
+    orcid: 0000-0002-7253-5747
+    email: christophe.benavent@dauphine.psl.eu
+    affiliations:
+      name: "Paris Dauphine - PSL"
+      city: Paris
+      state: France
+date: 01/24/2025
+date-format: long
+editor: 
+  markdown: 
+    wrap: 72
+#bibliography: references.bib
+#csl: apa.csl
+---
+
+## Slide 2: Context
+- Strategic importance of preannouncements in the pharmaceutical industry.
+- Example: COVID-19 vaccine developments.
+- Challenges: Managing public perception on social media.
+
+**Image:** A timeline of COVID-19 vaccine approvals.
+
+## Slide 3: Research Problem and Objectives
+**Problem:** How do preannouncements influence public sentiment?  
+**Objectives:**  
+1. Explore public reactions using Twitter data.  
+2. Analyze sentiment variations and side effects mentions.  
+
+**Image:** A visual of the signaling theory framework.
+
+## Slide 4: Theoretical Framework
+- **Signaling Theory:** Managing uncertainty via strategic communication.  
+- Dual role: Informing regulators, influencing competitors, and engaging the public.  
+- Negativity bias: Negative signals dominate public discourse.
+
+**Image:** Diagram illustrating signaling between companies, regulators, and the public.
+
+## Slide 5: Methodology
+- **Data Collection:**  
+  - 1.4M tweets narrowed to 150,564.  
+  - Focus on Pfizer, Moderna, AstraZeneca, and BioNTech.  
+- **Techniques:**  
+  - Named Entity Recognition (NER) with GLiNER.  
+  - Sentiment analysis with XLM-roBERTa.
+
+**Image:** A flowchart of data collection and processing steps.
+
+## Slide 6: NER Results
+- Identified mentions of side effects:  
+  - Pfizer: Fever, cardiac issues.  
+  - Moderna: Muscle pain, fatigue.  
+  - AstraZeneca: Thrombosis, cutaneous reactions.  
+- Insights: Negative associations shape public narratives.
+
+**Image:** Graph of significant side effects for each company.
+
+## Slide 7: Sentiment Analysis
+- **Pfizer:** Surge in positive sentiment after preannouncements but a backlash later.  
+- **AstraZeneca:** Dominant negative sentiment due to safety concerns.  
+- **Moderna:** Similar patterns as Pfizer but less scrutiny.
+
+**Image:** Sentiment proportion chart for Pfizer.
+
+## Slide 8: Discussion
+- Strategic challenges:  
+  - Visibility attracts scrutiny (Pfizer).  
+  - Safety concerns dominate narratives (AstraZeneca).  
+  - Importance of precise communication.  
+- Crisis communication must address negativity bias effectively.
+
+**Image:** A schematic of sentiment evolution across time.
+
+## Slide 9: Practical Implications
+- **For pharmaceutical companies:**  
+  - Use advanced tools like NER to monitor public discourse.  
+  - Develop transparent, timely communication strategies.  
+- **For regulators:**  
+  - Collaborate on clear, unified messages during crises.
+
+**Image:** Diagram of collaborative communication strategies.
+
+## Slide 10: Conclusion
+- Contributions:  
+  - Insights into public perception of preannouncements.  
+  - Application of NER and sentiment analysis in marketing.  
+- Future Research: Explore long-term effects on brand trust.
+
+**Image:** Thank you slide with your contact details and conference branding.
