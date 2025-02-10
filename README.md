@@ -9,4 +9,6 @@ This repository hosts various presentations I have given on my research.
 
 [Poster PSL AI For the Sciences](https://oliviercaron.github.io/presentation_revealjs/PSL/ai_for_sciences/Poster_PSL_Olivier_Caron_VF.pdf)
 
+[Fine-Tuning GliNER for Detecting Side Effects in French COVID-19 Tweets](https://oliviercaron.github.io/presentation_revealjs/NER/NER_Presentation.pdf)
+
 [International Marketing Trends Conference Presentation - Venice](https://oliviercaron.github.io/presentation_revealjs/IMTC/2IMTC_presentation.pdf)
