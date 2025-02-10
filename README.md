@@ -1,5 +1,5 @@
 # Presentations
-This is a repository to uplad different presentations done with revealjs.
+This repository hosts various presentations I have given on my research.
 
 [Research lunch GovReg Chair](https://oliviercaron.github.io/presentation_revealjs/GovReg_lunch/revealjs_presentation.html)
 
