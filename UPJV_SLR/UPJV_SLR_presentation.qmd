@@ -47,7 +47,7 @@ editor:
 
 . . .
 
-## Why Conduct a Systematic Literature Review?
+## Why Conduct a Systematic Literature Review? [@petticrew2006]
 
 -   **Credibility and Transparency**: Minimizes bias, promotes replicability.
 -   **Comprehensive Coverage**: Ensures all relevant studies are included.
@@ -77,20 +77,17 @@ editor:
 
 ------------------------------------------------------------------------
 
-# 2.1 TCCM Framework [@paul2019 ; @rosado-serrano2018]
+# 2.1 TCCM Framework [@paul2019; @rosado-serrano2018]
 
 ::::: columns
-::: {.column width="50%"}
+::: {.column width="40%"}
 1.  **Theory (T):** What theories have been used?
 2.  **Context (C):** In which settings (industries, countries, samples) has the research been conducted?
 3.  **Characteristics (C):** What are the key variables and relationships studied?
 4.  **Methodology (M):** What research methods have been used (qualitative, quantitative, mixed methods)?
-
-Organize and synthesize literature systematically.  
-Identify gaps in existing research.  
-Enhances transparency and rigor in qualitative SLRs.  
 :::
 
+```{=html}
 <!--  
 # Différences entre TCCM et PRISMA  
 
@@ -113,6 +110,7 @@ Enhances transparency and rigor in qualitative SLRs.
 # Conclusion  
 TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis que PRISMA garantit la **rigueur et la transparence** du processus de revue.  
 -->
+```
 
 . . .
 
