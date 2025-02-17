@@ -1,5 +1,7 @@
 ---
-title: "Systematic Literature Review in the Age of AI: New Tools, New Methods"
+title: |
+  Systematic Literature Review in the Age of AI:  
+  New Tools, New Methods
 subtitle: "CRIISEA Methodological Workshop, UPJV (Amiens)"
 author:
   - name: Olivier Caron
@@ -16,138 +18,252 @@ format:
     colortheme: "orchid"
     aspectratio: 169
     incremental: false
+    slide_level: 2
 bibliography: references_complete.bib
-    #theme: "FrankFurt"
-    #colortheme: "dolphin"
-        #theme: "AnnArbor"
-    #colortheme: "dolphin" => jaune joli
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
-# Introduction
+# Summary of the Presentation
 
-## Context and Objectives
-- **Context**: Growing interest in systematic literature reviews (SLR) within economics and management research.
-- **Objectives of this Presentation**:
-  - Introduce the theoretical background of SLR.
-  - Present AI-driven and computational tools that facilitate SLR.
-  - Demonstrate a real-world example using NLP in marketing research.
+1.  **Definition and Importance of Systematic Literature Reviews**
+2.  **SLR Process & PRISMA Framework**
+3.  **AI & NLP in Literature Reviews**
+4.  **Tools & Demonstration**
+5.  **Practical Tips & Conclusions**
 
----
+------------------------------------------------------------------------
 
-## Outline of the Presentation
-1. **Definition and Importance of Systematic Literature Reviews**
-2. **SLR Process & PRISMA Framework**
-3. **AI & NLP in Literature Reviews**
-4. **Tools & Demonstration**
-5. **Practical Tips & Conclusions**
-6. **fefsfsf**
+# 1. A Definition of Systematic Literature Review
 
----
+## What Is a Systematic Literature Review? [@lame2019]
 
-# 1. Definition and Importance of Systematic Literature Reviews
-
-## What Is a Systematic Literature Review?
-- **Systematic**: A structured, replicable, and transparent process for collecting and analyzing literature on a specific topic.
-- **Literature Review**: Synthesis of existing research to identify:
-  - Key themes
-  - Research gaps
-  - Future research directions
+-   **Systematic**: A structured, replicable, and transparent process for collecting and analyzing literature on a specific topic to answer a particular research question
+-   **Literature Review**: Synthesis of existing research to identify:
+    -   Key themes
+    -   Research gaps
+    -   Future research directions
 
 . . .
 
 ## Why Conduct a Systematic Literature Review?
-- **Credibility and Transparency**: Minimizes bias, promotes replicability.
-- **Comprehensive Coverage**: Ensures all relevant studies are included.
-- **Guides Future Research**: Highlights gaps and emerging areas of study.
 
----
+-   **Credibility and Transparency**: Minimizes bias, promotes replicability.
+-   **Comprehensive Coverage**: Ensures all relevant studies are included.
+-   **Guides Future Research**: Highlights gaps and emerging areas of study.
+
+------------------------------------------------------------------------
 
 # 2. SLR Process & PRISMA Framework
 
 ## Standard Steps in an SLR
-1. **Define Research Question** (PICO, PICOC, etc., in medical or social sciences)
-2. **Search Strategy** (databases, keywords, boolean operators)
-3. **Screening & Eligibility** (inclusion/exclusion criteria)
-4. **Quality Assessment** (methodological soundness, relevance)
-5. **Data Extraction** (collect relevant information)
-6. **Synthesis & Analysis** (qualitative or quantitative/meta-analysis)
-7. **Reporting** (PRISMA flow diagram, structured write-up)
+
+1.  **Define Research Question** (PICO, PICOC, etc., in medical or social sciences)
+2.  **Search Strategy** (databases, keywords, boolean operators)
+3.  **Screening & Eligibility** (inclusion/exclusion criteria)
+4.  **Quality Assessment** (methodological soundness, relevance)
+5.  **Data Extraction** (collect relevant information)
+6.  **Synthesis & Analysis** (qualitative or quantitative/meta-analysis)
+7.  **Reporting** (PRISMA flow diagram, structured write-up)
 
 . . .
 
 ## PRISMA Flow Diagram (Briefly)
-- **Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA)**:
-  - Structured approach to document how many articles were found, screened, included, or excluded at each step.
-  - Ensures transparency in the selection of articles.
 
----
+-   **Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA)**:
+    -   Structured approach to document how many articles were found, screened, included, or excluded at each step.
+    -   Ensures transparency in the selection of articles.
+
+------------------------------------------------------------------------
+
+# 2.1 TCCM Framework [@paul2019 ; @rosado-serrano2018]
+
+::::: columns
+::: {.column width="50%"}
+1.  **Theory (T):** What theories have been used?
+2.  **Context (C):** In which settings (industries, countries, samples) has the research been conducted?
+3.  **Characteristics (C):** What are the key variables and relationships studied?
+4.  **Methodology (M):** What research methods have been used (qualitative, quantitative, mixed methods)?
+
+Organize and synthesize literature systematically.  
+Identify gaps in existing research.  
+Enhances transparency and rigor in qualitative SLRs.  
+:::
+
+<!--  
+# Différences entre TCCM et PRISMA  
+
+1. **Approche**  
+   - TCCM structure la littérature **conceptuellement** (théories, contextes, variables, méthodes).  
+   - PRISMA standardise le **processus de sélection** et de rapportage des études.  
+
+2. **Objectif**  
+   - TCCM vise à **synthétiser et analyser** la littérature pour identifier des **lacunes théoriques et méthodologiques**.  
+   - PRISMA garantit la **transparence et la reproductibilité** du processus de sélection des articles.  
+
+3. **Application**  
+   - TCCM est adapté aux **revues qualitatives et conceptuelles**.  
+   - PRISMA est courant dans les **méta-analyses quantitatives** et les recherches biomédicales.  
+
+4. **Résultats**  
+   - TCCM offre une **vue d’ensemble des fondements théoriques et tendances** d’un champ de recherche.  
+   - PRISMA fournit un **rapport détaillé et transparent** du processus de revue.  
+
+# Conclusion  
+TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis que PRISMA garantit la **rigueur et la transparence** du processus de revue.  
+-->
+
+. . .
+
+::: {.column width="50%"}
+![](images/clipboard-1731957394.png)
+
+@kumar2023
+:::
+:::::
+
+------------------------------------------------------------------------
+
+# 2.2 Context
+
+-   **Context**: Growing interest in systematic literature reviews (SLR) in every field, including economics & management.
+
+![](images/clipboard-3754244293.png){fig-align="center" width="50%"}
+
+------------------------------------------------------------------------
+
+# 2.3 Additional PRISMA & SLR Illustrations
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-1623296866.png)
+
+@borges2021
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-3081170764.png)
+
+@toorajipour2021
+:::
+:::::
+
+------------------------------------------------------------------------
+
+# 2.4 Data evolution =\> Popularity
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-2828442166.png)
+
+@chaudhary2021
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-2386760160.png)
+
+@fares2022
+:::
+:::::
+
+------------------------------------------------------------------------
 
 # 3. AI & NLP in Literature Reviews
 
 ## Where Does AI/NLP Fit In?
-- **Automated Text Mining**: Quickly processes large volumes of abstracts and full texts.
-- **Topic Modeling** (e.g., BERTopic, LDA): Identifies thematic structures from textual data.
-- **Clustering & Network Analysis**: Helps visualize relationships between authors, topics, and keywords.
-- **Summarization**: AI-driven tools to extract key points, saving time on manual reading.
+
+-   **Automated Text Mining**: Quickly processes large volumes of abstracts and full texts.
+-   **Topic Modeling** (e.g., BERTopic, LDA): Identifies thematic structures from textual data.
+-   **Clustering & Network Analysis**: Helps visualize relationships between authors, topics, and keywords.
+-   **Summarization**: AI-driven tools to extract key points, saving time on manual reading.
 
 . . .
 
-## Example: NLP in Marketing Research
-- **Data Collection**: 
-  - Used Scopus API to retrieve all relevant abstracts and author information.
-- **Data Processing**:
-  - Cleaned text data (removing stopwords, punctuation).
-  - Used graphing libraries to visualize co-authorship networks and keyword co-occurrences.
-  - Applied **BERTopic** for advanced topic modeling.
-- **Insights**:
-  - Identified main research clusters, key authors, and emerging topics in marketing.
+## Example: [NLP in Marketing Research](https://oliviercaron.github.io/systematic_lit_review/SLR_stm.html)
 
----
+-   [**Data Collection**](https://oliviercaron.github.io/systematic_lit_review/syslitrev_data_collection.html):
+    -   Used Scopus API to retrieve all relevant abstracts and author information.
+-   **Data Processing**:
+    -   Used graphing libraries to visualize co-authorship networks and [keyword co-occurrences](file:///C:/Users/Olivier/Documents/GitHub/article_afm/NER_analysis.html#community-1-healthcare-and-vaccines).
+    -   Applied [BERTopic](https://oliviercaron.github.io/systematic_lit_review/topic_modeling.html) for advanced topic modeling.
+-   **Insights**:
+    -   Identified main research clusters & key authors/references/methods/topics
+
+------------------------------------------------------------------------
 
 # 4. Tools & Demonstration
 
 ## Traditional vs. AI-Enhanced Tools
-::: {.columns}
-::: {.column width="45%"}
-**Traditional Tools**
-- **R bibliometrix**  
-  - Free, open-source R package for bibliometric analysis.
-  - Offers citation analysis, co-occurrence networks, and more.
-- **VOSviewer**  
-  - Free software tool for constructing and visualizing bibliometric networks.
-  - Widely used in academic reviews.
-:::
-::: {.column width="55%"}
-**AI-Enhanced Tools**
-- **Artirev**, **Connected Papers**, **Elicit**, **AnswerThis**, **ResearchRabbit**, **LitMaps**
-  - Provide intelligent recommendations.
-  - Map out how papers connect based on citations or semantic similarity.
-  - Some are free or freemium, some have advanced paid features.
-:::
+
+::::: columns
+::: {.column width="40%"}
+**Traditional Tools**\
+- [**R bibliometrix**](https://www.bibliometrix.org/): R package for bibliometric analysis.\
+- [**VOSviewer**](https://www.vosviewer.com/): Tool for visualizing bibliometric networks.\
+- [**R**](https://posit.co/download/rstudio-desktop/)/[**Python**](https://www.python.org/) but it requires more time.
 :::
 
-. . .
+::: {.column width="60%"}
+**AI-Enhanced Tools**\
+- [**Artirev**](https://artirev.com/): AI-powered literature review tool.\
+- [**Connected Papers**](https://www.connectedpapers.com/): Visualizes connections between research papers.\
+- [**Elicit**](https://elicit.org/): Uses AI to summarize and analyze academic papers.\
+- [**AnswerThis**](https://answerthis.io/): AI-assisted tool for answering research questions.\
+- [**ResearchRabbit**](https://www.researchrabbit.ai/): Creates dynamic citation and co-authorship maps.\
+- [**LitMaps**](https://www.litmaps.com/): Helps visualize literature networks and track new papers.\
+- [**NotebookLLM**](https://notebooklm.google/): AI-powered literature review tool with summarization and analysis features.
+:::
+:::::
 
-## Quick Demonstration: R bibliometrix
+------------------------------------------------------------------------
+
+# Quick Demonstration: R bibliometrix
+
+# Backup
+
+# Bibliometrix
+
+![](images/clipboard-401823327.png)
+
+# Vosviewer
+
+![](images/clipboard-2404383611.png)
+
+# Artirev
+
+![](images/clipboard-716995951.png)
+
+# Artirev 2
+
+![](images/clipboard-314415814.png)
+
+# Connected Papers 1
+
+![](images/clipboard-1664451296.png)
+
+# Connected Papers 2
+
+![](images/clipboard-3100428525.png)
+
+# NotebookLLM
+
+![](images/clipboard-2199427737.png)
+
+# References
+
+\tiny
+
 ```{r}
+#| label: demo-bibliometrix
+#| eval: false
+#| echo: false
+
 # NOTE: Comments are written in English
 
 # Install and load bibliometrix (if not already installed)
 # install.packages("bibliometrix")
 library(bibliometrix)
 
-# Import data (e.g., a set of Scopus-exported records in a .bib file)
-# data <- convert2df("path_to_scopus_export.bib", dbsource = "scopus", format = "bibtex")
-
-# Perform a brief bibliometric analysis
-# results <- biblioAnalysis(data, sep = ";")
-
-# Summary of the main information
-# summary(results)
-
-# Visualize co-citation network (example)
-# network <- biblioNetwork(data, analysis = "co-citation", network = "references", sep = ";")
-# networkPlot(network, type = "fruchterman", size = TRUE)
+biblioshiny()
 ```
-
-
