@@ -1,7 +1,5 @@
 ---
-title: |
-  Systematic Literature Review in the Age of AI:  
-  New Tools, New Methods
+title: "Systematic Literature Review in the Age of AI: New Tools, New Methods"
 subtitle: "CRIISEA Methodological Workshop, UPJV (Amiens)"
 author:
   - name: Olivier Caron
@@ -19,6 +17,8 @@ format:
     aspectratio: 169
     incremental: false
     slide_level: 2
+    header-includes:
+      - \hypersetup{colorlinks=true, linkcolor=yellow, urlcolor=yellow, citecolor=yellow}
 bibliography: references_complete.bib
 editor: 
   markdown: 
@@ -37,10 +37,10 @@ editor:
 
 # 1. A Definition of Systematic Literature Review
 
-## What Is a Systematic Literature Review? [@lame2019]
+## What Is a Systematic Literature Review? [@lame2019; @petticrew2006]
 
--   **Systematic**: A structured, replicable, and transparent process for collecting and analyzing literature on a specific topic to answer a particular research question
--   **Literature Review**: Synthesis of existing research to identify:
+-   **Systematic**: A structured, transparent, and replicable approach to collecting, assessing, and synthesizing literature to answer a specific research question.
+-   **Literature Review**: A synthesis of existing research to identify:
     -   Key themes
     -   Research gaps
     -   Future research directions
@@ -49,15 +49,26 @@ editor:
 
 ## Why Conduct a Systematic Literature Review? [@petticrew2006]
 
--   **Credibility and Transparency**: Minimizes bias, promotes replicability.
--   **Comprehensive Coverage**: Ensures all relevant studies are included.
--   **Guides Future Research**: Highlights gaps and emerging areas of study.
+-   **Credibility and Transparency**: Reduces bias and ensures replicability.
+-   **Comprehensive Coverage**: Incorporates all relevant and high-quality studies.
+-   **Guides Future Research**: Identifies gaps and emerging areas in the field.
+-   **Decision-Making Support**: Provides evidence-based insights for policymakers and practitioners.
 
 ------------------------------------------------------------------------
 
-# 2. SLR Process & PRISMA Framework
+# 1.2 SLR: context
 
-## Standard Steps in an SLR
+-   **Context**: Growing interest in systematic literature reviews (SLR) in every field, including economics & management.
+
+![](images/clipboard-3754244293.png){fig-align="center" width="50%"}
+
+------------------------------------------------------------------------
+
+# 2. SLR Process [@lame2019; @petticrew2006] + Prisma
+
+\small
+
+## Standard Steps in a SLR
 
 1.  **Define Research Question** (PICO, PICOC, etc., in medical or social sciences)
 2.  **Search Strategy** (databases, keywords, boolean operators)
@@ -69,15 +80,83 @@ editor:
 
 . . .
 
-## PRISMA Flow Diagram (Briefly)
+## PRISMA Flow Diagram (see [Prisma Statement](https://www.prisma-statement.org/) )
 
 -   **Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA)**:
     -   Structured approach to document how many articles were found, screened, included, or excluded at each step.
-    -   Ensures transparency in the selection of articles.
+
+# [PRISMA 2020 Framework – Key Items](https://www.prisma-statement.org/) [@page2021]
+
+\tiny
+
+::::: columns
+::: {.column width="48%"}
+## Title & Abstract
+
+-   Identify as a systematic review\
+-   Follow PRISMA Abstract checklist
+
+## Introduction
+
+-   **Rationale**: Justify the review with existing knowledge\
+-   **Objectives**: State research question(s) clearly
+
+## Methods
+
+-   **Eligibility Criteria**: Define inclusion/exclusion criteria\
+-   **Information Sources**: List databases, registers, other sources\
+-   **Search Strategy**: Detail full search strategy\
+-   **Selection Process**: Describe screening methods, reviewers involved\
+-   **Data Collection**: Explain extraction process and tools used\
+-   **Risk of Bias Assessment**: Specify assessment tools\
+-   **Effect Measures**: Define effect size calculations\
+-   **Synthesis Methods**: Describe qualitative/quantitative synthesis\
+-   **Reporting Bias & Certainty**: Explain assessment of bias & confidence
+:::
+
+::: {.column width="48%"}
+## Results
+
+-   **Study Selection**: PRISMA flow diagram\
+-   **Study Characteristics**: List key details of included studies\
+-   **Risk of Bias**: Present individual study assessments\
+-   **Results of Studies & Syntheses**: Summarize findings, heterogeneity\
+-   **Publication Bias & Certainty of Evidence**: Assess risks & confidence
+
+## Discussion
+
+-   **Interpretation**: Compare results with existing literature\
+-   **Limitations**: Discuss constraints in evidence & methodology\
+-   **Implications**: Suggest impact on policy, practice, future research
+
+## Other Information
+
+-   **Registration & Protocol**: Indicate registration status\
+-   **Funding & Support**: Disclose sources of financial/non-financial aid\
+-   **Conflicts of Interest**: Declare any competing interests\
+-   **Data & Code Availability**: Report where materials are accessible
+:::
+:::::
+
+# 2.1 PRISMA SLR Research Illustration
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-1623296866.png)
+
+@borges2021
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-3081170764.png)
+
+@toorajipour2021
+:::
+:::::
 
 ------------------------------------------------------------------------
 
-# 2.1 TCCM Framework [@paul2019; @rosado-serrano2018]
+# 2.2 TCCM Framework [@paul2019; @rosado-serrano2018]
 
 ::::: columns
 ::: {.column width="40%"}
@@ -114,42 +193,16 @@ TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis 
 
 . . .
 
-::: {.column width="50%"}
-![](images/clipboard-1731957394.png)
-
-@kumar2023
+::: {.column width="40%"}
+![](images/clipboard-1731957394.png) \small @kumar2023
 :::
 :::::
 
 ------------------------------------------------------------------------
 
-# 2.2 Context
+# 2.3 Tracking Research Trends: Common Visualizations in Systematic Literature Reviews
 
--   **Context**: Growing interest in systematic literature reviews (SLR) in every field, including economics & management.
-
-![](images/clipboard-3754244293.png){fig-align="center" width="50%"}
-
-------------------------------------------------------------------------
-
-# 2.3 Additional PRISMA & SLR Illustrations
-
-::::: columns
-::: {.column width="50%"}
-![](images/clipboard-1623296866.png)
-
-@borges2021
-:::
-
-::: {.column width="50%"}
-![](images/clipboard-3081170764.png)
-
-@toorajipour2021
-:::
-:::::
-
-------------------------------------------------------------------------
-
-# 2.4 Data evolution =\> Popularity
+-   Such visualizations are often used in SLRs to highlight the evolution of scientific output and the popularity of research themes over time.
 
 ::::: columns
 ::: {.column width="50%"}
@@ -183,7 +236,7 @@ TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis 
 -   [**Data Collection**](https://oliviercaron.github.io/systematic_lit_review/syslitrev_data_collection.html):
     -   Used Scopus API to retrieve all relevant abstracts and author information.
 -   **Data Processing**:
-    -   Used graphing libraries to visualize co-authorship networks and [keyword co-occurrences](file:///C:/Users/Olivier/Documents/GitHub/article_afm/NER_analysis.html#community-1-healthcare-and-vaccines).
+    -   Used graphing libraries to visualize co-authorship networks.
     -   Applied [BERTopic](https://oliviercaron.github.io/systematic_lit_review/topic_modeling.html) for advanced topic modeling.
 -   **Insights**:
     -   Identified main research clusters & key authors/references/methods/topics
@@ -192,7 +245,7 @@ TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis 
 
 # 4. Tools & Demonstration
 
-## Traditional vs. AI-Enhanced Tools
+## Traditional vs. AI-Enhanced Tools (selection)
 
 ::::: columns
 ::: {.column width="40%"}
@@ -216,9 +269,7 @@ TCCM met l’accent sur l’**analyse conceptuelle et méthodologique**, tandis 
 
 ------------------------------------------------------------------------
 
-# Quick Demonstration: R bibliometrix
-
-# Backup
+# Backup if necessary
 
 # Bibliometrix
 
