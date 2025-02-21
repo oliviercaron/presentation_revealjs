@@ -27,11 +27,11 @@ editor:
 
 # Summary of the Presentation
 
-1.  **Definition and Importance of Systematic Literature Reviews**
-2.  **SLR Process & PRISMA Framework**
-3.  **AI & NLP in Literature Reviews**
-4.  **Tools & Demonstration**
-5.  **Practical Tips & Conclusions**
+1. **Introduction to Systematic Literature Reviews**
+2. **SLR Process & PRISMA Framework**
+3. **Methodological Approaches: PRISMA vs. TCCM**
+4. **AI & NLP in Literature Reviews**
+5. **Tools & Applications**
 
 ------------------------------------------------------------------------
 
